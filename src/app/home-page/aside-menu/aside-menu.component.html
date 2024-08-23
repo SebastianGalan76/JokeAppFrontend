@@ -1,4 +1,5 @@
-<aside>
+<aside [ngClass]="{'active': isShown}">
+    <app-toggle-menu-button [isShown]="isShown" (clickButton)="handleToggleMenu()"/>
 
     <div class="logo">
         

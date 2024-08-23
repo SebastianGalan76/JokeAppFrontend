@@ -4,6 +4,7 @@
   font-size: 1.2em;
   font-weight: 500;
   position: relative;
+  width: 100%;
 }
 #button-container .selected {
   display: none;

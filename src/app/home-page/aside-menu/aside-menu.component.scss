@@ -1,14 +1,17 @@
 aside {
     border-right: 2px solid #ffffff6b;
 
-    width: 100%;
+    width: 250px;
     height: 100vh;
 
     display: flex;
     flex-direction: column;
     overflow: auto;
 
-    .logo{
+    position: relative;
+    transition: all 0.2s ease;
+
+    .logo {
         margin-top: 30px;
 
         height: 100px;
@@ -16,7 +19,7 @@ aside {
         flex-shrink: 0;
     }
 
-    nav{
+    nav {
         padding: 30px 0;
 
         flex-grow: 1;
@@ -27,19 +30,19 @@ aside {
 
         gap: 15px;
 
-        .nav-margin{
+        .nav-margin {
             height: 50px;
 
-            @media (max-height: 800px){
+            @media (max-height: 800px) {
                 height: 10px;
             }
-            @media (max-height: 700px){
+            @media (max-height: 700px) {
                 height: 0;
             }
         }
     }
 
-    footer{
+    footer {
         margin-bottom: 30px;
 
         height: 100px;
@@ -47,32 +50,79 @@ aside {
         flex-shrink: 0;
     }
 
-    @media (max-height: 800px){
-        .logo{
+    @media (max-height: 800px) {
+        .logo {
             margin-top: 10px;
         }
 
-        nav{
+        nav {
             padding: 10px 0;
         }
 
-        footer{
+        footer {
             margin-bottom: 10px;
         }
     }
 
-    @media (max-height: 600px){
-        .logo{
+    @media (max-height: 600px) {
+        .logo {
             margin-top: 5px;
         }
 
-        nav{
+        nav {
             padding: 5px 0;
             gap: 10px;
         }
 
-        footer{
+        footer {
             margin-bottom: 5px;
         }
     }
+
+    @media (max-width: 1200px) {
+        width: 200px;
+    }
+
+    @media (max-width: 1000px) {
+        width: 175px;
+    }
+
+    @media (max-width: 600px) {
+        .logo {
+            display: none;
+        }
+
+        width: 50px;
+
+        footer {
+            display: none;
+        }
+    }
+}
+
+aside.active{
+    position: absolute;
+    z-index: 100;
+    width: 250px;
+
+    background-color: #ffebf0;
+
+    .logo {
+        display: block;
+    }
+
+    footer {
+        display: block;
+    }
+}
+
+aside::-webkit-scrollbar {
+    width: 5px;
+}
+
+aside::-webkit-scrollbar-thumb {
+    background-color: #b0b5ff;
+}
+aside::-webkit-scrollbar-track {
+    background-color: #adafff33;
 }

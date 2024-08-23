@@ -3,23 +3,9 @@
   display: flex;
 }
 #home-container app-aside-menu {
-  width: 250px;
+  width: -moz-fit-content;
+  width: fit-content;
   height: 100vh;
-}
-@media (max-width: 1200px) {
-  #home-container app-aside-menu {
-    width: 200px;
-  }
-}
-@media (max-width: 1000px) {
-  #home-container app-aside-menu {
-    width: 175px;
-  }
-}
-@media (max-width: 600px) {
-  #home-container app-aside-menu {
-    width: 50px;
-  }
 }
 #home-container .content {
   flex-grow: 1;
