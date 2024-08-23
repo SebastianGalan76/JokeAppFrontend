@@ -1,0 +1,46 @@
+#button-container {
+  display: flex;
+  color: rgba(255, 255, 255, 0.8352941176);
+  font-size: 1.2em;
+  position: relative;
+}
+#button-container .selected {
+  display: none;
+  background-color: #7e68ff;
+  width: 5px;
+  height: 30px;
+  flex-shrink: 0;
+  position: absolute;
+}
+#button-container .icon {
+  margin-left: 20px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+#button-container .text {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 30px;
+}
+
+#button-container:hover {
+  color: #b5aeff;
+  cursor: pointer;
+}
+
+#button-container.selected {
+  color: #7e68ff;
+}
+#button-container.selected .selected {
+  display: block;
+}/*# sourceMappingURL=button.component.css.map */

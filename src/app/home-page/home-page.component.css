@@ -1,0 +1,12 @@
+#home-container {
+  width: 100%;
+  display: flex;
+}
+#home-container app-aside-menu {
+  width: 250px;
+  height: 100vh;
+}
+#home-container .content {
+  flex-grow: 1;
+  overflow-y: auto;
+}/*# sourceMappingURL=home-page.component.css.map */

@@ -1,0 +1,15 @@
+#home-container{
+    width: 100%;
+
+    display: flex;
+
+    app-aside-menu{
+        width: 250px;
+        height: 100vh;
+    }
+
+    .content {
+        flex-grow: 1;
+        overflow-y: auto;
+      }
+}

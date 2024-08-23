@@ -1,4 +1,5 @@
-@import "styles/_base.scss";
+@use 'styles/base' as *;
+
 @import "styles/background.scss";
 
 * {

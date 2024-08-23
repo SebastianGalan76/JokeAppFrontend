@@ -1,0 +1,66 @@
+@import '../../../../styles/base';
+
+$button-height: 30px;
+
+#button-container {
+    display: flex;
+
+    color: #ffffffd5;
+    font-size: 1.2em;
+
+    position: relative;
+
+    .selected {
+        display: none;
+
+        background-color: $color-theme;
+        width: 5px;
+        height: $button-height;
+        
+        flex-shrink: 0;
+
+        position: absolute;
+    }
+
+    .icon {
+        margin-left: 20px;
+
+        width: 30px;
+        height: $button-height;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        flex-shrink: 0;
+    }
+
+    .text {
+        margin-left: 10px;
+        margin-right: 10px;
+
+        width: 100%;
+        
+        font-family: "Roboto", sans-serif;
+        font-weight: 600;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        line-height: $button-height;
+    }
+}
+
+#button-container:hover {
+    color: #b5aeff;
+    cursor: pointer;
+}
+
+#button-container.selected{
+    color: $color-theme;
+
+    .selected{
+        display: block;
+    }
+}

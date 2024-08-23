@@ -1,0 +1,11 @@
+<div id="button-container" [ngClass]="{'selected': isSelected}" (click)="select()">
+    <div class="selected">
+
+    </div>
+
+    <div class="icon">
+        <i [ngClass]="icon"></i>
+    </div>
+
+    <span class="text"> {{text}}</span>
+</div>

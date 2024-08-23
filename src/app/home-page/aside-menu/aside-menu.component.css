@@ -1,0 +1,21 @@
+aside {
+  border-right: 2px solid rgba(255, 255, 255, 0.4196078431);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+aside .logo {
+  height: 100px;
+  padding: 20px;
+}
+aside nav {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+aside footer {
+  height: 100px;
+  padding: 20px;
+}/*# sourceMappingURL=aside-menu.component.css.map */
