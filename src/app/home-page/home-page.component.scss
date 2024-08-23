@@ -6,6 +6,18 @@
     app-aside-menu{
         width: 250px;
         height: 100vh;
+
+        @media (max-width: 1200px){
+            width: 200px;
+        }
+
+        @media (max-width: 1000px){
+            width: 175px;
+        }
+
+        @media (max-width: 600px){
+            width: 50px;
+        }
     }
 
     .content {
