@@ -5,34 +5,38 @@
 
     <div id="content">
         <div class="input-area">
-            <input id="login-input" type="text" placeholder="Login" maxlength="30">
+            <input id="login-input" type="text" placeholder="Login" maxlength="30" [(ngModel)]="login">
             <div class="icon">
                 <i class="fa-solid fa-user"></i>
             </div>
+            <span class="required">*</span>
         </div>
         <div class="input-area">
-            <input id="login-email" type="text" placeholder="E-mail" maxlength="80">
+            <input id="login-email" type="text" placeholder="E-mail" maxlength="80" [(ngModel)]="email">
             <div class="icon">
                 <i class="fa-solid fa-user"></i>
             </div>
+            <span class="required">*</span>
         </div>
         <div class="input-area">
-            <input id="password-input" type="password" placeholder="Hasło">
+            <input id="password-input" type="password" placeholder="Hasło" [(ngModel)]="password">
             <div class="icon">
                 <i class="fa-solid fa-lock"></i>
             </div>
+            <span class="required">*</span>
         </div>
         <div class="input-area">
-            <input id="password-confirm-input" type="password" placeholder="Hasło">
+            <input id="password-confirm-input" type="password" placeholder="Hasło" [(ngModel)]="passwordConfirm">
             <div class="icon">
                 <i class="fa-solid fa-lock"></i>
             </div>
+            <span class="required">*</span>
         </div>
     </div>
 
     <footer>
-        <span class="error"></span>
-        <button>Zarejestruj się</button>
+        <span class="response" [ngClass]="{ 'error': responseMessage?.status == 'ERROR'}">{{responseMessage?.message}}</span>
+        <button (click)="submit()" [disabled]="buttonIsDisabled">Zarejestruj się</button>
         <span class="info">Masz już konta? <a class="link" href="/auth/signIn">Zaloguj się</a></span>
     </footer>
 </div>

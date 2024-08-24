@@ -5,7 +5,16 @@
   border-radius: 10px;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.062745098);
+  border: 2px solid #838383;
+}
+.input-area:focus-within {
   border: 2px solid #7e68ff;
+}
+.input-area:focus-within input {
+  color: #7e68ff;
+}
+.input-area:focus-within .icon {
+  color: #7e68ff;
 }
 .input-area input {
   width: 100%;
@@ -14,7 +23,7 @@
   border: none;
   outline: none;
   background-color: transparent;
-  color: #7e68ff;
+  color: #838383;
   font-weight: 600;
 }
 .input-area input.incorrect {
@@ -22,7 +31,7 @@
   color: #f7faff;
 }
 .input-area .icon {
-  color: #7e68ff;
+  color: #838383;
   position: absolute;
   right: 20px;
   top: 50%;

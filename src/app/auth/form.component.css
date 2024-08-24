@@ -64,10 +64,13 @@
   display: flex;
   flex-direction: column;
 }
-#container footer .error {
-  color: rgb(255, 63, 63);
+#container footer .response {
+  color: rgb(113, 204, 29);
   text-align: center;
   font-weight: 500;
+}
+#container footer .error {
+  color: rgb(255, 63, 63);
 }
 #container footer button {
   background-color: #7e68ff;
@@ -82,6 +85,10 @@
 #container footer button:hover {
   background-color: #604adb;
   cursor: pointer;
+}
+#container footer button:disabled {
+  background-color: #604adb;
+  cursor: not-allowed;
 }
 #container footer .info {
   display: block;

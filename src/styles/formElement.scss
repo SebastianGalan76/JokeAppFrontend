@@ -1,6 +1,7 @@
-@import '../styles/base';
+@import "../styles/base";
 
 $color-incorrect: #ff6969;
+$color-border: #838383;
 
 .input-area {
     position: relative;
@@ -11,7 +12,19 @@ $color-incorrect: #ff6969;
     overflow: hidden;
 
     background-color: $color-dark;
-    border: 2px solid $color-theme;
+    border: 2px solid $color-border;
+
+    &:focus-within {
+        border: 2px solid $color-theme;
+
+        input {
+            color: $color-theme;
+        }
+
+        .icon{
+            color: $color-theme;
+        }
+    }
 
     input {
         width: 100%;
@@ -21,7 +34,7 @@ $color-incorrect: #ff6969;
         border: none;
         outline: none;
         background-color: transparent;
-        color: $color-theme;
+        color: $color-border;
         font-weight: 600;
     }
 
@@ -31,7 +44,7 @@ $color-incorrect: #ff6969;
     }
 
     .icon {
-        color: $color-theme;
+        color: $color-border;
 
         position: absolute;
         right: 20px;
