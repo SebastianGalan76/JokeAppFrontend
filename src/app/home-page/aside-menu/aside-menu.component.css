@@ -1,5 +1,5 @@
 aside {
-  border-right: 2px solid rgba(255, 255, 255, 0.4196078431);
+  border-right: 2px solid #ecdded;
   width: 250px;
   height: 100vh;
   display: flex;
@@ -90,7 +90,7 @@ aside.active {
   position: absolute;
   z-index: 100;
   width: 250px;
-  background-color: #ffebf0;
+  background-color: #eae1ec;
 }
 aside.active .logo {
   display: block;
