@@ -1,0 +1,58 @@
+@import '../styles/base';
+
+$color-incorrect: #ff6969;
+
+.input-area {
+    position: relative;
+
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    overflow: hidden;
+
+    background-color: $color-dark;
+    border: 2px solid $color-theme;
+
+    input {
+        width: 100%;
+        height: 100%;
+        padding: 0 50px 0 20px;
+
+        border: none;
+        outline: none;
+        background-color: transparent;
+        color: $color-theme;
+        font-weight: 600;
+    }
+
+    input.incorrect {
+        background-color: $color-incorrect;
+        color: $color-white;
+    }
+
+    .icon {
+        color: $color-theme;
+
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+
+    .required {
+        color: $color-red;
+        position: absolute;
+        top: 3px;
+        left: 6px;
+        font-weight: 700;
+        font-size: 1.1em;
+    }
+
+    @media (max-width: 800px) {
+        height: 40px;
+
+        input {
+            font-size: 0.65em !important;
+        }
+    }
+}

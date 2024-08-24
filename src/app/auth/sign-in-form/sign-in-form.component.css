@@ -1,0 +1,98 @@
+.input-area {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.062745098);
+  border: 2px solid #7e68ff;
+}
+.input-area input {
+  width: 100%;
+  height: 100%;
+  padding: 0 50px 0 20px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #7e68ff;
+  font-weight: 600;
+}
+.input-area input.incorrect {
+  background-color: #ff6969;
+  color: #f7faff;
+}
+.input-area .icon {
+  color: #7e68ff;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.input-area .required {
+  color: rgb(255, 63, 63);
+  position: absolute;
+  top: 3px;
+  left: 6px;
+  font-weight: 700;
+  font-size: 1.1em;
+}
+@media (max-width: 800px) {
+  .input-area {
+    height: 40px;
+  }
+  .input-area input {
+    font-size: 0.65em !important;
+  }
+}
+
+#container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#container h1 {
+  padding: 20px;
+}
+#container #content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+#container footer {
+  display: flex;
+  flex-direction: column;
+}
+#container footer .error {
+  color: rgb(255, 63, 63);
+  text-align: center;
+  font-weight: 500;
+}
+#container footer button {
+  background-color: #7e68ff;
+  width: 100%;
+  padding: 15px 0;
+  border: none;
+  color: #f7faff;
+  font-weight: 600;
+  font-size: 1.1em;
+  border-radius: 20px;
+}
+#container footer button:hover {
+  background-color: #604adb;
+  cursor: pointer;
+}
+#container footer .info {
+  display: block;
+  margin-left: 25px;
+  margin-top: 3px;
+}
+#container .link {
+  color: #7e68ff;
+  text-decoration: none;
+  font-weight: 800;
+}
+#container .link:hover {
+  color: #604adb;
+}/*# sourceMappingURL=sign-in-form.component.css.map */

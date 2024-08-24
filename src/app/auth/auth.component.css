@@ -1,0 +1,29 @@
+#page-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  background-color: #7e68ff;
+}
+#page-container #left-panel {
+  width: 750px;
+  min-height: 100vh;
+  flex-shrink: 0;
+  background-color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #444444;
+}
+#page-container #left-panel #form-container {
+  width: 600px;
+  height: 75%;
+  min-height: 500px;
+  background-color: #f7faff;
+  padding: 50px;
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.329);
+  border-radius: 50px;
+}
+#page-container #right-panel {
+  flex-grow: 1;
+  min-height: 100vh;
+}/*# sourceMappingURL=auth.component.css.map */

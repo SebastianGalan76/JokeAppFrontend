@@ -11,7 +11,7 @@ aside {
 aside .logo {
   margin-top: 30px;
   height: 100px;
-  background-color: rgba(255, 255, 255, 0.527);
+  background-color: rgba(189, 189, 189, 0.527);
   flex-shrink: 0;
 }
 aside nav {
@@ -38,7 +38,7 @@ aside nav .nav-margin {
 aside footer {
   margin-bottom: 30px;
   height: 100px;
-  background-color: rgba(255, 255, 255, 0.527);
+  background-color: rgba(189, 189, 189, 0.527);
   flex-shrink: 0;
 }
 @media (max-height: 800px) {
