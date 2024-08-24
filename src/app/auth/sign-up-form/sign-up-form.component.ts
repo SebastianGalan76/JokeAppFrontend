@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-sign-in-form',
+  selector: 'app-sign-up-form',
   standalone: true,
   imports: [],
-  templateUrl: './sign-in-form.component.html',
+  templateUrl: './sign-up-form.component.html',
   styleUrl: '../form.component.scss'
 })
-export class SignInFormComponent {
+export class SignUpFormComponent {
 
 }
