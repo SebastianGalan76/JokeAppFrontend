@@ -5,6 +5,7 @@ import { ResponseStatusEnum } from '../../../model/ResponseStatusEnum';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { CookieService } from '../../../service/cookie.service';
 
 @Component({
   selector: 'app-sign-in-form',
@@ -37,7 +38,9 @@ export class SignInFormComponent {
     this.signInService.signIn(this.identifier, this.password)
       .subscribe(
         {
-          next: () => {
+          next: (response) => {
+            CookieService.setCookie('jwt_token', response.jwtToken, 30);
+            
             this.router.navigate(['/']);
           },
           error: (response) => {
