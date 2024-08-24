@@ -4,6 +4,7 @@ import { ResetPasswordService } from '../../../service/auth/resetPassword.servic
 import { ResponseStatusEnum } from '../../../model/ResponseStatusEnum';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../../service/auth/auth.service';
 
 @Component({
   selector: 'app-reset-password-require-form',
@@ -18,11 +19,11 @@ export class ResetPasswordRequireFormComponent {
   responseMessage: ResponseMessage | null = null;
   buttonIsDisabled: boolean = false;
 
-  constructor(private resetPasswordService: ResetPasswordService) {
+  constructor(private resetPasswordService: ResetPasswordService, private authService: AuthService) {
   }
 
   submit() {
-    if (!this.isValidEmail()) {
+    if (this.authService.isValidEmail(this.email).status == ResponseStatusEnum.ERROR) {
       return;
     }
 
@@ -52,36 +53,5 @@ export class ResetPasswordRequireFormComponent {
           },
         }
       );
-  }
-
-  isValidEmail(): boolean {
-    var trimedEmail = this.email.trim();
-    if (trimedEmail.length < 4) {
-      this.responseMessage = {
-        status: ResponseStatusEnum.ERROR,
-        message: "E-mail jest zbyt krótki"
-      }
-
-      return false;
-    }
-    if (trimedEmail.length > 80) {
-      this.responseMessage = {
-        status: ResponseStatusEnum.ERROR,
-        message: "E-mail jest zbyt długi"
-      }
-
-      return false;
-    }
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailRegex.test(trimedEmail)) {
-      this.responseMessage = {
-        status: ResponseStatusEnum.ERROR,
-        message: "Wprowadź poprawny adres e-mail"
-      }
-
-      return false;
-    }
-
-    return true;
   }
 }

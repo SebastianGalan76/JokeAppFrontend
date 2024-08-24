@@ -5,6 +5,7 @@ import { ResponseStatusEnum } from '../../../model/ResponseStatusEnum';
 import { ResponseMessage } from '../../../model/ResponseMessage';
 import { ResetPasswordService } from '../../../service/auth/resetPassword.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../../../service/auth/auth.service';
 
 @Component({
   selector: 'app-reset-password-form',
@@ -22,7 +23,7 @@ export class ResetPasswordFormComponent {
   responseMessage: ResponseMessage | null = null;
   buttonIsDisabled: boolean = false;
 
-  constructor(private resetPasswordService: ResetPasswordService, private activeRoute: ActivatedRoute) {
+  constructor(private resetPasswordService: ResetPasswordService, private authService: AuthService, private activeRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -32,7 +33,10 @@ export class ResetPasswordFormComponent {
   }
 
   submit() {
-    if (!this.isValidPassword()) {
+    if (this.authService.isValidPassword(this.password).status == ResponseStatusEnum.ERROR) {
+      return;
+    }
+    if (this.authService.isValidPasswordConfirm(this.password, this.passwordConfirm).status == ResponseStatusEnum.ERROR) {
       return;
     }
 
@@ -62,28 +66,5 @@ export class ResetPasswordFormComponent {
           },
         }
       );
-  }
-
-  isValidPassword(): boolean {
-    var trimedPassword = this.password.trim();
-
-    if (trimedPassword.length < 4) {
-      this.responseMessage = {
-        status: ResponseStatusEnum.ERROR,
-        message: "Hasło jest zbyt krótkie"
-      }
-
-      return false;
-    }
-
-    if (trimedPassword != this.passwordConfirm) {
-      this.responseMessage = {
-        status: ResponseStatusEnum.ERROR,
-        message: "Hasła nie są identyczne"
-      }
-      return false;
-    }
-
-    return true;
   }
 }

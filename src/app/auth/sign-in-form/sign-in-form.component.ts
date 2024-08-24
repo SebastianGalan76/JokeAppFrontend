@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { CookieService } from '../../../service/cookie.service';
+import { AuthService } from '../../../service/auth/auth.service';
 
 @Component({
   selector: 'app-sign-in-form',
@@ -21,14 +22,14 @@ export class SignInFormComponent {
   responseMessage: ResponseMessage | null = null;
   buttonIsDisabled: boolean = false;
 
-  constructor(private signInService: SignInService, private router: Router) {
+  constructor(private signInService: SignInService, private authService: AuthService, private router: Router) {
   }
 
   submit() {
     if (!this.isValidIdentifier()) {
       return;
     }
-    if (!this.isValidPassword()) {
+    if (this.authService.isValidPassword(this.password).status == ResponseStatusEnum.ERROR) {
       return;
     }
 
@@ -65,21 +66,6 @@ export class SignInFormComponent {
       this.responseMessage = {
         status: ResponseStatusEnum.ERROR,
         message: "Login jest zbyt krótki"
-      }
-
-      return false;
-    }
-
-    return true;
-  }
-
-  isValidPassword(): boolean {
-    var trimedPassword = this.password.trim();
-
-    if (trimedPassword.length < 4) {
-      this.responseMessage = {
-        status: ResponseStatusEnum.ERROR,
-        message: "Hasło jest zbyt krótkie"
       }
 
       return false;
