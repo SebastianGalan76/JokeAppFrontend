@@ -5,14 +5,14 @@
 
     <div id="content">
         <div class="input-area">
-            <input id="login-input" type="text" placeholder="Login" maxlength="30">
+            <input id="identifier-input" type="text" placeholder="Login" maxlength="80" [(ngModel)]="identifier">
             <div class="icon">
                 <i class="fa-solid fa-user"></i>
             </div>
         </div>
         <div class="wrapper">
             <div class="input-area">
-                <input id="password-input" type="password" placeholder="Hasło">
+                <input id="password-input" type="password" placeholder="Hasło" [(ngModel)]="password">
                 <div class="icon">
                     <i class="fa-solid fa-lock"></i>
                 </div>
@@ -22,8 +22,8 @@
     </div>
 
     <footer>
-        <span class="error"></span>
-        <button>Zaloguj się</button>
+        <span class="response" [ngClass]="{ 'error': responseMessage?.status == 'ERROR'}">{{responseMessage?.message}}</span>
+        <button (click)="submit()" [disabled]="buttonIsDisabled">Zaloguj się</button>
         <span class="info">Nie masz konta? <a class="link" href="/auth/signUp">Zarejestruj się</a></span>
     </footer>
 </div>

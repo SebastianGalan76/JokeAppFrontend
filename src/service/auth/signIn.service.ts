@@ -6,16 +6,15 @@ import { AuthenticationResponse } from "../../model/AuthenticationResponse";
 @Injectable({
   providedIn: 'root'
 })
-export class SignUpService {
+export class SignInService {
 
   constructor(
     private apiService: ApiService
   ) { }
 
-  signUp(email: string, login: string, password: string): Observable<AuthenticationResponse>{
-    return this.apiService.post<AuthenticationResponse>("", {
-      login: login,
-      email: email,
+  signIn(identifier: string, password: string): Observable<AuthenticationResponse>{
+    return this.apiService.post<AuthenticationResponse>("/auth/signIn", {
+      identifier: identifier,
       password: password
     }, {});
   }
