@@ -1,0 +1,149 @@
+aside {
+  position: absolute;
+  right: 0px;
+  top: 0;
+}
+aside #header-buttons {
+  position: absolute;
+  right: 10px;
+  display: none;
+  gap: 20px;
+  color: #595677;
+  font-size: 2em;
+}
+aside #header-buttons .button {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 700px) {
+  aside #header-buttons {
+    display: flex;
+  }
+}
+aside #wrapper {
+  border-left: 2px solid #ecdded;
+  margin-top: 70px;
+  width: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+  background-color: #f7f2f8;
+  color: #595677;
+  position: relative;
+  transition: all 0.2s ease;
+}
+aside #wrapper #social-buttons {
+  margin-top: 50px;
+  display: flex;
+  gap: 10px;
+  font-size: 1.5em;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+aside #wrapper #social-buttons .social-button:hover {
+  cursor: pointer;
+  color: #7e68ff;
+}
+aside #wrapper #user-section {
+  margin-top: 20px;
+}
+aside #wrapper #user-section #user-not-logged-in {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+aside #wrapper #user-section #user-not-logged-in #sign-in-button {
+  border: 2px solid #595677;
+  background-color: rgba(0, 17, 255, 0.137254902);
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 8px 20px;
+  border-radius: 10px;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+aside #wrapper #user-section #user-not-logged-in #sign-in-button:hover {
+  cursor: pointer;
+}
+aside #wrapper #user-section #user-not-logged-in #sign-up-button {
+  border: 2px solid #595677;
+  background-color: rgba(0, 17, 255, 0.137254902);
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 8px 20px;
+  border-radius: 10px;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+aside #wrapper #user-section #user-not-logged-in #sign-up-button:hover {
+  background-color: rgba(0, 17, 255, 0.2862745098);
+  cursor: pointer;
+}
+@media (max-width: 1100px) {
+  aside #wrapper #user-section #user-not-logged-in {
+    gap: 10px;
+  }
+}
+aside #wrapper #user-section #user-logged-in {
+  display: flex;
+  align-items: center;
+}
+aside #wrapper #user-section #user-logged-in .icon {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  font-size: 2em;
+  background-color: rgba(0, 0, 0, 0.137254902);
+  border-radius: 5px;
+  border: 2px solid #595677;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+aside #wrapper #user-section #user-logged-in .login {
+  margin-left: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+}
+aside #wrapper #user-section #user-logged-in .fa-caret-down {
+  font-size: 1.2em;
+}
+@media (max-width: 1100px) {
+  aside #wrapper #user-section {
+    max-width: 200px;
+  }
+}
+
+aside.active #wrapper {
+  position: absolute;
+  right: 0px;
+  top: 0;
+  z-index: 100;
+  width: 250px;
+  display: none;
+  background-color: #f0e7f1;
+}
+@media (max-width: 700px) {
+  aside.active #wrapper {
+    display: flex;
+  }
+}
+
+aside::-webkit-scrollbar {
+  width: 5px;
+}
+
+aside::-webkit-scrollbar-thumb {
+  background-color: #b0b5ff;
+}
+
+aside::-webkit-scrollbar-track {
+  background-color: rgba(173, 175, 255, 0.2);
+}/*# sourceMappingURL=aside-menu.component.css.map */

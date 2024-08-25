@@ -69,9 +69,6 @@ header #right-panel #user-section #user-not-logged-in {
 header #right-panel #user-section #user-not-logged-in #sign-in-button {
   font-weight: 600;
 }
-header #right-panel #user-section #user-not-logged-in #sign-in-button :hover {
-  cursor: pointer;
-}
 header #right-panel #user-section #user-not-logged-in #sign-in-button:hover {
   cursor: pointer;
 }

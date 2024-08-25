@@ -2,6 +2,7 @@ import { Component, QueryList, ViewChildren } from '@angular/core';
 import { ButtonComponent } from './button/button.component';
 import { ToggleMenuButtonComponent } from './toggle-menu-button.component';
 import { CommonModule } from '@angular/common';
+import { AsideMenuService } from '../../../service/aside-menu.service';
 
 @Component({
   selector: 'app-aside-menu',
@@ -13,7 +14,9 @@ import { CommonModule } from '@angular/common';
 export class AsideMenuComponent {
   @ViewChildren(ButtonComponent) navButtons!: QueryList<ButtonComponent>;
 
-  isShown: boolean = false;
+  constructor(public asideMenuService: AsideMenuService){
+
+  }
 
   handleButtonSelect(selectedButton: ButtonComponent): void {
     this.navButtons.forEach(button => {
@@ -22,6 +25,6 @@ export class AsideMenuComponent {
   }
 
   handleToggleMenu() : void {
-    this.isShown = !this.isShown;
+    this.asideMenuService.toggleLeftMenu();
   }
 }

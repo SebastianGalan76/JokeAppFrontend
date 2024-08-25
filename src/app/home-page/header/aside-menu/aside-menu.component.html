@@ -1,0 +1,40 @@
+<aside [ngClass]="{'active': asideMenuService.rightMenuIsShown}">
+    <div id="header-buttons">
+        <div id="theme-button" class="button">
+            <i class="fa-solid fa-sun"></i>
+        </div>
+        
+        <div id="toggle-button" class="button" (click)="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </div>
+
+    <div id="wrapper">
+        <section id="social-buttons">
+            <div class="social-button">
+                <i class="fa-brands fa-square-facebook"></i>
+            </div>
+            <div class="social-button">
+                <i class="fa-brands fa-square-instagram"></i>
+            </div>
+            <div class="social-button">
+                <i class="fa-brands fa-discord"></i>
+            </div>
+            <div class="social-button">
+                <i class="fa-brands fa-square-facebook"></i>
+            </div>
+        </section>
+
+        <section id="user-section">
+            <div id="user-not-logged-in">
+                <div id="sign-in-button">Logowanie</div>
+                <div id="sign-up-button">Rejestracja</div>
+            </div>
+            <div id="user-logged-in" style="display: none;">
+                <div class="icon"><i class="fa-solid fa-circle-user"></i></div>
+                <span class="login">DreaMPLdawda dawdwadaw dawdwadawd dawdwad</span>
+                <i class="fa-solid fa-caret-down"></i>
+            </div>
+        </section>
+    </div>
+</aside>

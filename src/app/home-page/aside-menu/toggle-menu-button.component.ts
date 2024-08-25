@@ -39,21 +39,32 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   `,
 })
 export class ToggleMenuButtonComponent {
-  @Input() isShown: boolean = false;
+  private _isShown: boolean = false;
+  @Input()
+  set isShown(value: boolean) {
+    this._isShown = value;
+    this.changeIcon();
+  }
+  get isShown(): boolean {
+    return this._isShown;
+  }
 
   @Output() clickButton = new EventEmitter<void>();
 
   icon: string = "fa-solid fa-square-caret-right";
 
-  toggleMenu(){
+  toggleMenu() {
     this.clickButton.emit();
-    
-    this.isShown = !this.isShown;
 
-    if(this.isShown){
+    this.isShown = !this.isShown;
+    this.changeIcon();
+  }
+
+  changeIcon() {
+    if (this.isShown) {
       this.icon = "fa-solid fa-square-caret-left";
     }
-    else{
+    else {
       this.icon = "fa-solid fa-square-caret-right";
     }
   }
