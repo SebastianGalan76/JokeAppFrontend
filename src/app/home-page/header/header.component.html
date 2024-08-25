@@ -20,21 +20,26 @@
                 <i class="fa-brands fa-square-facebook"></i>
             </div>
         </section>
-        
+
         <div id="theme-button">
             <i class="fa-solid fa-sun"></i>
         </div>
 
         <section id="user-section">
+            @if (user) {
+            <div id="user-logged-in">
+                <div class="icon"><i class="fa-solid fa-circle-user"></i></div>
+                <span class="login">{{user.login}}</span>
+                <i class="fa-solid fa-caret-down"></i>
+            </div>
+
+            }
+            @else {
             <div id="user-not-logged-in">
                 <div id="sign-in-button">Logowanie</div>
                 <div id="sign-up-button">Rejestracja</div>
             </div>
-            <div id="user-logged-in" style="display: none;">
-                <div class="icon"><i class="fa-solid fa-circle-user"></i></div>
-                <span class="login">DreaMPLdawda dawdwadaw dawdwadawd dawdwad</span>
-                <i class="fa-solid fa-caret-down"></i>
-            </div>
+            }
         </section>
     </div>
 </header>
