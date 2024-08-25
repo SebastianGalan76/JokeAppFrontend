@@ -1,23 +1,32 @@
 <aside [ngClass]="{'active': isShown}">
-    <app-toggle-menu-button [isShown]="isShown" (clickButton)="handleToggleMenu()"/>
+    <div id="wrapper">
+        <app-toggle-menu-button [isShown]="isShown" (clickButton)="handleToggleMenu()" />
 
-    <div class="logo">
-        
+        <div class="logo">
+
+        </div>
+
+        <nav>
+            <app-aside-menu-button [text]="'Strona Główna'" [icon]="'fa-solid fa-house'" [isSelected]="true"
+                (onSelect)="handleButtonSelect($event)" />
+            <div class="nav-margin"></div>
+            <app-aside-menu-button [text]="'Kategorie'" [icon]="'fa-solid fa-table-cells-large'"
+                (onSelect)="handleButtonSelect($event)" />
+            <app-aside-menu-button [text]="'Ulubione'" [icon]="'fa-solid fa-star'"
+                (onSelect)="handleButtonSelect($event)" />
+            <app-aside-menu-button [text]="'Losowy'" [icon]="'fa-solid fa-shuffle'"
+                (onSelect)="handleButtonSelect($event)" />
+            <app-aside-menu-button [text]="'Najlepsze'" [icon]="'fa-solid fa-ranking-star'"
+                (onSelect)="handleButtonSelect($event)" />
+            <app-aside-menu-button [text]="'Najnowsze'" [icon]="'fa-solid fa-calendar-days'"
+                (onSelect)="handleButtonSelect($event)" />
+            <div class="nav-margin"></div>
+            <app-aside-menu-button [text]="'Dodaj'" [icon]="'fa-solid fa-square-plus'"
+                (onSelect)="handleButtonSelect($event)" />
+        </nav>
+
+        <footer>
+
+        </footer>
     </div>
-
-    <nav>
-        <app-aside-menu-button [text]="'Strona Główna'" [icon]="'fa-solid fa-house'" [isSelected]="true" (onSelect)="handleButtonSelect($event)"/>
-        <div class="nav-margin"></div>
-        <app-aside-menu-button [text]="'Kategorie'" [icon]="'fa-solid fa-table-cells-large'" (onSelect)="handleButtonSelect($event)"/>
-        <app-aside-menu-button [text]="'Ulubione'" [icon]="'fa-solid fa-star'" (onSelect)="handleButtonSelect($event)"/>
-        <app-aside-menu-button [text]="'Losowy'" [icon]="'fa-solid fa-shuffle'" (onSelect)="handleButtonSelect($event)"/>
-        <app-aside-menu-button [text]="'Najlepsze'" [icon]="'fa-solid fa-ranking-star'" (onSelect)="handleButtonSelect($event)"/>
-        <app-aside-menu-button [text]="'Najnowsze'" [icon]="'fa-solid fa-calendar-days'" (onSelect)="handleButtonSelect($event)"/>
-        <div class="nav-margin"></div>
-        <app-aside-menu-button [text]="'Dodaj'" [icon]="'fa-solid fa-square-plus'" (onSelect)="handleButtonSelect($event)"/>
-    </nav>
-   
-    <footer>
-
-    </footer>
 </aside>
