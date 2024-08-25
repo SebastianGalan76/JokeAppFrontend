@@ -1,0 +1,106 @@
+@import '../../../../styles/base';
+
+#container{
+    width: 800px;
+
+    background-color: $color-white;
+    border-radius: 20px;
+
+    box-shadow: 0px 5px 5px #3232323a;
+
+    color: $color-text-1;
+
+    #header{
+        border-bottom: 1px solid $color-aside-border;
+        padding: 10px 20px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        #owner{
+            font-weight: 700;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            i{
+                font-size: 1.5em;
+            }
+        }
+
+        #favorite-button{
+            font-size: 1.5em;
+        }
+
+        #favorite-button:hover{
+            color: #fcda1c;
+            cursor: pointer;
+        }
+
+        #favorite-button.active{
+            color: #fcda1c;
+        }
+    }
+
+    #content{
+        padding: 20px;
+
+        font-weight: 500;
+    }
+
+    #footer{
+        border-top: 1px solid $color-aside-border;
+        padding: 10px 20px;
+        
+        display: flex;
+        justify-content: space-between;
+
+        .button{
+            width: 36px;
+            height: 36px;
+            border: 2px solid $color-text-1;
+            border-radius: 5px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #rating{
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            #like-button.active{
+                background-color: #9de419;
+            }
+
+            #like-button:hover{
+                background-color: #9de419;
+                cursor: pointer;
+                font-size: 1.15em;
+            }
+
+            #dislike-button.active{
+                background-color: #f54d5b;
+            }
+
+            #dislike-button:hover{
+                background-color: #f54d5b;
+                cursor: pointer;
+                font-size: 1.15em;
+            }
+
+            #rating-value{
+                font-weight: 600;
+            }
+        }
+
+        #menu:hover{
+            cursor: pointer;
+            background-color: #00000023;
+        }
+    }
+}

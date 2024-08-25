@@ -5,11 +5,10 @@
 
     app-aside-menu {
         width: fit-content;
-        height: 100vh;
+        min-height: 100vh;
     }
 
     #container {
         flex-grow: 1;
-        overflow-y: auto;
     }
 }

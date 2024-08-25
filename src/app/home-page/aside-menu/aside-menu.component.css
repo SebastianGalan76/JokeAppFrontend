@@ -1,3 +1,7 @@
+aside {
+  position: sticky;
+  top: 0;
+}
 aside #wrapper {
   border-right: 2px solid #ecdded;
   width: 250px;
@@ -89,7 +93,6 @@ aside #wrapper footer {
 @media (max-width: 600px) {
   aside {
     width: 50px;
-    height: 100%;
   }
 }
 

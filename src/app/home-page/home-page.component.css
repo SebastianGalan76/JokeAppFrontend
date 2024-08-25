@@ -5,9 +5,8 @@
 #home-container app-aside-menu {
   width: -moz-fit-content;
   width: fit-content;
-  height: 100vh;
+  min-height: 100vh;
 }
 #home-container #container {
   flex-grow: 1;
-  overflow-y: auto;
 }/*# sourceMappingURL=home-page.component.css.map */
