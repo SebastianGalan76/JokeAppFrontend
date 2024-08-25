@@ -1,0 +1,150 @@
+header {
+  width: 100%;
+  height: 70px;
+  padding: 0 20px;
+  border-bottom: 2px solid #ecdded;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header #left-panel #add-joke-button {
+  background-color: #7e68ff;
+  height: -moz-fit-content;
+  height: fit-content;
+  color: #f7faff;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+header #left-panel #add-joke-button span {
+  margin-left: 10px;
+}
+header #left-panel #add-joke-button:hover {
+  background-color: #604adb;
+  cursor: pointer;
+}
+header #right-panel {
+  display: flex;
+  align-items: center;
+  color: #595677;
+}
+header #right-panel #social-buttons {
+  margin: 0 30px;
+  display: flex;
+  gap: 20px;
+  font-size: 1.4em;
+}
+header #right-panel #social-buttons .social-button:hover {
+  color: #604adb;
+  cursor: pointer;
+}
+@media (max-width: 1100px) {
+  header #right-panel #social-buttons {
+    margin: 0 10px;
+  }
+}
+@media (max-width: 800px) {
+  header #right-panel #social-buttons {
+    gap: 6px;
+  }
+}
+header #right-panel #theme-button {
+  font-size: 1.6em;
+  padding: 0 30px;
+}
+@media (max-width: 1100px) {
+  header #right-panel #theme-button {
+    padding: 0 10px;
+  }
+}
+header #right-panel #user-section {
+  max-width: 250px;
+}
+header #right-panel #user-section #user-not-logged-in {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+header #right-panel #user-section #user-not-logged-in #sign-in-button {
+  font-weight: 600;
+}
+header #right-panel #user-section #user-not-logged-in #sign-in-button :hover {
+  cursor: pointer;
+}
+header #right-panel #user-section #user-not-logged-in #sign-in-button:hover {
+  cursor: pointer;
+}
+header #right-panel #user-section #user-not-logged-in #sign-up-button {
+  border: 2px solid #595677;
+  background-color: rgba(0, 17, 255, 0.137254902);
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 8px 20px;
+  border-radius: 10px;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+header #right-panel #user-section #user-not-logged-in #sign-up-button:hover {
+  background-color: rgba(0, 17, 255, 0.2862745098);
+  cursor: pointer;
+}
+@media (max-width: 1100px) {
+  header #right-panel #user-section #user-not-logged-in {
+    gap: 10px;
+  }
+  header #right-panel #user-section #user-not-logged-in #sign-up-button {
+    display: none;
+  }
+  header #right-panel #user-section #user-not-logged-in #sign-in-button {
+    border: 2px solid #595677;
+    background-color: rgba(0, 17, 255, 0.137254902);
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 8px 20px;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: 500;
+  }
+}
+header #right-panel #user-section #user-logged-in {
+  display: flex;
+  align-items: center;
+}
+header #right-panel #user-section #user-logged-in .icon {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  font-size: 2em;
+  background-color: rgba(0, 0, 0, 0.137254902);
+  border-radius: 5px;
+  border: 2px solid #595677;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header #right-panel #user-section #user-logged-in .login {
+  margin-left: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+}
+header #right-panel #user-section #user-logged-in .fa-caret-down {
+  font-size: 1.2em;
+}
+@media (max-width: 1100px) {
+  header #right-panel #user-section {
+    max-width: 200px;
+  }
+}
+@media (max-width: 700px) {
+  header #right-panel {
+    display: none;
+  }
+}
+@media (max-width: 1200px) {
+  header {
+    padding: 0 5px;
+  }
+}/*# sourceMappingURL=header.component.css.map */

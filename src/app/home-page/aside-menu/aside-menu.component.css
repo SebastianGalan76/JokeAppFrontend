@@ -6,7 +6,7 @@ aside {
   flex-direction: column;
   overflow: auto;
   position: relative;
-  transition: all 0.2s ease;
+  transition: width 0.2s ease;
 }
 aside .logo {
   margin-top: 30px;

@@ -7,7 +7,7 @@
   width: fit-content;
   height: 100vh;
 }
-#home-container .content {
+#home-container #container {
   flex-grow: 1;
   overflow-y: auto;
 }/*# sourceMappingURL=home-page.component.css.map */
