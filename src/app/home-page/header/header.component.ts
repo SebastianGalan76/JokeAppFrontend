@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../service/user.service';
 import { User } from '../../../model/User';
+import { AsideMenuService } from '../../../service/aside-menu.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,7 @@ import { User } from '../../../model/User';
 export class HeaderComponent implements OnInit{
   user: User | null = null;
 
-  constructor (private userService: UserService){
+  constructor (private userService: UserService, private asideMenuService: AsideMenuService){
 
   }
 
@@ -24,5 +25,12 @@ export class HeaderComponent implements OnInit{
         this.user = null;
       }
     });
+  }
+
+  toggleLeftMenu(){
+    this.asideMenuService.toggleLeftMenu();
+  }
+  toggleRightMenu(){
+    this.asideMenuService.toggleRightMenu();
   }
 }

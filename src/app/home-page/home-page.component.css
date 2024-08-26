@@ -1,6 +1,5 @@
 #home-container {
   width: 100%;
-  display: flex;
 }
 #home-container app-aside-menu {
   width: -moz-fit-content;
@@ -8,5 +7,8 @@
   min-height: 100vh;
 }
 #home-container #container {
+  display: flex;
+}
+#home-container #container #content {
   flex-grow: 1;
 }/*# sourceMappingURL=home-page.component.css.map */

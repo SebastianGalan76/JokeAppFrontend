@@ -12,4 +12,15 @@
   padding: 20px;
   margin-left: auto;
   margin-right: auto;
+}
+@media (max-width: 900px) {
+  #container #jokes-container {
+    padding: 5px;
+  }
+}
+@media (max-width: 900px) {
+  #container {
+    width: 100%;
+    margin: 0px;
+  }
 }/*# sourceMappingURL=joke-list.component.css.map */

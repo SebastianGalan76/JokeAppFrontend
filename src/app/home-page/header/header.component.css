@@ -1,11 +1,21 @@
 header {
   width: 100%;
   height: 70px;
-  padding: 0 20px;
-  border-bottom: 2px solid #ecdded;
+  padding: 0 10px;
+  color: #595677;
+  position: sticky;
+  z-index: 1000;
+  top: 0;
+  border-bottom: 2px solid #cbd2e9;
+  background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+header #left-panel {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 header #left-panel #add-joke-button {
   background-color: #7e68ff;
@@ -24,55 +34,66 @@ header #left-panel #add-joke-button:hover {
   background-color: #604adb;
   cursor: pointer;
 }
+header #left-panel .toggle-menu-button {
+  display: none;
+}
+@media (max-width: 700px) {
+  header #left-panel .toggle-menu-button {
+    display: block;
+  }
+}
 header #right-panel {
   display: flex;
   align-items: center;
-  color: #595677;
 }
-header #right-panel #social-buttons {
+header #right-panel #menu {
+  display: flex;
+  align-items: center;
+}
+header #right-panel #menu #social-buttons {
   margin: 0 30px;
   display: flex;
   gap: 20px;
   font-size: 1.4em;
 }
-header #right-panel #social-buttons .social-button:hover {
+header #right-panel #menu #social-buttons .social-button:hover {
   color: #604adb;
   cursor: pointer;
 }
 @media (max-width: 1100px) {
-  header #right-panel #social-buttons {
+  header #right-panel #menu #social-buttons {
     margin: 0 10px;
   }
 }
 @media (max-width: 800px) {
-  header #right-panel #social-buttons {
+  header #right-panel #menu #social-buttons {
     gap: 6px;
   }
 }
-header #right-panel #theme-button {
+header #right-panel #menu #theme-button {
   font-size: 1.6em;
   padding: 0 30px;
 }
 @media (max-width: 1100px) {
-  header #right-panel #theme-button {
+  header #right-panel #menu #theme-button {
     padding: 0 10px;
   }
 }
-header #right-panel #user-section {
+header #right-panel #menu #user-section {
   max-width: 250px;
 }
-header #right-panel #user-section #user-not-logged-in {
+header #right-panel #menu #user-section #user-not-logged-in {
   display: flex;
   gap: 20px;
   align-items: center;
 }
-header #right-panel #user-section #user-not-logged-in #sign-in-button {
+header #right-panel #menu #user-section #user-not-logged-in #sign-in-button {
   font-weight: 600;
 }
-header #right-panel #user-section #user-not-logged-in #sign-in-button:hover {
+header #right-panel #menu #user-section #user-not-logged-in #sign-in-button:hover {
   cursor: pointer;
 }
-header #right-panel #user-section #user-not-logged-in #sign-up-button {
+header #right-panel #menu #user-section #user-not-logged-in #sign-up-button {
   border: 2px solid #595677;
   background-color: rgba(0, 17, 255, 0.137254902);
   width: -moz-fit-content;
@@ -82,18 +103,18 @@ header #right-panel #user-section #user-not-logged-in #sign-up-button {
   font-size: 1.1em;
   font-weight: 500;
 }
-header #right-panel #user-section #user-not-logged-in #sign-up-button:hover {
+header #right-panel #menu #user-section #user-not-logged-in #sign-up-button:hover {
   background-color: rgba(0, 17, 255, 0.2862745098);
   cursor: pointer;
 }
 @media (max-width: 1100px) {
-  header #right-panel #user-section #user-not-logged-in {
+  header #right-panel #menu #user-section #user-not-logged-in {
     gap: 10px;
   }
-  header #right-panel #user-section #user-not-logged-in #sign-up-button {
+  header #right-panel #menu #user-section #user-not-logged-in #sign-up-button {
     display: none;
   }
-  header #right-panel #user-section #user-not-logged-in #sign-in-button {
+  header #right-panel #menu #user-section #user-not-logged-in #sign-in-button {
     border: 2px solid #595677;
     background-color: rgba(0, 17, 255, 0.137254902);
     width: -moz-fit-content;
@@ -104,11 +125,11 @@ header #right-panel #user-section #user-not-logged-in #sign-up-button:hover {
     font-weight: 500;
   }
 }
-header #right-panel #user-section #user-logged-in {
+header #right-panel #menu #user-section #user-logged-in {
   display: flex;
   align-items: center;
 }
-header #right-panel #user-section #user-logged-in .icon {
+header #right-panel #menu #user-section #user-logged-in .icon {
   width: 50px;
   height: 50px;
   flex-shrink: 0;
@@ -120,28 +141,35 @@ header #right-panel #user-section #user-logged-in .icon {
   justify-content: center;
   align-items: center;
 }
-header #right-panel #user-section #user-logged-in .login {
+header #right-panel #menu #user-section #user-logged-in .login {
   margin-left: 10px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: 500;
 }
-header #right-panel #user-section #user-logged-in .fa-caret-down {
+header #right-panel #menu #user-section #user-logged-in .fa-caret-down {
   font-size: 1.2em;
 }
 @media (max-width: 1100px) {
-  header #right-panel #user-section {
+  header #right-panel #menu #user-section {
     max-width: 200px;
   }
 }
 @media (max-width: 700px) {
-  header #right-panel {
+  header #right-panel #menu {
     display: none;
   }
 }
-@media (max-width: 1200px) {
-  header {
-    padding: 0 5px;
+header #right-panel .toggle-menu-button {
+  display: none;
+}
+@media (max-width: 700px) {
+  header #right-panel .toggle-menu-button {
+    display: block;
   }
+}
+header .toggle-menu-button {
+  font-size: 1.6em;
+  cursor: pointer;
 }/*# sourceMappingURL=header.component.css.map */

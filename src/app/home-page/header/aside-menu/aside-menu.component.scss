@@ -1,9 +1,12 @@
 @import "../../../../styles/base";
 
 aside {
-    position: absolute;
-    right: 0px;
-    top: 0;
+    position: sticky;
+    top: 70px;
+
+    background-color: rebeccapurple;
+
+    height: calc(100vh - 72px);
 
     #header-buttons{
         position: absolute;
@@ -29,8 +32,7 @@ aside {
     }
 
     #wrapper {
-        border-left: 2px solid $color-aside-border;
-        margin-top: 70px;
+        background-color: $color-background-light;
 
         width: 0;
         height: 100vh;
@@ -40,11 +42,10 @@ aside {
         align-items: center;
 
         overflow: auto;
-
-        background-color: #f7f2f8;
         color: $color-text-1;
 
-        position: relative;
+        position: absolute;
+        right: 0;
         transition: all 0.2s ease;
 
         #social-buttons{
@@ -157,8 +158,9 @@ aside.active {
         width: 250px;
         display: none;
 
-        background-color: #f0e7f1;
-
+        background-color: $color-background-light;
+        border-left: 2px solid $color-aside-border;
+        
         @media (max-width: 700px){
             display: flex;
         }

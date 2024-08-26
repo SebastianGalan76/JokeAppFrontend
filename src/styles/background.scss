@@ -1,7 +1,9 @@
+@import 'base';
+
 html {
     height: 100%;
 
     body {
-        background-color: #f7f2f8;
+        background-color: $color-background;
     }
 }

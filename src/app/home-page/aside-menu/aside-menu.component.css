@@ -1,22 +1,22 @@
 aside {
   position: sticky;
-  top: 0;
+  top: 70px;
+  height: calc(100vh - 72px);
 }
 aside #wrapper {
-  border-right: 2px solid #ecdded;
   width: 250px;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   overflow: auto;
-  background-color: #f7f2f8;
+  background-color: #ffffff;
+  border-right: 2px solid #cbd2e9;
   position: relative;
   transition: all 0.2s ease;
 }
 aside #wrapper .logo {
   margin-top: 30px;
   height: 100px;
-  background-color: rgba(189, 189, 189, 0.527);
   flex-shrink: 0;
 }
 aside #wrapper nav {
@@ -43,7 +43,6 @@ aside #wrapper nav .nav-margin {
 aside #wrapper footer {
   margin-bottom: 30px;
   height: 100px;
-  background-color: rgba(189, 189, 189, 0.527);
   flex-shrink: 0;
 }
 @media (max-height: 800px) {
@@ -79,7 +78,7 @@ aside #wrapper footer {
     width: 175px;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   aside #wrapper {
     width: 50px;
   }
@@ -90,23 +89,25 @@ aside #wrapper footer {
     display: none;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   aside {
     width: 50px;
   }
 }
 
-aside.active #wrapper {
-  position: absolute;
-  z-index: 100;
-  width: 250px;
-  background-color: #f0e7f1;
-}
-aside.active #wrapper .logo {
-  display: block;
-}
-aside.active #wrapper footer {
-  display: block;
+@media (max-width: 700px) {
+  aside.active #wrapper {
+    position: absolute;
+    z-index: 100;
+    width: 250px;
+    background-color: #ffffff;
+  }
+  aside.active #wrapper .logo {
+    display: block;
+  }
+  aside.active #wrapper footer {
+    display: block;
+  }
 }
 
 aside::-webkit-scrollbar {

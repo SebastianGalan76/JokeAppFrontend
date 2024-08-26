@@ -1,14 +1,16 @@
 #home-container {
     width: 100%;
 
-    display: flex;
-
     app-aside-menu {
         width: fit-content;
         min-height: 100vh;
     }
 
     #container {
-        flex-grow: 1;
+        display: flex;
+
+        #content{
+            flex-grow: 1;
+        }
     }
 }

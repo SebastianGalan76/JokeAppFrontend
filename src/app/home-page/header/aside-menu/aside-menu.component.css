@@ -1,7 +1,8 @@
 aside {
-  position: absolute;
-  right: 0px;
-  top: 0;
+  position: sticky;
+  top: 70px;
+  background-color: rebeccapurple;
+  height: calc(100vh - 72px);
 }
 aside #header-buttons {
   position: absolute;
@@ -24,17 +25,16 @@ aside #header-buttons .button {
   }
 }
 aside #wrapper {
-  border-left: 2px solid #ecdded;
-  margin-top: 70px;
+  background-color: #ffffff;
   width: 0;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: auto;
-  background-color: #f7f2f8;
   color: #595677;
-  position: relative;
+  position: absolute;
+  right: 0;
   transition: all 0.2s ease;
 }
 aside #wrapper #social-buttons {
@@ -128,7 +128,8 @@ aside.active #wrapper {
   z-index: 100;
   width: 250px;
   display: none;
-  background-color: #f0e7f1;
+  background-color: #ffffff;
+  border-left: 2px solid #cbd2e9;
 }
 @media (max-width: 700px) {
   aside.active #wrapper {
