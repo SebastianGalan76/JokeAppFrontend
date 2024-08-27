@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../service/user.service';
 import { User } from '../../../model/User';
 import { AsideMenuService } from '../../../service/aside-menu.service';
@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit{
   }
 
   ngOnInit(){
+    console.log('sseeeee');
     setTimeout(() => {
       this.userService.getUser().subscribe(user => {
         if (user) {

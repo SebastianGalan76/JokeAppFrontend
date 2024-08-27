@@ -5,7 +5,7 @@
         </div>
 
         <nav>
-            <a href="/">
+            <a routerLink="/list">
                 <app-aside-menu-button [text]="'Strona Główna'" [icon]="'fa-solid fa-house'" [isSelected]="true"
                     (onSelect)="handleButtonSelect($event)" />
             </a>
@@ -21,7 +21,7 @@
             <app-aside-menu-button [text]="'Najnowsze'" [icon]="'fa-solid fa-calendar-days'"
                 (onSelect)="handleButtonSelect($event)" />
             <div class="nav-margin"></div>
-            <a href="/create">
+            <a routerLink="/create">
                 <app-aside-menu-button [text]="'Dodaj'" [icon]="'fa-solid fa-square-plus'"
                     (onSelect)="handleButtonSelect($event)" />
             </a>

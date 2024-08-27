@@ -2,11 +2,12 @@ import { Component, QueryList, ViewChildren } from '@angular/core';
 import { ButtonComponent } from './button/button.component';
 import { CommonModule } from '@angular/common';
 import { AsideMenuService } from '../../../service/aside-menu.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-aside-menu-left',
   standalone: true,
-  imports: [ButtonComponent, CommonModule],
+  imports: [ButtonComponent, CommonModule, RouterModule],
   templateUrl: './aside-menu.component.html',
   styleUrl: './aside-menu.component.scss'
 })
