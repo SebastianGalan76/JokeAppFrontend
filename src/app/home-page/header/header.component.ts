@@ -18,16 +18,13 @@ export class HeaderComponent implements OnInit{
   }
 
   ngOnInit(){
-    console.log('sseeeee');
-    setTimeout(() => {
-      this.userService.getUser().subscribe(user => {
-        if (user) {
-          this.user = user;
-        } else {
-          this.user = null;
-        }
-      });
-    }, 2000);
+    this.userService.getUser().subscribe(user => {
+      if (user) {
+        this.user = user;
+      } else {
+        this.user = null;
+      }
+    });
   }
 
   toggleLeftMenu(){
