@@ -8,6 +8,7 @@ html body {
 html {
   font-family: "Roboto";
   min-width: 360px;
+  color: #595677;
 }
 
 * {

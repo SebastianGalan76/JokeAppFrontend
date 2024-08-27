@@ -1,0 +1,97 @@
+#container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 40px;
+}
+#container #header {
+  width: 100%;
+  height: 200px;
+  background-color: #7e68ff;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+#container #header .icon {
+  height: 200px;
+  width: auto;
+}
+#container #header h1 {
+  text-align: center;
+}
+#container #user-info {
+  padding: 10px 40px;
+  background-color: rgb(255, 160, 160);
+  font-size: 1;
+  font-weight: 500;
+  margin: 40px 0;
+  border-radius: 10px;
+  border: 2px solid rgb(255, 63, 63);
+}
+#container #user-info:hover {
+  cursor: pointer;
+  background-color: rgb(255, 131, 131);
+}
+#container #form-container {
+  width: 700px;
+}
+#container #form-container .section {
+  width: 100%;
+}
+#container #form-container .section .title {
+  font-weight: 500;
+  padding: 4px 0;
+  display: block;
+}
+#container #form-container .section .type-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#container #form-container .section .type-container .type {
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.062745098);
+  border: 2px solid #838383;
+  line-height: 50px;
+  text-align: center;
+  font-size: 1.3em;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+#container #form-container .section .type-container .type:hover {
+  cursor: pointer;
+  border: 2px solid #857cff;
+  background-color: #aebaff;
+}
+#container #form-container .section textarea {
+  border: 2px solid #838383;
+  background-color: rgba(0, 0, 0, 0.062745098);
+  padding: 10px;
+  border-radius: 10px;
+  min-height: 200px;
+  width: 700px;
+  font: inherit;
+  color: inherit;
+  font-weight: 500;
+}
+#container #form-container #submit {
+  width: 100%;
+  padding: 15px 0;
+  border-radius: 20px;
+  background-color: #7e68ff;
+  text-align: center;
+  font-size: 1.2em;
+  color: white;
+  margin-top: 20px;
+}
+#container #form-container #submit:hover {
+  cursor: pointer;
+  background-color: #604adb;
+}/*# sourceMappingURL=add-joke.component.css.map */

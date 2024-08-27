@@ -6,6 +6,7 @@ import { SignUpFormComponent } from './auth/sign-up-form/sign-up-form.component'
 import { ResetPasswordRequireFormComponent } from './auth/reset-password-require-form/reset-password-require-form.component';
 import { ResetPasswordFormComponent } from './auth/reset-password-form/reset-password-form.component';
 import { JokeListComponent } from './home-page/joke-list/joke-list.component';
+import { AddJokeComponent } from './home-page/add-joke/add-joke.component';
 
 export const routes: Routes = [
     { 
@@ -35,6 +36,10 @@ export const routes: Routes = [
         path: '', 
         component: HomePageComponent,
         children: [
+            {
+                path: 'create',
+                component: AddJokeComponent
+            },
             {
                 path: '',
                 component: JokeListComponent

@@ -1,0 +1,73 @@
+<div id="container">
+
+    <div id="header">
+        <img class="icon" src="/icon/icon2.png">
+
+        <h1>Dodaj nowy dowcip lub suchar</h1>
+
+
+    </div>
+
+    @if (userService.getUser()) {
+    <a href="/auth/signIn">
+        <div id="user-info">
+            Zaloguj się, jeśli nie chcesz publikować anonimowo
+        </div>
+    </a>
+    }
+
+    <div id="form-container">
+        <div class="section">
+            <span class="title">1. Wybierz rodzaj:<span class="required">*</span></span>
+            <div class="type-container">
+                <div class="type" [ngClass]="{'selected':type == 'JOKE'}" (click)="setType('JOKE')">
+                    Dowcip
+                </div>
+                <div class="type" [ngClass]="{'selected':type == 'RUSK'}" (click)="setType('RUSK')">
+                    Suchar
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="section">
+            <span class="title">2. Wybierz typ:<span class="required">*</span></span>
+            <div class="type-container">
+                <div class="type" [ngClass]="{'selected':kind == 'TRADITIONAL'}" (click)="setKind('TRADITIONAL')">
+                    Tradycyjny
+                </div>
+                <div class="type" [ngClass]="{'selected':kind == 'ENIGMATIC'}" (click)="setKind('ENIGMATIC')">
+                    Zagadkowy
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="section">
+            <span class="title">3. Wybierz kategorię:</span>
+
+            <app-select-category (categoryEmitter)="receiveSelectedCategory($event)" />
+        </div>
+        <br>
+        @if(kind == 'TRADITIONAL'){
+        <div class="section">
+            <span class="title">4. Dowcip<span class="required">*</span></span>
+            <textarea [(ngModel)]="jokeContent"></textarea>
+        </div>
+        }
+        @else {
+        <div>
+            <div class="section">
+                <span class="title">4. Pytanie<span class="required">*</span></span>
+                <textarea [(ngModel)]="jokeQuestion"></textarea>
+            </div>
+            <div class="section">
+                <span class="title">5. Odpowiedź<span class="required">*</span></span>
+                <textarea [(ngModel)]="jokeAnswer"></textarea>
+            </div>
+        </div>
+        }
+
+        <span class="response" [ngClass]="{ 'error': responseMessage?.status == 'ERROR'}">{{responseMessage?.message}}</span>
+        <button id="submit" #submitButton (click)="createJoke(submitButton)" [disabled]="buttonIsDisabled">Dodaj</button>
+    </div>
+
+</div>

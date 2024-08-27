@@ -5,8 +5,10 @@
         </div>
 
         <nav>
-            <app-aside-menu-button [text]="'Strona Główna'" [icon]="'fa-solid fa-house'" [isSelected]="true"
-                (onSelect)="handleButtonSelect($event)" />
+            <a href="/">
+                <app-aside-menu-button [text]="'Strona Główna'" [icon]="'fa-solid fa-house'" [isSelected]="true"
+                    (onSelect)="handleButtonSelect($event)" />
+            </a>
             <div class="nav-margin"></div>
             <app-aside-menu-button [text]="'Kategorie'" [icon]="'fa-solid fa-table-cells-large'"
                 (onSelect)="handleButtonSelect($event)" />
@@ -19,8 +21,10 @@
             <app-aside-menu-button [text]="'Najnowsze'" [icon]="'fa-solid fa-calendar-days'"
                 (onSelect)="handleButtonSelect($event)" />
             <div class="nav-margin"></div>
-            <app-aside-menu-button [text]="'Dodaj'" [icon]="'fa-solid fa-square-plus'"
-                (onSelect)="handleButtonSelect($event)" />
+            <a href="/create">
+                <app-aside-menu-button [text]="'Dodaj'" [icon]="'fa-solid fa-square-plus'"
+                    (onSelect)="handleButtonSelect($event)" />
+            </a>
         </nav>
 
         <footer>

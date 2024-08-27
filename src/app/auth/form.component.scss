@@ -22,16 +22,6 @@
         display: flex;
         flex-direction: column;
 
-        .response{
-            color: $color-green;
-            text-align: center;
-            font-weight: 500;
-        }
-
-        .error{
-            color: $color-red;
-        }
-
         button{
             background-color: $color-theme;
             width: 100%;

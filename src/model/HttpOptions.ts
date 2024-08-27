@@ -11,7 +11,7 @@ export interface HttpOptions {
     };
     reportProgress?: boolean;
     responseType?: 'json';
-    withCredentials?: boolean;
+    withCredentials?: true;
     transferCache?: {
         includeHeaders?: string[];
     } | boolean;
