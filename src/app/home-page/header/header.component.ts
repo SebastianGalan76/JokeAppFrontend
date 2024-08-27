@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { UserService } from '../../../service/user.service';
 import { User } from '../../../model/User';
 import { AsideMenuService } from '../../../service/aside-menu.service';
@@ -8,23 +8,25 @@ import { AsideMenuService } from '../../../service/aside-menu.service';
   standalone: true,
   imports: [],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit{
   user: User | null = null;
 
   constructor (private userService: UserService, private asideMenuService: AsideMenuService){
-
+    
   }
 
   ngOnInit(){
-    this.userService.getUser().subscribe(user => {
-      if (user) {
-        this.user = user;
-      } else {
-        this.user = null;
-      }
-    });
+    setTimeout(() => {
+      this.userService.getUser().subscribe(user => {
+        if (user) {
+          this.user = user;
+        } else {
+          this.user = null;
+        }
+      });
+    }, 2000);
   }
 
   toggleLeftMenu(){

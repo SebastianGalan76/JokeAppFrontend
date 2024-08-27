@@ -16,14 +16,17 @@ export class UserService {
   ) { }
 
   getUser(): Observable<User | null> {
-    if (this.user) {
-      return of(this.user); 
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      this.user = JSON.parse(storedUser);
+      return of(this.user);
     }
 
-    return this.apiService.get<User | null>("/user", {withCredentials: true}).pipe(
+    return this.apiService.get<User | null>("/user", { withCredentials: true }).pipe(
       map(data => {
         if (data) {
           this.user = new User(data.login, data.email, data.role);
+          localStorage.setItem('user', JSON.stringify(this.user));
           return this.user;
         } else {
           this.user = null;
@@ -35,5 +38,9 @@ export class UserService {
         return of(null);
       })
     );
+  }
+
+  logout(){
+    localStorage.removeItem('user');
   }
 }
