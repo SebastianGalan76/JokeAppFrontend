@@ -11,7 +11,7 @@ export class JokeListService {
   constructor(private apiService: ApiService) { }
 
   getJokes(page: number): Observable<PageResponse<JokeDto> | null> {
-    return this.apiService.get<PageResponse<JokeDto>>('/jokes?page=' + page, {}).pipe(
+    return this.apiService.get<PageResponse<JokeDto>>('/jokes?page=' + page, {withCredentials: true}).pipe(
       map(data => {
         if (data) {
           return data;
