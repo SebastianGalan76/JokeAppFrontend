@@ -11,15 +11,13 @@ export class CreateJokeService {
   constructor(private apiService: ApiService){}
 
   create(content: string, type: string, kind: string, category: Category | null) : Observable<Response>{
-    console.log(category);
-
     return this.apiService.post<Response>('/joke/create',
       {
         content: content,
         type: type,
         kind: kind,
         category: category
-      }, {}
+      }, {withCredentials: true}
     )
   }
 }

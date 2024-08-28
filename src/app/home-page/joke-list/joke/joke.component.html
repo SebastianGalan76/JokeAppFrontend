@@ -3,44 +3,32 @@
     <div id="header">
         <div id="owner">
             <i class="fa-solid fa-circle-user"></i>
-
-            DreaMPL
+            @if(joke.owner){
+                {{joke.owner.login}}
+            }
+            @else{
+                Anonim
+            }
         </div>
 
-        <div id="favorite-button">
+        <div id="favorite-button" [ngClass]="{'active' : joke.favorite}" (click)="favorite()">
             <i class="fa-solid fa-star"></i>
         </div>
     </div>
 
     <div id="content">
-        Siedzi dwóch kumpli w kinie a przed nimi gruby, łysy kark z dziewczyną. <br>
-        Nagle jeden mówi do drugiego: <br>
-        - Dam ci 50 zł jak klepniesz tego łysego w glacę. <br>
-        - Dobra, co mi szkodzi. <br>
-        PAC. <br>
-        Łysy się odwraca a ten co go klepnął mówi: <br>
-        - Cześć Krzychu, kope lat. <br>
-        - Nie jestem żaden Krzychu, jeszcze raz mnie dotkniesz to cię zabiję. <br>
-        - Tej, stary dobry jesteś, ale założę się z tobą o 200 zł, że go drugi raz nie klepniesz. <br>
-        PAC. <br>
-        - No siema Krzychu 8 lat w podstawówce, jedna ławka nie pamiętasz?<br>
-        - Mówiłem, że cię zabiję!<br>
-        W ostatniej chwili dziewczyna go uspokaja i razem idą do pierwszego rzędu.<br>
-        - Oooo, jestem pod wrażeniem, ale dam ci tysiaka jak go trzeci raz klepniesz.<br>
-        Przesiadają się do drugiego rzędu i...<br>
-        PAC.<br>
-        - Krzychu ja tam do góry jakiegoś łysego w glacę walę, a ty tu na dole w pierwszym rzędzie siedzisz.<br>
+        {{joke.content}}
     </div>
     
     <div id="footer">
         <div id="rating">
-            <div class="button" id="like-button">
+            <div class="button" id="like-button" [ngClass]="{'active' : joke.userRating == 1}" (click)="like()">
                 <i class="fa-solid fa-thumbs-up"></i>
             </div>
-            <div class="button" id="dislike-button">
+            <div class="button" id="dislike-button" [ngClass]="{'active' : joke.userRating == -1}" (click)="dislike()">
                 <i class="fa-solid fa-thumbs-down"></i>
             </div>
-            <div id="rating-value">32</div>
+            <div id="rating-value"> {{joke.likeAmount - joke.dislikeAmount}}</div>
         </div>
 
         <div id="menu" class="button">

@@ -42,14 +42,15 @@
     }
 
     #content{
-        padding: 20px 80px;
+        padding: 20px;
 
         font-weight: 500;
+        white-space: pre-line;
     }
 
     #footer{
         border-top: 1px solid $color-aside-border;
-        padding: 10px 80px;
+        padding: 10px 20px;
         
         display: flex;
         justify-content: space-between;
