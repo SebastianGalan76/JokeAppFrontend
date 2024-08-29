@@ -2,19 +2,26 @@ import { Component, Input } from '@angular/core';
 import { JokeDto } from '../../../../model/JokeDto';
 import { CommonModule } from '@angular/common';
 import { JokeService } from '../../../../service/joke/joke.service';
+import { JokeMenuComponent } from "./joke-menu/joke-menu.component";
 
 @Component({
   selector: 'app-joke',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, JokeMenuComponent],
   templateUrl: './joke.component.html',
   styleUrl: './joke.component.scss'
 })
 export class JokeComponent {
   @Input() joke!: JokeDto;
 
+  menuIsShown: boolean = false;
+
   constructor(private jokeService: JokeService) {
     
+  }
+
+  toggleMenu(){
+    this.menuIsShown = !this.menuIsShown;
   }
 
   like() {

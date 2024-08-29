@@ -31,12 +31,13 @@
   color: #fcda1c;
 }
 #container #content {
-  padding: 20px 80px;
+  padding: 20px;
   font-weight: 500;
+  white-space: pre-line;
 }
 #container #footer {
   border-top: 1px solid #cbd2e9;
-  padding: 10px 80px;
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
 }
@@ -74,7 +75,10 @@
 #container #footer #rating #rating-value {
   font-weight: 600;
 }
-#container #footer #menu:hover {
+#container #footer #menu-container {
+  position: relative;
+}
+#container #footer #menu-container .button:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.137254902);
 }

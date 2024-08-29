@@ -97,9 +97,13 @@
             }
         }
 
-        #menu:hover{
-            cursor: pointer;
-            background-color: #00000023;
+        #menu-container{
+            position: relative;
+
+            .button:hover{
+                cursor: pointer;
+                background-color: #00000023;
+            }
         }
     }
 

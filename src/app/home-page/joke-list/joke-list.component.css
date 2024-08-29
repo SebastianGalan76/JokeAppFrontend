@@ -3,7 +3,7 @@
   margin: 30px;
   overflow: auto;
 }
-#container #jokes-container {
+#container #joke-container {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -14,7 +14,7 @@
   margin-right: auto;
 }
 @media (max-width: 900px) {
-  #container #jokes-container {
+  #container #joke-container {
     padding: 5px;
   }
 }

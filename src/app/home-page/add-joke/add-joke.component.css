@@ -21,7 +21,18 @@
   width: auto;
 }
 #container #header h1 {
+  padding-right: 10px;
   text-align: center;
+}
+@media (max-width: 1000px) {
+  #container #header h1 {
+    font-size: 1.5em;
+  }
+}
+@media (max-width: 850px) {
+  #container #header h1 {
+    font-size: 1.2em;
+  }
 }
 #container #user-info {
   padding: 10px 40px;
@@ -29,6 +40,7 @@
   font-size: 1;
   font-weight: 500;
   margin: 40px 0;
+  text-align: center;
   border-radius: 10px;
   border: 2px solid rgb(255, 63, 63);
 }
@@ -38,6 +50,7 @@
 }
 #container #form-container {
   width: 700px;
+  margin-bottom: 200px;
 }
 #container #form-container .section {
   width: 100%;
@@ -65,10 +78,20 @@
   border-radius: 10px;
   transition: all 0.2s ease;
 }
+@media (max-width: 800px) {
+  #container #form-container .section .type-container .type {
+    height: 40px;
+    line-height: 40px;
+  }
+}
 #container #form-container .section .type-container .type:hover {
   cursor: pointer;
   border: 2px solid #857cff;
   background-color: #aebaff;
+}
+#container #form-container .section .type-container .selected {
+  border: 2px solid #7e68ff;
+  background-color: #c9c5ff;
 }
 #container #form-container .section textarea {
   border: 2px solid #838383;
@@ -76,7 +99,7 @@
   padding: 10px;
   border-radius: 10px;
   min-height: 200px;
-  width: 700px;
+  width: 100%;
   font: inherit;
   color: inherit;
   font-weight: 500;
@@ -94,4 +117,18 @@
 #container #form-container #submit:hover {
   cursor: pointer;
   background-color: #604adb;
+}
+#container #form-container .required {
+  font-size: 800;
+  color: rgb(255, 63, 63);
+}
+@media (max-width: 1000px) {
+  #container #form-container {
+    width: 100%;
+  }
+}
+@media (max-width: 800px) {
+  #container {
+    padding: 10px;
+  }
 }/*# sourceMappingURL=add-joke.component.css.map */

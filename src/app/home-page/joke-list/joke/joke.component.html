@@ -1,5 +1,4 @@
 <div id="container">
-
     <div id="header">
         <div id="owner">
             <i class="fa-solid fa-circle-user"></i>
@@ -31,8 +30,13 @@
             <div id="rating-value"> {{joke.likeAmount - joke.dislikeAmount}}</div>
         </div>
 
-        <div id="menu" class="button">
-            <i class="fa-solid fa-ellipsis"></i>
+        <div id="menu-container">
+            @if(menuIsShown){
+                <app-joke-menu (clickOutside)="toggleMenu()"/>
+            }
+            <div class="button" (click)="toggleMenu()">
+                <i class="fa-solid fa-ellipsis"></i>
+            </div>
         </div>
     </div>
 </div>

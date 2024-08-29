@@ -1,0 +1,26 @@
+@import '../../../../../styles/base';
+
+#container{
+    background-color: #e2e2e2;
+    padding: 10px 0;
+    border-radius: 15px 15px 0 15px;
+    border: 2px solid $color-text-1;
+
+    position: absolute;
+    bottom: 33px;
+    right: 0;
+    font-weight: 500;
+
+    ul{
+        list-style-type: none;
+
+        li{
+            padding: 5px 20px;
+        }
+
+        li:hover{
+            background-color: #79797938;
+            cursor: pointer;
+        }
+    }
+}

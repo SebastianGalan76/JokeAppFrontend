@@ -73,14 +73,6 @@
   display: flex;
   flex-direction: column;
 }
-#container footer .response {
-  color: rgb(113, 204, 29);
-  text-align: center;
-  font-weight: 500;
-}
-#container footer .error {
-  color: rgb(255, 63, 63);
-}
 #container footer button {
   background-color: #7e68ff;
   width: 100%;

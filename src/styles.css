@@ -20,4 +20,20 @@ html {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+button {
+  outline: none;
+  border: none;
+}
+
+.response {
+  color: rgb(113, 204, 29);
+  text-align: center;
+  font-weight: 500;
+  display: block;
+}
+
+.response.error {
+  color: rgb(255, 63, 63);
 }/*# sourceMappingURL=styles.css.map */
