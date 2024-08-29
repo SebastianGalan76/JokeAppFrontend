@@ -16,7 +16,7 @@ export class UserService {
   ) { }
 
   getUser(): Observable<User | null> {
-    const storedUser = localStorage.getItem('user');
+    const storedUser = sessionStorage.getItem('user');
     if (storedUser) {
       this.user = JSON.parse(storedUser);
       return of(this.user);
@@ -25,8 +25,8 @@ export class UserService {
     return this.apiService.get<User | null>("/user", { withCredentials: true }).pipe(
       map(data => {
         if (data) {
-          this.user = new User(data.login, data.email, data.role);
-          localStorage.setItem('user', JSON.stringify(this.user));
+          this.user = new User(data.login, data.email, data.role, data.jokeLists);
+          this.saveUser(this.user);
           return this.user;
         } else {
           this.user = null;
@@ -38,6 +38,10 @@ export class UserService {
         return of(null);
       })
     );
+  }
+
+  saveUser(user: User){
+    sessionStorage.setItem('user', JSON.stringify(this.user));
   }
 
   logout(){

@@ -1,0 +1,109 @@
+@import "../../../../styles/base";
+@import "../../../../styles/formElement.css";
+
+#container{
+    background-color: $color-background;
+
+    width: 360px;
+
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 20px;
+
+    header{
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+
+        font-size: 1.3em;
+        border-bottom: 2px solid $color-text-1;
+
+        i{
+            font-size: 1.3em;
+        }
+
+        i:hover{
+            cursor: pointer;
+        }
+    }
+
+    #list-container{
+        min-height: 100px;
+
+        display: flex;
+        flex-direction: column;
+
+        .list{
+            padding: 10px 0;
+            
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 1.3em;
+
+            input{
+                width: 30px;
+                height: 30px;
+            }
+
+            .accessibilityType{
+                margin-left: auto;
+            }
+        }
+    }
+
+    footer{
+        border-top: 2px solid $color-text-1;
+        width: 100%;
+
+        #showNewListFormButton{
+            text-align: center;
+            width: 100%;
+
+            font-size: 1.2em;
+            padding: 5px 0;
+            background-color: $color-dark;
+            border: 1px solid $color-text-1;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        #showNewListFormButton:hover{
+            cursor: pointer;
+            background-color: #00000020;
+        }
+
+        #form-container{
+            padding: 10px 0;
+
+            .input-area{
+                height: 40px;
+            }
+
+            .select-area{
+                margin-top: 10px;
+                height: 40px;
+            }
+
+            button{
+                outline: none;
+                border: none;
+
+                background-color: $color-green;
+                text-align: center;
+                width: 100%;
+                height: 40px;
+                border-radius: 10px;
+                font-weight: 600;
+                color: $color-white;
+                margin-top: 10px;
+            }
+
+            button:hover{
+                cursor: pointer;
+                background-color: $color-green-dark;
+            }
+        }
+    }
+}

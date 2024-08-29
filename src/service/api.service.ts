@@ -22,4 +22,9 @@ export class ApiService {
     var url = this.domain+endpoint;
     return this.httpClient.post<T>(url, body, options) as Observable<T>;
   }
+
+  delete<T>(endpoint: string, options: HttpOptions) : Observable<T>{
+    var url = this.domain+endpoint;
+    return this.httpClient.delete<T>(url, options) as Observable<T>;
+  }
 }

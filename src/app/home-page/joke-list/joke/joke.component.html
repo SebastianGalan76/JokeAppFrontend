@@ -32,7 +32,7 @@
 
         <div id="menu-container">
             @if(menuIsShown){
-                <app-joke-menu (clickOutside)="toggleMenu()"/>
+                <app-joke-menu (clickOutside)="toggleMenu()" [joke]="joke"/>
             }
             <div class="button" (click)="toggleMenu()">
                 <i class="fa-solid fa-ellipsis"></i>

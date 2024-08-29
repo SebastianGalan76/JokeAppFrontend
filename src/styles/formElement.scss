@@ -20,7 +20,7 @@ $color-incorrect: #ff6969;
             color: $color-theme;
         }
 
-        .icon{
+        .icon {
             color: $color-theme;
         }
     }
@@ -66,5 +66,24 @@ $color-incorrect: #ff6969;
         input {
             font-size: 0.65em !important;
         }
+    }
+}
+
+.select-area {
+    position: relative;
+    width: 100%;
+    height: 50px;
+
+    select {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+
+        background-color: $color-dark;
+        border: 2px solid $color-border;
+
+        font-weight: 600;
+        color: $color-border;
+        padding: 0 10px;
     }
 }
