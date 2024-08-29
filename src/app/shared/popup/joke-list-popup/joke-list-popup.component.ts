@@ -7,6 +7,7 @@ import { JokeDto } from '../../../../model/JokeDto';
 import { User } from '../../../../model/User';
 import { ApiService } from '../../../../service/api.service';
 import { FormsModule } from '@angular/forms';
+import { ContentResponse } from '../../../../model/ContentResponse';
 
 @Component({
   selector: 'app-joke-list-popup',
@@ -24,6 +25,9 @@ export class JokeListPopupComponent implements OnInit {
   
   user!: User;
   jokeLists: JokeList[] = [];
+
+  listName: string = '';
+  accessibility: string = 'PUBLIC';
 
   constructor(private popupService: PopupService, private userService: UserService, private apiService: ApiService) { }
 
@@ -45,7 +49,24 @@ export class JokeListPopupComponent implements OnInit {
   }
 
   hasJokeWithId(list: JokeList): boolean {
-    return list.jokes.some(joke => joke.id === this.joke.id);
+    if(list.jokes){
+      return list.jokes.some(joke => joke.id === this.joke.id);
+    }
+    return false;
+  }
+
+  createNewList(){
+    this.listName = '';
+    this.accessibility = 'PUBLIC';
+
+    this.apiService.post<ContentResponse<JokeList>>('/joke-list', {name: this.listName, visibilityType: this.accessibility}, {withCredentials: true}).subscribe(response => {
+      if (response) {
+        this.user.jokeLists.push(response.content);
+        this.userService.saveUser(this.user);
+      } else {
+        console.log('seeeess');
+      }
+    });
   }
 
   onCheckboxChange(list: JokeList, joke: JokeDto, event: Event): void {

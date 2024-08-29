@@ -9,16 +9,12 @@
       <input type="checkbox" [checked]="hasJokeWithId(list)" (change)="onCheckboxChange(list, joke, $event)">
       <span> {{list.name}}</span>
       <div class="accessibilityType">
-        @if(list.visibilityType == JokeListVisibilityEnum.PRIVATE){
-        <i class="fa-solid fa-lock" title="Lista prywatna"></i>
-        }
-        @else if (list.visibilityType == JokeListVisibilityEnum.NOT_PUBLIC) {
-        <i class="fa-solid fa-lock-open" title="Lista niepubliczna"></i>
-        }
-        @else{
-        <i class="fa-solid fa-user" title="Lista publiczna"></i>
-        }
-
+        <i *ngIf="list.visibilityType === JokeListVisibilityEnum.PRIVATE" class="fa-solid fa-lock"
+          title="Lista prywatna"></i>
+        <i *ngIf="list.visibilityType === JokeListVisibilityEnum.NOT_PUBLIC" class="fa-solid fa-unlock"
+          title="Lista niepubliczna"></i>
+        <i *ngIf="list.visibilityType === JokeListVisibilityEnum.PUBLIC" class="fa-solid fa-user"
+          title="Lista publiczna"></i>
       </div>
     </div>
   </div>
@@ -30,19 +26,19 @@
     @else {
     <div id="form-container">
       <div class="input-area">
-        <input id="list-name-input" type="text" placeholder="Nazwa">
+        <input id="list-name-input" type="text" placeholder="Nazwa" [(ngModel)]="listName">
         <span class="required">*</span>
       </div>
 
       <div class="select-area">
-        <select id="accessibility">
+        <select id="accessibility" [(ngModel)]="accessibility">
           <option value="PUBLIC">Publiczna</option>
           <option value="NOT_PUBLIC">Niepubliczna</option>
           <option value="PRIVATE">Prywatna</option>
         </select>
       </div>
 
-      <button>
+      <button (click)="createNewList()">
         Stwórz
       </button>
 

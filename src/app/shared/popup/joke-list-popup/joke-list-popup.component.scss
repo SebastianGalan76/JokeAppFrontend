@@ -30,6 +30,9 @@
 
     #list-container{
         min-height: 100px;
+        max-height: 50vh;
+
+        overflow-y: auto;
 
         display: flex;
         flex-direction: column;
@@ -49,6 +52,13 @@
             }
 
             .accessibilityType{
+                width: 30px;
+                height: 30px;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
                 margin-left: auto;
             }
         }

@@ -22,6 +22,8 @@
 }
 #container #list-container {
   min-height: 100px;
+  max-height: 50vh;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
 }
@@ -37,6 +39,11 @@
   height: 30px;
 }
 #container #list-container .list .accessibilityType {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-left: auto;
 }
 #container footer {

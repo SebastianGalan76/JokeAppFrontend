@@ -11,5 +11,7 @@ export class JokeList {
 }
 
 export enum JokeListVisibilityEnum {
-  PUBLIC, NOT_PUBLIC, PRIVATE
+  PUBLIC = 'PUBLIC', 
+  NOT_PUBLIC = 'NOT_PUBLIC', 
+  PRIVATE = 'PRIVATE'
 }
