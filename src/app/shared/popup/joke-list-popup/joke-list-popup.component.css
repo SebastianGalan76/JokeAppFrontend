@@ -37,6 +37,7 @@
 #container #list-container .list input {
   width: 30px;
   height: 30px;
+  flex-shrink: 0;
 }
 #container #list-container .list .accessibilityType {
   width: 30px;
@@ -45,48 +46,4 @@
   justify-content: center;
   align-items: center;
   margin-left: auto;
-}
-#container footer {
-  border-top: 2px solid #595677;
-  width: 100%;
-}
-#container footer #showNewListFormButton {
-  text-align: center;
-  width: 100%;
-  font-size: 1.2em;
-  padding: 5px 0;
-  background-color: rgba(0, 0, 0, 0.062745098);
-  border: 1px solid #595677;
-  border-radius: 10px;
-  margin-top: 10px;
-}
-#container footer #showNewListFormButton:hover {
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.1254901961);
-}
-#container footer #form-container {
-  padding: 10px 0;
-}
-#container footer #form-container .input-area {
-  height: 40px;
-}
-#container footer #form-container .select-area {
-  margin-top: 10px;
-  height: 40px;
-}
-#container footer #form-container button {
-  outline: none;
-  border: none;
-  background-color: rgb(113, 204, 29);
-  text-align: center;
-  width: 100%;
-  height: 40px;
-  border-radius: 10px;
-  font-weight: 600;
-  color: #f7faff;
-  margin-top: 10px;
-}
-#container footer #form-container button:hover {
-  cursor: pointer;
-  background-color: rgb(91, 161, 25);
 }/*# sourceMappingURL=joke-list-popup.component.css.map */

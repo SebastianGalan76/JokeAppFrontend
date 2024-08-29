@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { JokeComponent } from "./joke/joke.component";
-import { JokeListService } from '../../../service/joke/joke-list.service';
+import { JokeContainerService } from '../../../service/joke/joke-container.service';
 import { PageResponse } from '../../../model/PageResponse';
 import { JokeDto } from '../../../model/JokeDto';
 
@@ -15,7 +15,7 @@ export class JokeListComponent implements AfterViewInit {
   @ViewChild('jokeContainer', { read: ViewContainerRef }) jokeContainer!: ViewContainerRef;
   page: number = 0;
 
-  constructor(private jokeListService: JokeListService) {}
+  constructor(private jokeListService: JokeContainerService) {}
 
   ngAfterViewInit() {
     this.loadJokes();

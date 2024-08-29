@@ -36,4 +36,10 @@ button {
 
 .response.error {
   color: rgb(255, 63, 63);
+}
+
+.text-limit {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }/*# sourceMappingURL=styles.css.map */

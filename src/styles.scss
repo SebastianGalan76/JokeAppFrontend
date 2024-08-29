@@ -34,3 +34,9 @@ button{
 .response.error{
     color: $color-red;
 }
+
+.text-limit {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
