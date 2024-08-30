@@ -29,7 +29,7 @@ export class CreateListComponent {
   constructor(private apiService: ApiService, private userService: UserService) { }
 
   createNewList() {
-    if(this.listName.length == 0){
+    if (this.listName.length == 0) {
       this.responseMessage = {
         status: ResponseStatusEnum.ERROR,
         message: "Nazwa listy nie może być pusta!"
@@ -46,7 +46,7 @@ export class CreateListComponent {
             this.user.jokeLists.push(response.content);
             this.userService.saveUser(this.user);
 
-            this.newListFormIsVisible = true;
+            this.newListFormIsVisible = false;
           }
         },
         error: (response) => {
