@@ -1,0 +1,93 @@
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+#container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  right: 10px;
+  top: 10px;
+  z-index: 100000000;
+  width: 500px;
+  max-height: 100vh;
+}
+#container .notification {
+  background-color: rgb(113, 204, 29);
+  border-radius: 9px;
+  overflow: hidden;
+  flex-shrink: 0;
+  opacity: 0;
+  transform: translateX(100%);
+  animation: slideIn 0.2s ease-out forwards, fadeOut 0.5s forwards 7.5s;
+}
+#container .notification .up-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+}
+#container .notification .up-panel .message {
+  display: block;
+}
+#container .notification .up-panel .close {
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 1.5em;
+  background-color: rgb(91, 161, 25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#container .notification .up-panel .close:hover {
+  cursor: pointer;
+}
+#container .notification .progress-bar {
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.192);
+  width: 0;
+  animation: progress 6s linear forwards;
+}
+@keyframes progress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+#container .notification.success {
+  background-color: rgb(113, 204, 29);
+}
+#container .notification.success .success {
+  background-color: rgb(91, 161, 25);
+}
+#container .notification.error {
+  background-color: rgb(255, 63, 63);
+}
+#container .notification.error .close {
+  background-color: rgb(216, 48, 48);
+}
+@media (max-width: 500px) {
+  #container {
+    width: 100%;
+  }
+}/*# sourceMappingURL=notification.component.css.map */

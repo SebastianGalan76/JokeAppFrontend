@@ -3,6 +3,7 @@ import { JokeDto } from '../../../../model/JokeDto';
 import { CommonModule } from '@angular/common';
 import { JokeService } from '../../../../service/joke/joke.service';
 import { JokeMenuComponent } from "./joke-menu/joke-menu.component";
+import { NotificationService } from '../../../../service/notification.service';
 
 @Component({
   selector: 'app-joke',
@@ -16,7 +17,7 @@ export class JokeComponent {
 
   menuIsShown: boolean = false;
 
-  constructor(private jokeService: JokeService) {
+  constructor(private jokeService: JokeService, private notificationService: NotificationService) {
     
   }
 
@@ -64,5 +65,9 @@ export class JokeComponent {
     this.joke.favorite = !this.joke.favorite;
 
     this.jokeService.favorite(this.joke.id);
+
+    if(this.joke.favorite){
+      this.notificationService.showNotification('Dodano dowcip do ulubionych');
+    }
   }
 }

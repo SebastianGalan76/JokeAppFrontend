@@ -1,0 +1,112 @@
+@import "../../../styles/base";
+
+@keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+
+#container {
+    position: fixed;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    right: 10px;
+    top: 10px;
+
+    z-index: 100000000;
+
+    width: 500px;
+    max-height: 100vh;
+
+    .notification {
+        background-color: $color-green;
+        border-radius: 9px;
+        overflow: hidden;
+
+        flex-shrink: 0;
+
+        opacity: 0;
+        transform: translateX(100%);
+        animation:
+            slideIn 0.2s ease-out forwards,
+            fadeOut 0.5s forwards 7.5s;
+
+        .up-panel {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 10px;
+            gap: 10px;
+            .message {
+                display: block;
+            }
+
+            .close {
+                width: 30px;
+                height: 30px;
+                padding: 5px;
+                border-radius: 5px;
+                font-size: 1.5em;
+                background-color: $color-green-dark;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .close:hover {
+                cursor: pointer;
+            }
+        }
+
+        .progress-bar {
+            height: 10px;
+            background-color: rgba(0, 0, 0, 0.192);
+            width: 0;
+            animation: progress 6s linear forwards;
+        }
+
+        @keyframes progress {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+    }
+
+    .notification.success{
+        background-color: $color-green;
+
+        .success{
+            background-color: $color-green-dark;
+        }
+    }
+
+    .notification.error{
+        background-color: $color-red;
+
+        .close{
+            background-color: $color-red-dark;
+        }
+    }
+
+    @media (max-width: 500px) {
+        width: 100%;
+    }
+}

@@ -1,0 +1,16 @@
+<div id="container">
+    <div class="notification" *ngFor="let notification of notifications" [ngClass]="notification.type">
+        <div class="up-panel">
+            <span class="message">
+                {{notification.message}}
+            </span>
+
+            <div class="close" (click)="this.notificationService.removeNotification(notification.id)">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+        <div class="progress-bar">
+
+        </div>
+    </div>
+</div>

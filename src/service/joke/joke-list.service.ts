@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../api.service';
-import { PageResponse } from '../../model/PageResponse';
 import { JokeDto } from '../../model/JokeDto';
-import { catchError, map, Observable, of } from 'rxjs';
 import { JokeList } from '../../model/JokeList';
 import { User } from '../../model/User';
 import { UserService } from '../user.service';
+import { NotificationService, NotificationType } from '../notification.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JokeListService {
-  constructor(private apiService: ApiService, private userService: UserService) { }
+  constructor(private apiService: ApiService, private userService: UserService, private notificationService: NotificationService) { }
 
   containsJoke(list: JokeList, joke: JokeDto) {
     if (list.jokes) {
@@ -24,6 +23,8 @@ export class JokeListService {
     list.jokes.push(joke);
     this.apiService.post('/joke-list/' + list.id + '/' + joke.id, null, { withCredentials: true }).subscribe();
     this.userService.saveUser(user);
+
+    this.notificationService.showNotification('Dodano dowcip do listy '+list.name);
   }
 
   removeJokeFromList(user: User, joke: JokeDto, list: JokeList) {
