@@ -7,6 +7,7 @@ import { Category } from '../../../model/Category';
 import { FormsModule } from '@angular/forms';
 import { ResponseMessage } from '../../../model/ResponseMessage';
 import { ResponseStatusEnum } from '../../../model/ResponseStatusEnum';
+import { NotificationService, NotificationType } from '../../../service/notification.service';
 
 @Component({
   selector: 'app-add-joke',
@@ -28,9 +29,9 @@ export class AddJokeComponent {
   responseMessage: ResponseMessage | null = null;
   buttonIsDisabled: boolean = false;
 
-  constructor(public userService: UserService, private createJokeService: CreateJokeService) { }
+  constructor(public userService: UserService, private createJokeService: CreateJokeService, private notificationService: NotificationService) { }
 
-  createJoke(button : HTMLButtonElement) {
+  createJoke(button: HTMLButtonElement) {
     var content = "";
     this.responseMessage = null;
 
@@ -70,11 +71,7 @@ export class AddJokeComponent {
       next: () => {
         var typePL = this.type == "JOKE" ? 'Dowcip' : 'Suchar';
 
-        this.responseMessage = {
-          status: ResponseStatusEnum.SUCCESS,
-          message: typePL + " został przesłany do weryfikacji"
-        }
-
+        this.notificationService.showNotification(typePL + " został przesłany do weryfikacji. Po zweryfikowaniu zostanie upubliczniony.", NotificationType.INFO);
         button.style.display = "none";
       },
       error: (response) => {

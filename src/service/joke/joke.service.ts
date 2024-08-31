@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../api.service';
-import { PageResponse } from '../../model/PageResponse';
-import { JokeDto } from '../../model/JokeDto';
-import { catchError, map, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +17,9 @@ export class JokeService {
 
   favorite(id: number){
     this.apiService.post<Response>('/joke/favorite/'+id, null, {withCredentials: true}).subscribe();
+  }
+
+  delete(id: number){
+    this.apiService.delete<Response>('/joke/'+id, {withCredentials: true}).subscribe();
   }
 }

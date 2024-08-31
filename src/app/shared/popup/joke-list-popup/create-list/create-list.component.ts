@@ -45,7 +45,7 @@ export class CreateListComponent {
         next: (response) => {
           if (response.status === ResponseStatusEnum.SUCCESS) {
             this.user.jokeLists.push(response.content);
-            this.userService.saveUser(this.user);
+            this.userService.saveUser();
 
             this.newListFormIsVisible = false;
             this.notificationService.showNotification('Stworzono prawidłowo listę '+this.listName);

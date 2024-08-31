@@ -25,8 +25,8 @@ export class UserService {
     return this.apiService.get<User | null>("/user", { withCredentials: true }).pipe(
       map(data => {
         if (data) {
-          this.user = new User(data.login, data.email, data.role, data.jokeLists);
-          this.saveUser(this.user);
+          this.user = new User(data.id, data.login, data.email, data.role, data.jokeLists);
+          this.saveUser();
           return this.user;
         } else {
           this.user = null;
@@ -40,7 +40,7 @@ export class UserService {
     );
   }
 
-  saveUser(user: User){
+  saveUser(){
     sessionStorage.setItem('user', JSON.stringify(this.user));
   }
 

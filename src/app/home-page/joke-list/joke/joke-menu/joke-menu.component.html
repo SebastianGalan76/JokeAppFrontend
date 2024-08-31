@@ -3,5 +3,6 @@
         <li (click)="saveJokeOnList()">Zapisz</li>
         <li>Udostępnij</li>
         <li>Zgłoś</li>
+        <li *ngIf="user != null && (joke.owner.id == user.id)" (click)="deleteJoke()">Usuń</li>
     </ul>
 </div>

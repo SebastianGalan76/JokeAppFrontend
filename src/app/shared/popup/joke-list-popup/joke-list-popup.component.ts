@@ -47,10 +47,10 @@ export class JokeListPopupComponent implements OnInit {
     const isChecked = inputElement.checked;
 
     if (isChecked && list) {
-      this.jokeListService.addJokeToList(this.user, joke, list);
+      this.jokeListService.addJokeToList(joke, list);
 
     } else if (list) {
-      this.jokeListService.removeJokeFromList(this.user, joke, list);
+      this.jokeListService.removeJokeFromList(joke, list);
     }
   }
 }
