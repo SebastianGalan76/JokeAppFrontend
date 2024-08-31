@@ -40,6 +40,12 @@
         }
 
         @media (max-width: 850px){
+            height: 150px;
+            .icon{
+                height: 150px;
+                width: auto;
+            }
+
             h1{
                 font-size: 1.2em;
             }
@@ -65,7 +71,8 @@
 
     #form-container {
         width: 700px;
-        margin-bottom: 200px;
+        margin-top: 25px;
+        margin-bottom: 100px;
         
         .section {
             width: 100%;

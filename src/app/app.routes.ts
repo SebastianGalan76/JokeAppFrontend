@@ -41,6 +41,10 @@ export const routes: Routes = [
                 component: AddJokeComponent
             },
             {
+                path: 'favorite',
+                component: JokeListComponent
+            },
+            {
                 path: '',
                 component: JokeListComponent
             }

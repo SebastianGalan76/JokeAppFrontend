@@ -1,5 +1,14 @@
 @import "../../../styles/base";
 
+$color-success-background: #e9f9ee;
+$color-success: #16c550;
+
+$color-error-background: #f9eded;
+$color-error: #d65059;
+
+$color-info-background: #eaf1f9;
+$color-info: #4888cf;
+
 @keyframes slideIn {
     from {
       opacity: 0;
@@ -32,7 +41,6 @@
     max-height: 100vh;
 
     .notification {
-        background-color: $color-green;
         border-radius: 9px;
         overflow: hidden;
 
@@ -42,7 +50,7 @@
         transform: translateX(100%);
         animation:
             slideIn 0.2s ease-out forwards,
-            fadeOut 0.5s forwards 7.5s;
+            fadeOut 0.5s forwards 6s;
 
         .up-panel {
             display: flex;
@@ -51,8 +59,20 @@
 
             padding: 10px;
             gap: 10px;
-            .message {
-                display: block;
+
+            .left-section{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                .icon{
+                    flex-shrink: 0;
+                    font-size: 2em;
+                }
+    
+                .message {
+                    display: block;
+                }
             }
 
             .close {
@@ -61,7 +81,6 @@
                 padding: 5px;
                 border-radius: 5px;
                 font-size: 1.5em;
-                background-color: $color-green-dark;
 
                 display: flex;
                 justify-content: center;
@@ -75,7 +94,6 @@
 
         .progress-bar {
             height: 10px;
-            background-color: rgba(0, 0, 0, 0.192);
             width: 0;
             animation: progress 6s linear forwards;
         }
@@ -91,18 +109,44 @@
     }
 
     .notification.success{
-        background-color: $color-green;
+        background-color: $color-success-background;
 
-        .success{
-            background-color: $color-green-dark;
+        border: 2px solid $color-success;
+        
+        .icon{
+            color: $color-success;
+        }
+
+        .progress-bar{
+            background-color: $color-success;
         }
     }
 
     .notification.error{
-        background-color: $color-red;
+        background-color: $color-error-background;
 
-        .close{
-            background-color: $color-red-dark;
+        border: 2px solid $color-error;
+        
+        .icon{
+            color: $color-error;
+        }
+
+        .progress-bar{
+            background-color: $color-error;
+        }
+    }
+
+    .notification.info{
+        background-color: $color-info-background;
+
+        border: 2px solid $color-info;
+        
+        .icon{
+            color: $color-info;
+        }
+
+        .progress-bar{
+            background-color: $color-info;
         }
     }
 

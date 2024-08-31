@@ -30,6 +30,13 @@
   }
 }
 @media (max-width: 850px) {
+  #container #header {
+    height: 150px;
+  }
+  #container #header .icon {
+    height: 150px;
+    width: auto;
+  }
   #container #header h1 {
     font-size: 1.2em;
   }
@@ -50,7 +57,8 @@
 }
 #container #form-container {
   width: 700px;
-  margin-bottom: 200px;
+  margin-top: 25px;
+  margin-bottom: 100px;
 }
 #container #form-container .section {
   width: 100%;

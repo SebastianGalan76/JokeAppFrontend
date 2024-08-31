@@ -11,7 +11,23 @@ export class JokeContainerService {
   constructor(private apiService: ApiService) { }
 
   getJokes(page: number): Observable<PageResponse<JokeDto> | null> {
-    return this.apiService.get<PageResponse<JokeDto>>('/jokes?page=' + page, {withCredentials: true}).pipe(
+    return this.apiService.get<PageResponse<JokeDto>>('/jokes?page=' + page, { withCredentials: true }).pipe(
+      map(data => {
+        if (data) {
+          return data;
+        } else {
+          return null;
+        }
+      }),
+      catchError(error => {
+        console.error('Błąd pobierania użytkownika', error);
+        return of(null);
+      })
+    );
+  }
+
+  getFavoriteJokes(page: number): Observable<PageResponse<JokeDto> | null> {
+    return this.apiService.get<PageResponse<JokeDto>>('/favorite?page=' + page, { withCredentials: true }).pipe(
       map(data => {
         if (data) {
           return data;

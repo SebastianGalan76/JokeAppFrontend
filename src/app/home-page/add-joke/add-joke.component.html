@@ -8,7 +8,7 @@
 
     </div>
 
-    @if (userService.getUser()) {
+    @if (!userService.getUser()) {
     <a href="/auth/signIn">
         <div id="user-info">
             Zaloguj się, jeśli nie chcesz publikować anonimowo

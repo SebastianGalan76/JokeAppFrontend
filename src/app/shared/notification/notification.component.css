@@ -28,13 +28,12 @@
   max-height: 100vh;
 }
 #container .notification {
-  background-color: rgb(113, 204, 29);
   border-radius: 9px;
   overflow: hidden;
   flex-shrink: 0;
   opacity: 0;
   transform: translateX(100%);
-  animation: slideIn 0.2s ease-out forwards, fadeOut 0.5s forwards 7.5s;
+  animation: slideIn 0.2s ease-out forwards, fadeOut 0.5s forwards 6s;
 }
 #container .notification .up-panel {
   display: flex;
@@ -43,7 +42,16 @@
   padding: 10px;
   gap: 10px;
 }
-#container .notification .up-panel .message {
+#container .notification .up-panel .left-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#container .notification .up-panel .left-section .icon {
+  flex-shrink: 0;
+  font-size: 2em;
+}
+#container .notification .up-panel .left-section .message {
   display: block;
 }
 #container .notification .up-panel .close {
@@ -52,7 +60,6 @@
   padding: 5px;
   border-radius: 5px;
   font-size: 1.5em;
-  background-color: rgb(91, 161, 25);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,7 +69,6 @@
 }
 #container .notification .progress-bar {
   height: 10px;
-  background-color: rgba(0, 0, 0, 0.192);
   width: 0;
   animation: progress 6s linear forwards;
 }
@@ -75,16 +81,34 @@
   }
 }
 #container .notification.success {
-  background-color: rgb(113, 204, 29);
+  background-color: #e9f9ee;
+  border: 2px solid #16c550;
 }
-#container .notification.success .success {
-  background-color: rgb(91, 161, 25);
+#container .notification.success .icon {
+  color: #16c550;
+}
+#container .notification.success .progress-bar {
+  background-color: #16c550;
 }
 #container .notification.error {
-  background-color: rgb(255, 63, 63);
+  background-color: #f9eded;
+  border: 2px solid #d65059;
 }
-#container .notification.error .close {
-  background-color: rgb(216, 48, 48);
+#container .notification.error .icon {
+  color: #d65059;
+}
+#container .notification.error .progress-bar {
+  background-color: #d65059;
+}
+#container .notification.info {
+  background-color: #eaf1f9;
+  border: 2px solid #4888cf;
+}
+#container .notification.info .icon {
+  color: #4888cf;
+}
+#container .notification.info .progress-bar {
+  background-color: #4888cf;
 }
 @media (max-width: 500px) {
   #container {

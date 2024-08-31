@@ -9,6 +9,7 @@ import { User } from '../../../../../model/User';
 import { ResponseMessage } from '../../../../../model/ResponseMessage';
 import { ResponseStatusEnum } from '../../../../../model/ResponseStatusEnum';
 import { catchError, throwError } from 'rxjs';
+import { NotificationService } from '../../../../../service/notification.service';
 
 @Component({
   selector: 'app-create-list',
@@ -26,7 +27,7 @@ export class CreateListComponent {
   newListFormIsVisible = false;
   responseMessage: ResponseMessage | null = null;
 
-  constructor(private apiService: ApiService, private userService: UserService) { }
+  constructor(private apiService: ApiService, private userService: UserService, private notificationService: NotificationService) { }
 
   createNewList() {
     if (this.listName.length == 0) {
@@ -47,6 +48,7 @@ export class CreateListComponent {
             this.userService.saveUser(this.user);
 
             this.newListFormIsVisible = false;
+            this.notificationService.showNotification('Stworzono prawidłowo listę '+this.listName);
           }
         },
         error: (response) => {

@@ -12,8 +12,10 @@
             <div class="nav-margin"></div>
             <app-aside-menu-button [text]="'Kategorie'" [icon]="'fa-solid fa-table-cells-large'"
                 (onSelect)="handleButtonSelect($event)" />
-            <app-aside-menu-button [text]="'Ulubione'" [icon]="'fa-solid fa-star'"
-                (onSelect)="handleButtonSelect($event)" />
+            <a routerLink="/favorite">
+                <app-aside-menu-button [text]="'Ulubione'" [icon]="'fa-solid fa-star'"
+                    (onSelect)="handleButtonSelect($event)" />
+            </a>
             <app-aside-menu-button [text]="'Losowy'" [icon]="'fa-solid fa-shuffle'"
                 (onSelect)="handleButtonSelect($event)" />
             <app-aside-menu-button [text]="'Najlepsze'" [icon]="'fa-solid fa-ranking-star'"
