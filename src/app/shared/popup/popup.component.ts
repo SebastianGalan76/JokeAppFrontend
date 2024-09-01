@@ -13,6 +13,7 @@ import { Subscription } from 'rxjs';
 export class PopupComponent implements AfterViewInit {
   @ViewChild('popupContainer', { read: ViewContainerRef }) popupContainer!: ViewContainerRef;
   isVisible$;
+  
   private visibilitySubscription!: Subscription;
 
   constructor(private popupService: PopupService, private cdr: ChangeDetectorRef) { 

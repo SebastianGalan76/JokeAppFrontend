@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { User, UserRoleEnum } from '../../../../../model/User';
 import { JokeContainerService } from '../../../../../service/joke/joke-container.service';
 import { RemoveJokeConfirmComponent } from '../../../../shared/popup/remove-joke-confirm/remove-joke-confirm.component';
+import { ReportJokeComponent } from '../../../../shared/popup/report-joke/report-joke.component';
 
 @Component({
   selector: 'app-joke-menu',
@@ -64,6 +65,12 @@ export class JokeMenuComponent implements OnInit{
 
   deleteJoke(){
     this.popupService.showPopup(RemoveJokeConfirmComponent, [
+      {name: "joke", value: this.joke}
+    ])
+  }
+
+  reportJoke(){
+    this.popupService.showPopup(ReportJokeComponent, [
       {name: "joke", value: this.joke}
     ])
   }

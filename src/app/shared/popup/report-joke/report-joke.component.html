@@ -1,0 +1,34 @@
+<div id="container">
+    <div id="header">
+        <div>
+            Zgłoś dowcip
+        </div>
+
+        <div id="close-button" (click)="closePopup()">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+    </div>
+
+    <div id="form-container">
+        <div class="select-area">
+            <div class="label">Wybierz powód</div>
+
+            <select id="selected-reason" [(ngModel)]="selectedReason">
+                <option *ngFor="let option of options" [value]="option.value">
+                    {{ option.label }}
+                </option>
+            </select>
+        </div>
+        <br>
+        @if(selectedReason == 0){
+        Podaj powód
+        <textarea [(ngModel)]="textAreaReason"></textarea>
+        }
+        
+        <button (click)="sendReport()">
+            Zgłoś
+        </button>
+
+
+    </div>
+</div>

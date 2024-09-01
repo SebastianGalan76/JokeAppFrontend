@@ -1,0 +1,65 @@
+@import '../../../../styles/base';
+@import '../../../../styles/formElement.scss';
+
+#container{
+    background-color: $color-background;
+    padding: 20px;
+    border-radius: 20px;
+
+    width: 400px;
+
+    #header{
+        display: flex;
+        justify-content: space-between;
+
+        font-size: 1.4em;
+        font-weight: 600;
+
+        #close-button:hover{
+            cursor: pointer;
+        }
+    }
+
+    #form-container {
+        padding: 10px 0;
+
+        .input-area {
+            height: 40px;
+        }
+
+        .select-area {
+            margin-top: 10px;
+            
+            select{
+                height: 40px;
+            }
+        }
+        
+        textarea{
+            resize: none;
+        }
+
+        button {
+            outline: none;
+            border: none;
+
+            background-color: $color-red;
+            text-align: center;
+            width: 100%;
+            height: 40px;
+            border-radius: 10px;
+            font-weight: 600;
+            color: $color-white;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: $color-red-dark;
+        }
+    }
+
+    @media (max-width: 400px){
+        width: 100%;
+    }
+}
