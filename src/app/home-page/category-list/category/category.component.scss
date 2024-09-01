@@ -1,0 +1,45 @@
+@import '../../../../styles/base';
+
+.category{
+    background-color: $color-background-light;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid $color-text-1;
+
+    box-shadow: 5px 5px 5px #3232322d;
+    flex-shrink: 0;
+
+    .up-panel{
+        display: flex;
+        justify-content: space-between;
+
+        font-size: 1.2em;
+
+        #favorite-button{
+            font-size: 1.5em;
+        }
+
+        #favorite-button:hover{
+            color: #ffe867;
+            cursor: pointer;
+        }
+
+        #favorite-button.active{
+            color: #fcda1c;
+        }
+
+        #favorite-button.active:hover{
+            color: #ffe867;
+        }
+    }
+
+    .down-panel{
+        margin-top: 20px;
+        font-size: 0.9em;
+    }
+}
+
+.category:hover{
+    cursor: pointer;
+    background-color: $color-dark;
+}

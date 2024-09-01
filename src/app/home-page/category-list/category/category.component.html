@@ -1,0 +1,13 @@
+<div class="category">
+    <div class="up-panel">
+        <div class="name">
+            {{category.name}}
+        </div>
+        <div id="favorite-button" [ngClass]="{'active' : category.isFavorite}" (click)="favorite()">
+            <i class="fa-solid fa-star"></i>
+        </div>
+    </div>
+    <div class="down-panel">
+        Ilość dowcipów: {{category.jokeAmount}}
+    </div>
+</div>

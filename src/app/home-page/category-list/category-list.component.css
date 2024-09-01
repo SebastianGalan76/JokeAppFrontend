@@ -84,52 +84,19 @@ textarea {
 }
 
 #container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-#container h1 {
   padding: 20px;
 }
-#container #content {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+#container .category-type {
+  margin-top: 50px;
 }
-#container footer {
-  display: flex;
-  flex-direction: column;
-}
-#container footer button {
-  background-color: #7e68ff;
-  width: 100%;
-  padding: 15px 0;
-  border: none;
-  color: #f7faff;
-  font-weight: 600;
-  font-size: 1.1em;
-  border-radius: 20px;
-}
-#container footer button:hover {
-  background-color: #604adb;
-  cursor: pointer;
-}
-#container footer button:disabled {
-  background-color: #604adb;
-  cursor: not-allowed;
-}
-#container footer .info {
-  display: block;
-  margin-left: 25px;
-  margin-top: 3px;
-}
-#container .link {
-  color: #7e68ff;
-  text-decoration: none;
+#container .category-type .header {
+  font-size: 1.5em;
   font-weight: 800;
 }
-#container .link:hover {
-  color: #604adb;
-}/*# sourceMappingURL=form.component.css.map */
+#container .category-type .category-container {
+  display: grid;
+  margin-top: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  flex-wrap: wrap;
+  gap: 20px;
+}/*# sourceMappingURL=category-list.component.css.map */

@@ -1,0 +1,21 @@
+<div id="container">
+    <div class="input-area">
+        <input id="list-name-input" type="text" placeholder="Wyszukaj kategorię" [(ngModel)]="categoryName" (input)="loadCategories()">
+    </div>
+
+    <section class="category-type" *ngIf="favoriteCategories.length > 0">
+        <div class="header">Ulubione Kategorie</div>
+
+        <div class="category-container">
+            <app-category *ngFor="let category of favoriteCategories" [category]="category" (changeFavoriteStatus)="changeFavoriteStatus($event)"></app-category>
+        </div>
+    </section>
+
+    <section class="category-type">
+        <div class="header">Kategorie</div>
+
+        <div class="category-container">
+            <app-category *ngFor="let category of categories" [category]="category" (changeFavoriteStatus)="changeFavoriteStatus($event)"></app-category>
+        </div>
+    </section>
+</div>

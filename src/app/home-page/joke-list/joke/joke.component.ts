@@ -17,9 +17,7 @@ export class JokeComponent {
 
   menuIsShown: boolean = false;
 
-  constructor(private jokeService: JokeService, private notificationService: NotificationService) {
-    
-  }
+  constructor(private jokeService: JokeService, private notificationService: NotificationService) { }
 
   toggleMenu(){
     this.menuIsShown = !this.menuIsShown;

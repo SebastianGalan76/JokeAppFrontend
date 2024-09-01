@@ -10,8 +10,10 @@
                     (onSelect)="handleButtonSelect($event)" />
             </a>
             <div class="nav-margin"></div>
-            <app-aside-menu-button [text]="'Kategorie'" [icon]="'fa-solid fa-table-cells-large'"
+            <a routerLink="/categories">
+                <app-aside-menu-button [text]="'Kategorie'" [icon]="'fa-solid fa-table-cells-large'"
                 (onSelect)="handleButtonSelect($event)" />
+            </a>
             <a routerLink="/favorite">
                 <app-aside-menu-button [text]="'Ulubione'" [icon]="'fa-solid fa-star'"
                     (onSelect)="handleButtonSelect($event)" />

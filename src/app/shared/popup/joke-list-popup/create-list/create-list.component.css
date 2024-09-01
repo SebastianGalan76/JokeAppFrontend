@@ -25,6 +25,8 @@
 }
 #container #form-container .select-area {
   margin-top: 10px;
+}
+#container #form-container .select-area select {
   height: 40px;
 }
 #container #form-container button {

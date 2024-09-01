@@ -30,7 +30,10 @@
 
         .select-area {
             margin-top: 10px;
-            height: 40px;
+            
+            select{
+                height: 40px;
+            }
         }
 
         button {

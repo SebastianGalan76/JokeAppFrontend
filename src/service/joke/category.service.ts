@@ -12,7 +12,11 @@ export class CategoryService {
   constructor(private apiService: ApiService) { }
 
   getCategories(): Observable<Category[]> {
-    const storedCategories = localStorage.getItem('categories');
+    if(this.categories != null){
+      return of(this.categories);
+    }
+
+    const storedCategories = sessionStorage.getItem('categories');
     if (storedCategories) {
       this.categories = JSON.parse(storedCategories);
 
@@ -25,16 +29,21 @@ export class CategoryService {
       map(data => {
         if (data) {
           this.categories = data;
-          localStorage.setItem('categories', JSON.stringify(this.categories));
+          sessionStorage.setItem('categories', JSON.stringify(this.categories));
           return this.categories;
         } else {
           return [];
         }
       }),
       catchError(error => {
-        console.error('Błąd pobierania użytkownika', error);
+        console.error('Błąd pobierania kategorii', error);
         return of([]);
       })
     );
+  }
+
+  favorite(id: number) : Observable<Response> {
+    sessionStorage.setItem('categories', JSON.stringify(this.categories));
+    return this.apiService.post<Response>('/category/'+id+"/favorite", null, {withCredentials: true});
   }
 }

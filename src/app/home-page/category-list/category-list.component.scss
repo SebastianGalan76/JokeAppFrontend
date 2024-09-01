@@ -1,0 +1,27 @@
+@import '../../../styles/base';
+@import '../../../styles/formElement.scss';
+
+#container{
+    padding: 20px;
+
+    .category-type{
+        margin-top: 50px;
+
+        .header{
+            font-size: 1.5em;
+            font-weight: 800;
+        }
+
+        .category-container{
+            display: grid;
+            margin-top: 10px;
+
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+
+            flex-wrap: wrap;
+            gap: 20px;
+
+            
+        }
+    }
+}
