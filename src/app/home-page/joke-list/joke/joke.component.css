@@ -24,11 +24,14 @@
   font-size: 1.5em;
 }
 #container #header #favorite-button:hover {
-  color: #fcda1c;
+  color: #ffe867;
   cursor: pointer;
 }
 #container #header #favorite-button.active {
   color: #fcda1c;
+}
+#container #header #favorite-button.active:hover {
+  color: #ffe867;
 }
 #container #content {
   padding: 20px;

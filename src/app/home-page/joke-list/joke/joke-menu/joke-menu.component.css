@@ -17,4 +17,7 @@
 #container ul li:hover {
   background-color: rgba(121, 121, 121, 0.2196078431);
   cursor: pointer;
+}
+#container ul li.red {
+  color: #e45959;
 }/*# sourceMappingURL=joke-menu.component.css.map */

@@ -7,9 +7,7 @@ import { JokeComponent } from '../../app/home-page/joke-list/joke/joke.component
 import { NotificationService, NotificationType } from '../notification.service';
 
 export class JokeComponentRef {
-  constructor(public joke: JokeDto, public componentRef: ComponentRef<JokeComponent> | null) {
-
-  }
+  constructor(public joke: JokeDto, public componentRef: ComponentRef<JokeComponent> | null) {}
 }
 
 @Injectable({
@@ -21,6 +19,8 @@ export class JokeContainerService {
   constructor(private apiService: ApiService, private notificationService: NotificationService) { }
 
   loadJokes(url: string, page: number): Observable<JokeComponentRef[]> {
+    this.jokes = [];
+
     return this.apiService.get<PageResponse<JokeDto>>(url + '?page=' + page, { withCredentials: true }).pipe(
       map((data: PageResponse<JokeDto> | null) => {
         if (data) {

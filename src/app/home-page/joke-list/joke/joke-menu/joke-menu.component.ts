@@ -7,6 +7,7 @@ import { NotificationService, NotificationType } from '../../../../../service/no
 import { CommonModule } from '@angular/common';
 import { User, UserRoleEnum } from '../../../../../model/User';
 import { JokeContainerService } from '../../../../../service/joke/joke-container.service';
+import { RemoveJokeConfirmComponent } from '../../../../shared/popup/remove-joke-confirm/remove-joke-confirm.component';
 
 @Component({
   selector: 'app-joke-menu',
@@ -62,6 +63,8 @@ export class JokeMenuComponent implements OnInit{
   }
 
   deleteJoke(){
-    this.jokeContainerService.deleteJoke(this.joke);
+    this.popupService.showPopup(RemoveJokeConfirmComponent, [
+      {name: "joke", value: this.joke}
+    ])
   }
 }

@@ -13,6 +13,6 @@ export class User {
 }
 
 export enum UserRoleEnum {
-  USER, HELPER, MODERATOR, ADMIN
+  USER=0, HELPER=500, MODERATOR=2000, ADMIN=10000
 }
 

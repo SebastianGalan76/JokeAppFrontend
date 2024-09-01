@@ -1,5 +1,7 @@
 @import '../../../../../styles/base';
 
+$color-red: #e45959;
+
 #container{
     background-color: #e2e2e2;
     padding: 10px 0;
@@ -21,6 +23,10 @@
         li:hover{
             background-color: #79797938;
             cursor: pointer;
+        }
+
+        li.red{
+            color: $color-red;
         }
     }
 }

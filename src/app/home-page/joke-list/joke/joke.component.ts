@@ -69,5 +69,8 @@ export class JokeComponent {
     if(this.joke.favorite){
       this.notificationService.showNotification('Dodano dowcip do ulubionych');
     }
+    else{
+      this.notificationService.showNotification('Usunięto dowcip z ulubionych');
+    }
   }
 }
