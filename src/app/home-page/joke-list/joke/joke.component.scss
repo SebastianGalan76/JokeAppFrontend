@@ -1,14 +1,25 @@
-@import '../../../../styles/base';
+@import "../../../../styles/base";
 
-#container{
+:host {
+    height: inherit;
+}
+
+#container ::ng-deep {
     width: 800px;
+    height: inherit;
 
     background-color: $color-background-light;
     border-radius: 10px;
 
     color: $color-text-1;
 
-    #header{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    box-shadow: 5px 5px 5px #32323211;
+
+    #header {
         border-bottom: 1px solid $color-aside-border;
         padding: 10px 20px;
 
@@ -16,50 +27,57 @@
         justify-content: space-between;
         align-items: center;
 
-        #owner{
+        flex-shrink: 0;
+
+        #owner {
             font-weight: 700;
             display: flex;
             gap: 10px;
             align-items: center;
 
-            i{
+            i {
                 font-size: 1.5em;
             }
         }
 
-        #favorite-button{
+        #favorite-button {
             font-size: 1.5em;
         }
 
-        #favorite-button:hover{
+        #favorite-button:hover {
             color: #ffe867;
             cursor: pointer;
         }
 
-        #favorite-button.active{
+        #favorite-button.active {
             color: #fcda1c;
         }
 
-        #favorite-button.active:hover{
+        #favorite-button.active:hover {
             color: #ffe867;
         }
     }
 
-    #content{
+    #content {
         padding: 20px;
 
         font-weight: 500;
         white-space: pre-line;
+
+        flex-grow: 1;
+        overflow-y: auto;
     }
 
-    #footer{
+    #footer {
         border-top: 1px solid $color-aside-border;
         padding: 10px 20px;
-        
+
         display: flex;
         justify-content: space-between;
 
-        .button{
+        flex-shrink: 0;
+
+        .button {
             width: 36px;
             height: 36px;
             border: 2px solid $color-text-1;
@@ -70,81 +88,81 @@
             justify-content: center;
         }
 
-        #rating{
+        #rating {
             font-size: 1.5em;
             display: flex;
             align-items: center;
             gap: 10px;
 
-            #like-button.active{
+            #like-button.active {
                 background-color: #9de419;
             }
 
-            #like-button:hover{
+            #like-button:hover {
                 background-color: #9de419;
                 cursor: pointer;
                 font-size: 1.15em;
             }
 
-            #dislike-button.active{
+            #dislike-button.active {
                 background-color: #f54d5b;
             }
 
-            #dislike-button:hover{
+            #dislike-button:hover {
                 background-color: #f54d5b;
                 cursor: pointer;
                 font-size: 1.15em;
             }
 
-            #rating-value{
+            #rating-value {
                 font-weight: 600;
             }
         }
 
-        #menu-container{
+        #menu-container {
             position: relative;
 
-            .button:hover{
+            .button:hover {
                 cursor: pointer;
                 background-color: #00000023;
             }
         }
     }
 
-    @media (max-width: 1200px){
+    @media (max-width: 1200px) {
         width: 100%;
     }
 
-    @media (max-width: 1000px){
-        #content{
+    @media (max-width: 1000px) {
+        #content {
             padding: 20px;
         }
 
-        #footer{
+        #footer {
             padding: 10px 20px;
         }
     }
 
-    @media (max-width: 900px){
-        #content{
+    @media (max-width: 900px) {
+        #content {
             font-weight: 400;
             font-size: 0.95em;
         }
     }
 
-    @media (max-width: 600px){
-        #content{
+    @media (max-width: 600px) {
+        #content {
             font-size: 0.9em;
             padding: 5px;
         }
 
-        #footer{
+        #footer {
             padding: 5px;
         }
     }
 
-    @media (max-width: 450px){
-        #content{
+    @media (max-width: 450px) {
+        #content {
             font-size: 0.85em;
         }
     }

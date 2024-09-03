@@ -1,0 +1,42 @@
+<div id="container">
+    <div id="progress-bar-container" *ngIf="viewSettings.progressBar.show">
+        <div id="up-panel">
+            <div class="current">
+                {{viewSettings.progressBar.left}}
+            </div>
+            <h1 class="title">
+                {{viewSettings.progressBar.title}}
+            </h1>
+            <div class="max">
+                {{viewSettings.progressBar.right}}
+            </div>
+        </div>
+        <div id="progress-bar-background">
+            <div id="progress-bar"></div>
+        </div>
+    </div>
+
+    <div id="joke-container">
+        <div id="joke-wrapper" *ngIf="joke">
+            <app-joke [joke]="joke" />
+        </div>
+
+        <div id="loading" *ngIf="!joke">
+            Ładowanie...
+        </div>
+    </div>
+
+    <div id="down-panel">
+        <div id="settings-button" class="button">
+            <i class="fa-solid fa-gear"></i>
+        </div>
+        <div id="navigation">
+            <div class="button" *ngIf="viewSettings.showPreviewButton">
+                <i class="fa-solid fa-arrow-left"></i> Poprzedni
+            </div>
+            <div class="button next" (click)="loadNextJoke()" *ngIf="viewSettings.showNextButton">
+                Następny <i class="fa-solid fa-arrow-right"></i>
+            </div>
+        </div>
+    </div>
+</div>

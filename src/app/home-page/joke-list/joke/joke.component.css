@@ -1,50 +1,63 @@
-#container {
+:host {
+  height: inherit;
+}
+
+#container ::ng-deep {
   width: 800px;
+  height: inherit;
   background-color: #ffffff;
   border-radius: 10px;
   color: #595677;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 5px 5px 5px rgba(50, 50, 50, 0.0666666667);
 }
-#container #header {
+#container ::ng-deep #header {
   border-bottom: 1px solid #cbd2e9;
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-shrink: 0;
 }
-#container #header #owner {
+#container ::ng-deep #header #owner {
   font-weight: 700;
   display: flex;
   gap: 10px;
   align-items: center;
 }
-#container #header #owner i {
+#container ::ng-deep #header #owner i {
   font-size: 1.5em;
 }
-#container #header #favorite-button {
+#container ::ng-deep #header #favorite-button {
   font-size: 1.5em;
 }
-#container #header #favorite-button:hover {
+#container ::ng-deep #header #favorite-button:hover {
   color: #ffe867;
   cursor: pointer;
 }
-#container #header #favorite-button.active {
+#container ::ng-deep #header #favorite-button.active {
   color: #fcda1c;
 }
-#container #header #favorite-button.active:hover {
+#container ::ng-deep #header #favorite-button.active:hover {
   color: #ffe867;
 }
-#container #content {
+#container ::ng-deep #content {
   padding: 20px;
   font-weight: 500;
   white-space: pre-line;
+  flex-grow: 1;
+  overflow-y: auto;
 }
-#container #footer {
+#container ::ng-deep #footer {
   border-top: 1px solid #cbd2e9;
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
+  flex-shrink: 0;
 }
-#container #footer .button {
+#container ::ng-deep #footer .button {
   width: 36px;
   height: 36px;
   border: 2px solid #595677;
@@ -53,68 +66,68 @@
   align-items: center;
   justify-content: center;
 }
-#container #footer #rating {
+#container ::ng-deep #footer #rating {
   font-size: 1.5em;
   display: flex;
   align-items: center;
   gap: 10px;
 }
-#container #footer #rating #like-button.active {
+#container ::ng-deep #footer #rating #like-button.active {
   background-color: #9de419;
 }
-#container #footer #rating #like-button:hover {
+#container ::ng-deep #footer #rating #like-button:hover {
   background-color: #9de419;
   cursor: pointer;
   font-size: 1.15em;
 }
-#container #footer #rating #dislike-button.active {
+#container ::ng-deep #footer #rating #dislike-button.active {
   background-color: #f54d5b;
 }
-#container #footer #rating #dislike-button:hover {
+#container ::ng-deep #footer #rating #dislike-button:hover {
   background-color: #f54d5b;
   cursor: pointer;
   font-size: 1.15em;
 }
-#container #footer #rating #rating-value {
+#container ::ng-deep #footer #rating #rating-value {
   font-weight: 600;
 }
-#container #footer #menu-container {
+#container ::ng-deep #footer #menu-container {
   position: relative;
 }
-#container #footer #menu-container .button:hover {
+#container ::ng-deep #footer #menu-container .button:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.137254902);
 }
 @media (max-width: 1200px) {
-  #container {
+  #container ::ng-deep {
     width: 100%;
   }
 }
 @media (max-width: 1000px) {
-  #container #content {
+  #container ::ng-deep #content {
     padding: 20px;
   }
-  #container #footer {
+  #container ::ng-deep #footer {
     padding: 10px 20px;
   }
 }
 @media (max-width: 900px) {
-  #container #content {
+  #container ::ng-deep #content {
     font-weight: 400;
     font-size: 0.95em;
   }
 }
 @media (max-width: 600px) {
-  #container #content {
+  #container ::ng-deep #content {
     font-size: 0.9em;
     padding: 5px;
   }
-  #container #footer {
+  #container ::ng-deep #footer {
     padding: 5px;
   }
 }
 @media (max-width: 450px) {
-  #container #content {
+  #container ::ng-deep #content {
     font-size: 0.85em;
   }
 }/*# sourceMappingURL=joke.component.css.map */

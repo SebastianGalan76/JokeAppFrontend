@@ -18,8 +18,10 @@
                 <app-aside-menu-button [text]="'Ulubione'" [icon]="'fa-solid fa-star'"
                     (onSelect)="handleButtonSelect($event)" />
             </a>
-            <app-aside-menu-button [text]="'Losowy'" [icon]="'fa-solid fa-shuffle'"
+            <a routerLink="/random">
+                <app-aside-menu-button [text]="'Losowy'" [icon]="'fa-solid fa-shuffle'"
                 (onSelect)="handleButtonSelect($event)" />
+            </a>
             <app-aside-menu-button [text]="'Najlepsze'" [icon]="'fa-solid fa-ranking-star'"
                 (onSelect)="handleButtonSelect($event)" />
             <app-aside-menu-button [text]="'Najnowsze'" [icon]="'fa-solid fa-calendar-days'"

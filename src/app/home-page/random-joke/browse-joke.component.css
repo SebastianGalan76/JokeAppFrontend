@@ -1,0 +1,63 @@
+#container {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#container #progress-bar-container {
+  margin-top: 20px;
+}
+#container #progress-bar-container #up-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  font-weight: 700;
+}
+#container #progress-bar-container #up-panel .title {
+  font-size: 2em;
+}
+#container #progress-bar-container #progress-bar-background {
+  margin-top: 5px;
+  height: 15px;
+  background-color: #595677;
+  border-radius: 10px;
+}
+#container #progress-bar-container #progress-bar-background #progress-bar {
+  height: 100%;
+  width: 30%;
+  border-radius: 8px;
+  background-color: rgb(113, 204, 29);
+}
+#container #joke-container {
+  margin-top: 20px;
+}
+#container #down-panel {
+  display: flex;
+  height: 50px;
+  gap: 10px;
+  margin-top: 10px;
+}
+#container #down-panel #settings-button {
+  width: 50px;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#container #down-panel #navigation {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+#container #down-panel .button {
+  background-color: #ffffff;
+  text-align: center;
+  padding: 15px 0;
+  border-radius: 10px;
+  font-weight: 800;
+  box-shadow: 5px 5px 5px rgba(50, 50, 50, 0.2117647059);
+}
+#container #down-panel .button:hover {
+  cursor: pointer;
+  background-color: #f7f7f7;
+}/*# sourceMappingURL=browse-joke.component.css.map */

@@ -8,6 +8,7 @@ import { ResetPasswordFormComponent } from './auth/reset-password-form/reset-pas
 import { JokeListComponent } from './home-page/joke-list/joke-list.component';
 import { AddJokeComponent } from './home-page/add-joke/add-joke.component';
 import { CategoryListComponent } from './home-page/category-list/category-list.component';
+import { RandomJokeComponent } from './home-page/random-joke/random-joke.component';
 
 export const routes: Routes = [
     { 
@@ -48,6 +49,10 @@ export const routes: Routes = [
             {
                 path: 'categories',
                 component: CategoryListComponent
+            },
+            {
+                path: 'random',
+                component: RandomJokeComponent
             },
             {
                 path: '',
