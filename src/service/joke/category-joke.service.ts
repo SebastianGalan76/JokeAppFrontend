@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../api.service';
 import { JokeDto } from '../../model/JokeDto';
-import { catchError, Observable, of, switchMap } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { PageResponse } from '../../model/PageResponse';
-import { JokeQueueService } from '../joke-queue-service';
 import { NotificationService, NotificationType } from '../notification.service';
 
 @Injectable({
@@ -12,44 +11,38 @@ import { NotificationService, NotificationType } from '../notification.service';
 export class CategoryJokeService {
   pageResponse: PageResponse<JokeDto> | null = null;
 
-  constructor(public queueService: JokeQueueService, private apiService: ApiService, private notificationService: NotificationService) { }
+  constructor(private apiService: ApiService, private notificationService: NotificationService) { }
 
-  loadPage(categoryId: number, page: number): Observable<PageResponse<JokeDto>> {
-    return this.apiService.get<PageResponse<JokeDto>>('/joke/category/' + categoryId + '/' + page, { withCredentials: true });
+  loadPage(categoryId: number, page: number, index: number): Observable<JokeDto | null> {
+    return new Observable<JokeDto | null>((observer) => {
+      this.apiService.get<PageResponse<JokeDto>>('/joke/category/' + categoryId + '/' + page, { withCredentials: true }).subscribe({
+        next: (response) => {
+          this.pageResponse = response;
+
+          if (this.pageResponse && this.pageResponse.content && index >= 0 && index < this.pageResponse.content.content.length) {
+            observer.next(this.pageResponse.content.content[index]);
+          } else {
+            observer.next(null);
+          }
+          observer.complete();
+        },
+        error: (response) => {
+          this.notificationService.showNotification(response.error.message, NotificationType.ERROR);
+          observer.next(null);
+          observer.complete();
+        }
+      });
+    });
   }
 
-  getNextJoke(categoryId: number, page: number): Observable<JokeDto | null> {
-    const joke = this.queueService.dequeue();
+  getJoke(index: number): Observable<JokeDto | null> {
+    if (this.pageResponse) {
+      const list = this.pageResponse.content.content;
 
-    if (joke) {
-      return of(joke);
+      if (index >= 0 && index < list?.length) {
+        return of(list[index]);
+      }
     }
-
-    var totalPages = this.pageResponse?.content.totalPages ?? 0;
-    var hasNextPage = totalPages >= page;
-
-    if (hasNextPage && this.queueService.size() < 5) {
-      return this.loadPage(categoryId, page).pipe(
-        switchMap((response) => {
-          this.pageResponse = response;
-          this.queueService.enqueueAll(response.content.content);
-
-          const newJoke = this.queueService.dequeue();
-
-          if (newJoke) {
-            return of(newJoke);
-          } else {
-            return of(null);
-          }
-        }),
-        catchError((error) => {
-          this.notificationService.showNotification(error.error.message, NotificationType.ERROR);
-          return of(null);
-        })
-      );
-    }
-
     return of(null);
   }
-
 }

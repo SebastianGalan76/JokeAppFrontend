@@ -3,7 +3,7 @@
 
     <div id="joke-container">
         <div id="joke-wrapper" *ngIf="joke">
-            <app-joke [joke]="joke" [jokeQueueService]="service.queueService"/>
+            <app-joke [joke]="joke"/>
         </div>
 
         <div id="loading" *ngIf="!joke">

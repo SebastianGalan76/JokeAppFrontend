@@ -30,14 +30,11 @@ export class CategoryJokeComponent implements OnInit {
   jokeIndex: number = 0;
   totalAmount: number = 0;
 
-  category: Category | null = null;
-  pageResponse: PageResponse<JokeDto> | null = null;
+  category!: Category;
 
   constructor(public service: CategoryJokeService, private route: ActivatedRoute, private categoryService: CategoryService, private notificationService: NotificationService) { }
 
   ngOnInit(): void {
-    this.service.queueService.clear();
-
     this.route.paramMap.subscribe(params => {
       var categoryUrl = params.get('url');
 
@@ -46,15 +43,15 @@ export class CategoryJokeComponent implements OnInit {
           this.category = categories.filter(category => category.url == categoryUrl)[0];
 
           if (this.category) {
+            this.jokeIndex = 0;
             this.progressBar.title = this.category.name;
 
-            this.service.getNextJoke(this.category.id, this.getPage()).subscribe({
+            this.service.loadPage(this.category.id, this.getPage(), this.jokeIndex).subscribe({
               next: (joke) => {
-                this.joke = joke;
-
                 this.totalAmount = this.service.pageResponse?.content.totalElements ?? 0;
                 this.progressBar.right = this.totalAmount.toString();
-                this.loadNextJoke();
+
+                this.setJoke(joke);
               }
             });
           }
@@ -67,41 +64,57 @@ export class CategoryJokeComponent implements OnInit {
   }
 
   loadNextJoke() {
-    if (this.jokeIndex + 1 <= this.totalAmount) {
+    if (this.jokeIndex + 1 < this.totalAmount) {
+      const currentPage = this.getPage();
       this.jokeIndex++;
-      this.progressBar.left = this.jokeIndex.toString();
-      this.progressBar.progress = (this.jokeIndex - 1) / (this.totalAmount - 1) * 100;
+      const nextPage = this.getPage();
+      var index = parseInt((this.jokeIndex % 15).toString());
 
-      if (this.category) {
-        this.service.getNextJoke(this.category?.id, this.getPage()).subscribe({
+      if (currentPage < nextPage) {
+        this.service.loadPage(this.category?.id, nextPage, 0).subscribe({
           next: (joke) => {
-            this.joke = joke;
+            this.setJoke(joke);
           }
         });
       }
-    }
-    else {
-      this.notificationService.showNotification('Nie ma więcej dowcipów dla tej kategorii', NotificationType.ERROR);
+      else {
+        this.service.getJoke(index).subscribe({
+          next: (joke) => {
+            this.setJoke(joke);
+          }
+        });
+      }
     }
   }
 
   loadPreviousJoke() {
-    if (this.jokeIndex - 1 >= 1) {
+    if (this.jokeIndex - 1 >= 0) {
+      const currentPage = this.getPage();
       this.jokeIndex--;
-      this.progressBar.left = this.jokeIndex.toString();
-      this.progressBar.progress = (this.jokeIndex - 1) / (this.totalAmount - 1) * 100;
+      const previousPage = this.getPage();
+      var index = parseInt((this.jokeIndex % 15).toString());
 
-      if (this.category) {
-        this.service.getNextJoke(this.category?.id, this.getPage()).subscribe({
+      if (previousPage < currentPage) {
+        this.service.loadPage(this.category?.id, previousPage, 14).subscribe({
           next: (joke) => {
-            this.joke = joke;
+            this.setJoke(joke);
+          }
+        });
+      }
+      else {
+        this.service.getJoke(index).subscribe({
+          next: (joke) => {
+            this.setJoke(joke);
           }
         });
       }
     }
-    else {
-      this.notificationService.showNotification('Jest to pierwszy dowcip. Nie możesz się cofnąć', NotificationType.ERROR);
-    }
+  }
+
+  setJoke(joke: JokeDto | null) {
+    this.joke = joke;
+    this.progressBar.left = (this.jokeIndex + 1).toString();
+    this.progressBar.progress = ((this.jokeIndex + 1) / this.totalAmount) * 100;
   }
 
   getPage() {
