@@ -2,44 +2,58 @@ import { AfterViewInit, Component, ViewChild, ViewContainerRef } from '@angular/
 import { JokeComponent } from "./joke/joke.component";
 import { JokeComponentRef, JokeContainerService } from '../../../service/joke/joke-container.service';
 import { ActivatedRoute } from '@angular/router';
+import { PageContainerComponent } from "../page-container/page-container.component";
 
 @Component({
   selector: 'app-joke-list',
   standalone: true,
-  imports: [JokeComponent],
+  imports: [JokeComponent, PageContainerComponent],
   templateUrl: './joke-list.component.html',
   styleUrl: './joke-list.component.scss'
 })
 export class JokeListComponent implements AfterViewInit {
   @ViewChild('jokeContainer', { read: ViewContainerRef }) jokeContainer!: ViewContainerRef;
-  page: number = 0;
+  @ViewChild(PageContainerComponent) pageContainer!: PageContainerComponent;
 
-  constructor(private jokeContainerService: JokeContainerService, private route: ActivatedRoute) { }
+  url: string = '';
+
+  constructor(public jokeContainerService: JokeContainerService, private route: ActivatedRoute) { }
 
   ngAfterViewInit() {
     this.route.url.subscribe(urlSegments => {
       if (urlSegments.length == 0) {
-        this.loadJokes('/jokes');
+        this.url = '/jokes';
+
+        this.loadJokes(0);
       }
       else {
         const path = urlSegments[0].path;
         if (path) {
           if (path === 'favorite') {
-            this.loadJokes('/favorite');
+            this.url = '/favorite';
+            this.loadJokes(0);
           }
         }
       }
     });
   }
 
-  loadJokes(url: string){
-    this.jokeContainerService.loadJokes(url, this.page).subscribe(jokes => {
+  loadJokes(page: number) {
+    this.jokeContainer.clear();
+
+    this.jokeContainerService.loadJokes(this.url, page).subscribe(jokes => {
       jokes.forEach((jokeComponentRef: JokeComponentRef) => {
         const componentRef = this.jokeContainer.createComponent(JokeComponent);
         componentRef.setInput("joke", jokeComponentRef.joke);
 
         jokeComponentRef.componentRef = componentRef;
       })
+
+      this.pageContainer.initialize(this.jokeContainerService.pageResponse);
     });
+  }
+
+  onChangePage(page: number){
+    this.loadJokes(page)
   }
 }

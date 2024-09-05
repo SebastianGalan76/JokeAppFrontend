@@ -15,6 +15,7 @@ export class JokeComponentRef {
 })
 export class JokeContainerService {
   jokes: JokeComponentRef[] = [];
+  pageResponse: PageResponse<JokeDto> | null = null;
 
   constructor(private apiService: ApiService, private notificationService: NotificationService) { }
 
@@ -23,6 +24,8 @@ export class JokeContainerService {
 
     return this.apiService.get<PageResponse<JokeDto>>(url + '?page=' + page, { withCredentials: true }).pipe(
       map((data: PageResponse<JokeDto> | null) => {
+        this.pageResponse = data;
+
         if (data) {
           const jokes = data.content.content.map(joke => ({
             joke: joke,

@@ -1,0 +1,28 @@
+#container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+#container .page {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.062745098);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  border-radius: 5px;
+  border: 2px solid #cbd2e9;
+}
+#container .page.selected {
+  background-color: #cbd2e9;
+  border: 2px solid #7e68ff;
+  color: #7e68ff;
+}
+#container .page:hover {
+  cursor: pointer;
+  border: 2px solid #7e68ff;
+}
+#container .divider {
+  font-size: 1.5em;
+}/*# sourceMappingURL=page-container.component.css.map */
