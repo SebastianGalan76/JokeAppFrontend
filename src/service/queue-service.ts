@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class QueueService<T> {
-  private queue: T[] = [];
+  protected queue: T[] = [];
 
   enqueue(item: T): void {
     this.queue.push(item);
@@ -28,5 +28,9 @@ export class QueueService<T> {
 
   size(): number {
     return this.queue.length;
+  }
+
+  clear(){
+    this.queue = [];
   }
 }

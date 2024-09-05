@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { JokeService } from '../../../../service/joke/joke.service';
 import { JokeMenuComponent } from "./joke-menu/joke-menu.component";
 import { NotificationService } from '../../../../service/notification.service';
+import { JokeQueueService } from '../../../../service/joke-queue-service';
 
 @Component({
   selector: 'app-joke',
@@ -14,6 +15,8 @@ import { NotificationService } from '../../../../service/notification.service';
 })
 export class JokeComponent {
   @Input() joke!: JokeDto;
+
+  @Input() jokeQueueService: JokeQueueService | null = null;
 
   menuIsShown: boolean = false;
 
@@ -39,6 +42,10 @@ export class JokeComponent {
     }
 
     this.jokeService.like(this.joke.id);
+
+    if(this.jokeQueueService){
+      this.jokeQueueService.updateJoke(this.joke);
+    }
   }
   
   dislike() {
@@ -57,6 +64,10 @@ export class JokeComponent {
     }
 
     this.jokeService.dislike(this.joke.id);
+
+    if(this.jokeQueueService){
+      this.jokeQueueService.updateJoke(this.joke);
+    }
   }
 
   favorite(){
@@ -69,6 +80,10 @@ export class JokeComponent {
     }
     else{
       this.notificationService.showNotification('Usunięto dowcip z ulubionych');
+    }
+
+    if(this.jokeQueueService){
+      this.jokeQueueService.updateJoke(this.joke);
     }
   }
 }

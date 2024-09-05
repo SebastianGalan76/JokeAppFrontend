@@ -1,0 +1,30 @@
+@import '../../../../styles/base';
+
+#container {
+    margin-top: 20px;
+
+    #up-panel {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        font-weight: 700;
+
+        .title {
+            font-size: 2em;
+        }
+    }
+
+    #progress-bar-background {
+        margin-top: 5px;
+        height: 15px;
+        background-color: $color-text-1;
+        border-radius: 10px;
+
+        #progress-bar {
+            height: 100%;
+            width: 30%;
+            border-radius: 8px;
+            background-color: $color-green;
+        }
+    }
+}

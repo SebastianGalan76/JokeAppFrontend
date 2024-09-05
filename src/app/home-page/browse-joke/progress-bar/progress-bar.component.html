@@ -1,0 +1,18 @@
+<div id="container">
+    <div id="up-panel">
+        <div class="current">
+            {{progressBar.left}}
+        </div>
+        <h1 class="title">
+            {{progressBar.title}}
+        </h1>
+        <div class="max">
+            {{progressBar.right}}
+        </div>
+    </div>
+    <div id="progress-bar-background">
+        <div id="progress-bar" [ngStyle]="{ 'width': (progressBar.progress) + '%' }">
+
+        </div>
+    </div>
+</div>

@@ -17,6 +17,10 @@
         margin-left: auto;
         margin-right: auto;
 
+        @media (max-width: 1200px) {
+            width: 100%;
+        }
+
         @media (max-width: 900px) {
             padding: 5px;
         }

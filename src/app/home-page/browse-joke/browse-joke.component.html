@@ -1,4 +1,6 @@
 <div id="container">
+    <app-progress-bar *ngIf="viewSettings.showProgressBar" [progressBar]="progressBar"/>
+
     <div id="joke-container">
         <div id="joke-wrapper" *ngIf="joke">
             <app-joke [joke]="joke" [jokeQueueService]="service.queueService"/>
@@ -14,7 +16,10 @@
             <i class="fa-solid fa-gear"></i>
         </div>
         <div id="navigation">
-            <div class="button next" (click)="loadNextJoke()">
+            <div class="button" (click)="loadPreviousJoke()" *ngIf="viewSettings.showPreviewButton">
+                <i class="fa-solid fa-arrow-left"></i> Poprzedni
+            </div>
+            <div class="button next" (click)="loadNextJoke()" *ngIf="viewSettings.showNextButton">
                 Następny <i class="fa-solid fa-arrow-right"></i>
             </div>
         </div>

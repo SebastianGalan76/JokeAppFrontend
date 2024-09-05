@@ -25,7 +25,7 @@ export class CategoryService {
       }
     }
 
-    return this.apiService.get<Category[]>("/categories", {}).pipe(
+    return this.apiService.get<Category[]>("/categories", {withCredentials: true}).pipe(
       map(data => {
         if (data) {
           this.categories = data;

@@ -12,20 +12,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './random-joke.component.scss'
 })
 export class RandomJokeComponent implements OnInit{
-  viewSettings = {
-    progressBar: {
-      show: false,
-      left: '',
-      title: '',
-      right: ''
-    },
-    showPreviewButton: false,
-    showNextButton: true,
-  }
-
   joke : JokeDto | null = null;
 
-  constructor(private randomJokeService: RandomJokeService){}
+  constructor(public service: RandomJokeService){}
   
   ngOnInit(): void {
     this.loadNextJoke();
@@ -34,7 +23,7 @@ export class RandomJokeComponent implements OnInit{
   loadNextJoke(){
     this.joke = null;
 
-    this.randomJokeService.getRandomJoke().subscribe({
+    this.service.getRandomJoke().subscribe({
       next: (joke) => {
         this.joke = joke;
       }

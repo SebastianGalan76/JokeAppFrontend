@@ -1,0 +1,24 @@
+#container {
+  margin-top: 20px;
+}
+#container #up-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  font-weight: 700;
+}
+#container #up-panel .title {
+  font-size: 2em;
+}
+#container #progress-bar-background {
+  margin-top: 5px;
+  height: 15px;
+  background-color: #595677;
+  border-radius: 10px;
+}
+#container #progress-bar-background #progress-bar {
+  height: 100%;
+  width: 30%;
+  border-radius: 8px;
+  background-color: rgb(113, 204, 29);
+}/*# sourceMappingURL=progress-bar.component.css.map */

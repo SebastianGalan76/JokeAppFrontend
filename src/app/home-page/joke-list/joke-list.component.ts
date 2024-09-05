@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { JokeComponent } from "./joke/joke.component";
 import { JokeComponentRef, JokeContainerService } from '../../../service/joke/joke-container.service';
-import { JokeDto } from '../../../model/JokeDto';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

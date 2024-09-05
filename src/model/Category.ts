@@ -4,4 +4,5 @@ export interface Category{
     url: string,
     jokeAmount: number;
     isFavorite: boolean;
+    index: number;
 }

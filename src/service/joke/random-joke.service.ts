@@ -2,15 +2,15 @@ import { Injectable } from '@angular/core';
 import { ApiService } from '../api.service';
 import { JokeDto } from '../../model/JokeDto';
 import { ContentResponse } from '../../model/ContentResponse';
-import { QueueService } from '../queue-service';
 import { NotificationService, NotificationType } from '../notification.service';
 import { catchError, Observable, of, switchMap } from 'rxjs';
+import { JokeQueueService } from '../joke-queue-service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RandomJokeService {
-  constructor(private apiService: ApiService, private queueService: QueueService<JokeDto>, private notificationService: NotificationService) { }
+  constructor(private apiService: ApiService, public queueService: JokeQueueService, private notificationService: NotificationService) { }
 
   loadNextJokes(): Observable<ContentResponse<JokeDto[]>> {
     return this.apiService.get<ContentResponse<JokeDto[]>>('/joke/random?amount=15', { withCredentials: true });
