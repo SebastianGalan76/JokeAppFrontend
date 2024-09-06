@@ -1,1 +1,13 @@
-<p>user-joke-list works!</p>
+<div id="container">
+    <div class="input-area">
+        <input id="list-name-input" type="text" placeholder="Wyszukaj listę" [(ngModel)]="listName" (input)="loadLists()">
+    </div>
+
+    <section class="joke-list-type">
+        <div class="header">Listy</div>
+
+        <div class="joke-list-container">
+            <app-list *ngFor="let list of lists" [list]="list"/>
+        </div>
+    </section>
+</div>

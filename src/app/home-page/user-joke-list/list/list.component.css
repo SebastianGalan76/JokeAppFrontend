@@ -1,0 +1,22 @@
+.list {
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #c3c7cc;
+  box-shadow: 5px 5px 5px rgba(50, 50, 50, 0.1764705882);
+  flex-shrink: 0;
+}
+.list .up-panel {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2em;
+}
+.list .down-panel {
+  margin-top: 5px;
+  font-size: 0.9em;
+}
+
+.list:hover {
+  cursor: pointer;
+  background-color: rgba(209, 220, 255, 0.0470588235);
+}/*# sourceMappingURL=list.component.css.map */

@@ -16,6 +16,10 @@ export class UserService {
   ) { }
 
   getUser(): Observable<User | null> {
+    if(this.user){
+      return of(this.user);
+    }
+
     const storedUser = sessionStorage.getItem('user');
     if (storedUser) {
       this.user = JSON.parse(storedUser);

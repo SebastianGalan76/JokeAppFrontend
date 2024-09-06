@@ -10,6 +10,7 @@ import { AddJokeComponent } from './home-page/add-joke/add-joke.component';
 import { CategoryListComponent } from './home-page/category-list/category-list.component';
 import { CategoryJokeComponent } from './home-page/browse-joke/category-joke.component';
 import { RandomJokeComponent } from './home-page/random-joke/random-joke.component';
+import { UserJokeListComponent } from './home-page/user-joke-list/user-joke-list.component';
 
 export const routes: Routes = [
     { 
@@ -52,12 +53,20 @@ export const routes: Routes = [
                 component: CategoryListComponent
             },
             {
+                path: 'category/:url',
+                component: CategoryJokeComponent
+            },
+            {
                 path: 'random',
                 component: RandomJokeComponent
             },
             {
-                path: 'category/:url',
-                component: CategoryJokeComponent
+                path: 'joke-list',
+                component: UserJokeListComponent
+            },
+            {
+                path: 'list/:uuid',
+                component: JokeListComponent
             },
             {
                 path: '',

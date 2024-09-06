@@ -1,0 +1,28 @@
+@import '../../../../styles/base';
+
+.list{
+    background-color: $color-background-light;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #c3c7cc;
+
+    box-shadow: 5px 5px 5px #3232322d;
+    flex-shrink: 0;
+
+    .up-panel{
+        display: flex;
+        justify-content: space-between;
+
+        font-size: 1.2em;
+    }
+
+    .down-panel{
+        margin-top: 5px;
+        font-size: 0.9em;
+    }
+}
+
+.list:hover{
+    cursor: pointer;
+    background-color: #d1dcff0c;
+}

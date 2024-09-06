@@ -14,6 +14,10 @@
                 <app-aside-menu-button [text]="'Kategorie'" [icon]="'fa-solid fa-table-cells-large'"
                     (onSelect)="handleButtonSelect($event)" />
             </a>
+            <a routerLink="/joke-list">
+                <app-aside-menu-button [text]="'Twoje listy'" [icon]="'fa-solid fa-list'"
+                    (onSelect)="handleButtonSelect($event)" />
+            </a>
             <a routerLink="/favorite">
                 <app-aside-menu-button [text]="'Ulubione'" [icon]="'fa-solid fa-star'"
                     (onSelect)="handleButtonSelect($event)" />
@@ -24,10 +28,6 @@
             </a>
             <app-aside-menu-button [text]="'Najlepsze'" [icon]="'fa-solid fa-ranking-star'"
                 (onSelect)="handleButtonSelect($event)" />
-            <a routerLink="/joke-list">
-                <app-aside-menu-button [text]="'Twoje listy'" [icon]="'fa-solid fa-list'"
-                    (onSelect)="handleButtonSelect($event)" />
-            </a>
             <div class="nav-margin"></div>
             <a routerLink="/create">
                 <app-aside-menu-button [text]="'Dodaj'" [icon]="'fa-solid fa-square-plus'"
