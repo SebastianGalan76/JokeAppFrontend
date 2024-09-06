@@ -1,5 +1,6 @@
 #container {
   margin-top: 20px;
+  padding: 20px;
 }
 #container #up-panel {
   display: flex;
@@ -9,6 +10,16 @@
 }
 #container #up-panel .title {
   font-size: 2em;
+}
+@media (max-width: 800px) {
+  #container #up-panel .title {
+    font-size: 1.2em;
+  }
+}
+@media (max-width: 500px) {
+  #container #up-panel .title {
+    font-size: 1.1em;
+  }
 }
 #container #progress-bar-background {
   margin-top: 5px;
@@ -20,5 +31,10 @@
   height: 100%;
   width: 30%;
   border-radius: 8px;
-  background-color: rgb(113, 204, 29);
+  background: linear-gradient(90deg, rgb(103, 226, 88) 0%, rgb(103, 236, 109) 100%);
+}
+@media (max-width: 600px) {
+  #container {
+    margin-top: 5px;
+  }
 }/*# sourceMappingURL=progress-bar.component.css.map */

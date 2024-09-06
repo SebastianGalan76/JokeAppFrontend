@@ -96,7 +96,7 @@ textarea {
 #container .category-type .category-container {
   display: grid;
   margin-top: 10px;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   flex-wrap: wrap;
   gap: 20px;
 }/*# sourceMappingURL=category-list.component.css.map */

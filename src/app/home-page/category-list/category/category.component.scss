@@ -2,9 +2,9 @@
 
 .category{
     background-color: $color-background-light;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
-    border: 1px solid $color-text-1;
+    border: 1px solid #c3c7cc;
 
     box-shadow: 5px 5px 5px #3232322d;
     flex-shrink: 0;
@@ -16,7 +16,8 @@
         font-size: 1.2em;
 
         #favorite-button{
-            font-size: 1.5em;
+            font-size: 1.3em;
+            color: #c3c7cc;
         }
 
         #favorite-button:hover{
@@ -34,12 +35,12 @@
     }
 
     .down-panel{
-        margin-top: 20px;
+        margin-top: 5px;
         font-size: 0.9em;
     }
 }
 
 .category:hover{
     cursor: pointer;
-    background-color: $color-dark;
+    background-color: #d1dcff0c;
 }

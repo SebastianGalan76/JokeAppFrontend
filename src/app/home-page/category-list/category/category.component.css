@@ -1,8 +1,8 @@
 .category {
   background-color: #ffffff;
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
-  border: 1px solid #595677;
+  border: 1px solid #c3c7cc;
   box-shadow: 5px 5px 5px rgba(50, 50, 50, 0.1764705882);
   flex-shrink: 0;
 }
@@ -12,7 +12,8 @@
   font-size: 1.2em;
 }
 .category .up-panel #favorite-button {
-  font-size: 1.5em;
+  font-size: 1.3em;
+  color: #c3c7cc;
 }
 .category .up-panel #favorite-button:hover {
   color: #ffe867;
@@ -25,11 +26,11 @@
   color: #ffe867;
 }
 .category .down-panel {
-  margin-top: 20px;
+  margin-top: 5px;
   font-size: 0.9em;
 }
 
 .category:hover {
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.062745098);
+  background-color: rgba(209, 220, 255, 0.0470588235);
 }/*# sourceMappingURL=category.component.css.map */

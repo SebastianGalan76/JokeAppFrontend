@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { JokeComponent } from "../joke-list/joke/joke.component";
 import { JokeDto } from '../../../model/JokeDto';
 import { CommonModule } from '@angular/common';
@@ -119,5 +119,19 @@ export class CategoryJokeComponent implements OnInit {
 
   getPage() {
     return parseInt((this.jokeIndex / 15).toString());
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    switch (event.key) {
+      case 'ArrowLeft':
+        this.loadPreviousJoke();
+        break;
+      case 'ArrowRight':
+        this.loadNextJoke();
+        break;
+      default:
+        break;
+    }
   }
 }

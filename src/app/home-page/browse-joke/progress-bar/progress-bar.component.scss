@@ -2,6 +2,7 @@
 
 #container {
     margin-top: 20px;
+    padding: 20px;
 
     #up-panel {
         display: flex;
@@ -11,6 +12,14 @@
 
         .title {
             font-size: 2em;
+
+            @media (max-width: 800px){
+                font-size: 1.2em;
+            }
+
+            @media (max-width: 500px){
+                font-size: 1.1em;
+            }
         }
     }
 
@@ -24,7 +33,11 @@
             height: 100%;
             width: 30%;
             border-radius: 8px;
-            background-color: $color-green;
+            background: linear-gradient(90deg, rgba(103,226,88,1) 0%, rgba(103,236,109,1) 100%);
         }
+    }
+
+    @media (max-width: 600px){
+        margin-top: 5px;
     }
 }
