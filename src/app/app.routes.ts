@@ -11,6 +11,8 @@ import { CategoryListComponent } from './home-page/category-list/category-list.c
 import { CategoryJokeComponent } from './home-page/browse-joke/category-joke.component';
 import { RandomJokeComponent } from './home-page/random-joke/random-joke.component';
 import { UserJokeListComponent } from './home-page/user-joke-list/user-joke-list.component';
+import { FavoriteJokeListComponent } from './home-page/favorite-joke-list/favorite-joke-list.component';
+import { ListJokeContainerComponent } from './home-page/list-joke-container/list-joke-container.component';
 
 export const routes: Routes = [
     { 
@@ -46,7 +48,7 @@ export const routes: Routes = [
             },
             {
                 path: 'favorite',
-                component: JokeListComponent
+                component: FavoriteJokeListComponent
             },
             {
                 path: 'categories',
@@ -66,7 +68,7 @@ export const routes: Routes = [
             },
             {
                 path: 'list/:uuid',
-                component: JokeListComponent
+                component: ListJokeContainerComponent
             },
             {
                 path: '',

@@ -1,0 +1,31 @@
+#container {
+  width: calc(100% - 60px);
+  margin: 30px;
+  overflow: auto;
+}
+#container #joke-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 1200px) {
+  #container #joke-container {
+    width: 100%;
+  }
+}
+@media (max-width: 900px) {
+  #container #joke-container {
+    padding: 5px;
+  }
+}
+@media (max-width: 900px) {
+  #container {
+    width: 100%;
+    margin: 0px;
+  }
+}/*# sourceMappingURL=list-joke-container.component.css.map */

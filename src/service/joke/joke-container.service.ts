@@ -38,7 +38,7 @@ export class JokeContainerService {
         }
       }),
       catchError(error => {
-        console.error('Błąd pobierania użytkownika', error);
+        console.error('Błąd pobierania dowcipu', error);
         return of([]);
       })
     );
