@@ -1,0 +1,111 @@
+@import '../../../../styles/base';
+@import '../../../../styles/formElement.scss';
+
+#container{
+    width: 800px;
+    height: 90vh;
+    background-color: $color-background-light;
+    padding: 20px;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    h2{
+        padding: 10px;
+    }
+
+    #categories{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+        padding-right: 15px;
+
+        flex-grow: 1;
+        height: 1px;
+
+        position: relative;
+        overflow-y: auto;
+
+
+        .category{
+            padding: 15px 20px;
+            border-radius: 15px;
+            border: 2px solid #e7e7e7;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .name{
+                font-weight: 600;
+            }
+
+            input[type="checkbox"] {
+                display: none;
+            }
+    
+            .checkbox {
+                width: 20px;
+                height: 20px;
+                border: 2px solid #ccc;
+                border-radius: 50%;
+                display: inline-block;
+                position: relative;
+                cursor: pointer;
+            }
+    
+            input[type="checkbox"]:checked + .checkbox {
+                background-color: #007bff;
+                border-color: #007bff;
+            }
+    
+            .checkbox::after {
+                content: "";
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: white;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 0;
+                transition: opacity 0.2s ease;
+            }
+    
+            input[type="checkbox"]:checked + .checkbox::after {
+                opacity: 1;
+            }
+        }
+        .category:hover{
+            cursor: pointer;
+
+            .checkbox{
+                border: 2px solid #b1b1b1;
+            }
+        }
+    }
+
+    #close-button{
+        margin-top: 25px;
+        
+        background-color: $color-theme;
+        padding: 15px 60px;
+        border-radius: 15px;
+        width: fit-content;
+
+        color: $color-white;
+        font-weight: 600;
+    }
+
+    #close-button:hover{
+        cursor: pointer;
+        background-color: $color-theme-dark;
+    }
+
+    @media (max-width: 800px) {
+        width: 100%;
+    }
+}

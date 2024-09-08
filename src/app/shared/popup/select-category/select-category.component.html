@@ -1,0 +1,31 @@
+<div id="container">
+    <h2>Wybierz kategorię</h2>
+    <div class="input-area">
+        <input id="category-name-input" type="text" placeholder="Wyszukaj kategorię" 
+            [(ngModel)]="nameInput"
+            (input)="populateContainer()"
+        >
+        <div class="icon">
+            <i class="fa-solid fa-list"></i>
+        </div>
+    </div>
+    <div id="selected-categories">
+
+    </div>
+
+    <div id="categories" class="scrollable-vertical">
+        <ng-container #categoryContainer />
+    </div>
+
+    <div id="close-button" class="center" (click)="close()">
+        Wybierz
+    </div>
+</div>
+
+<ng-template #categoryTemplate let-element="element">
+    <label class="category" (click)="selectCategory(element)">
+        <div class="name"> {{element.category.name}}</div>
+        <input type="checkbox" [checked]="element.isSelected" (click)="$event.stopPropagation()">
+        <span class="checkbox"></span>
+    </label>
+</ng-template>

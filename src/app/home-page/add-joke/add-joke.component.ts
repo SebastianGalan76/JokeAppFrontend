@@ -1,18 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { UserService } from '../../../service/user.service';
-import { SelectCategoryComponent } from "./select-category/select-category.component";
 import { CreateJokeService } from '../../../service/joke/create-joke.service';
 import { Category } from '../../../model/Category';
 import { FormsModule } from '@angular/forms';
 import { ResponseMessage } from '../../../model/ResponseMessage';
 import { ResponseStatusEnum } from '../../../model/ResponseStatusEnum';
 import { NotificationService, NotificationType } from '../../../service/notification.service';
+import { PopupService } from '../../../service/popup.service';
+import { SelectCategoryComponent } from '../../shared/popup/select-category/select-category.component';
 
 @Component({
   selector: 'app-add-joke',
   standalone: true,
-  imports: [CommonModule, SelectCategoryComponent, FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './add-joke.component.html',
   styleUrl: './add-joke.component.scss'
 })
@@ -20,7 +21,7 @@ export class AddJokeComponent {
   type: string = "JOKE";
   kind: string = "TRADITIONAL";
 
-  selectedCategory: Category | null = null;
+  selectedCategories: Category[] = [];
 
   jokeContent: string = '';
   jokeQuestion: string = '';
@@ -29,7 +30,7 @@ export class AddJokeComponent {
   responseMessage: ResponseMessage | null = null;
   buttonIsDisabled: boolean = false;
 
-  constructor(public userService: UserService, private createJokeService: CreateJokeService, private notificationService: NotificationService) { }
+  constructor(public userService: UserService, private createJokeService: CreateJokeService, private notificationService: NotificationService, private popupService: PopupService) { }
 
   createJoke(button: HTMLButtonElement) {
     var content = "";
@@ -67,7 +68,7 @@ export class AddJokeComponent {
 
     this.buttonIsDisabled = true;
 
-    this.createJokeService.create(content, this.type, this.kind, this.selectedCategory).subscribe({
+    this.createJokeService.create(content, this.type, this.kind, this.selectedCategories).subscribe({
       next: () => {
         var typePL = this.type == "JOKE" ? 'Dowcip' : 'Suchar';
 
@@ -97,7 +98,16 @@ export class AddJokeComponent {
     this.kind = value;
   }
 
-  receiveSelectedCategory(category: Category | null) {
-    this.selectedCategory = category;
+  updateSelectedCategories(categories: Category[]) {
+    this.selectedCategories = categories;
+  }
+
+  selectCategory() {
+    this.popupService.showPopup(SelectCategoryComponent, [
+      {
+        name: "selectedCategories",
+        value: this.selectedCategories
+      }
+    ]);
   }
 }

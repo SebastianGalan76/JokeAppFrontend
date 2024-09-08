@@ -44,7 +44,18 @@
         <div class="section">
             <span class="title">3. Wybierz kategorię:</span>
 
-            <app-select-category (categoryEmitter)="receiveSelectedCategory($event)" />
+            <div class="input-area">
+                <input id="identifier-input" type="text" placeholder="Wyszukaj kategorię" (click)="selectCategory()" autocomplete="off">
+                <div class="icon">
+                    <i class="fa-solid fa-list"></i>
+                </div>
+            </div>
+            <div id="selected-categories" *ngIf="selectedCategories.length > 0">
+                <div class="title">Wybrane kategorie:</div>
+                <ul id="selected-categories-list">
+                    <li *ngFor="let category of selectedCategories">{{category.name}}</li>
+                </ul>
+            </div>
         </div>
         <br>
         @if(kind == 'TRADITIONAL'){

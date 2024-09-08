@@ -4,8 +4,7 @@ aside {
     position: sticky;
     top: 70px;
 
-    background-color: rebeccapurple;
-
+    z-index: 100;
     height: calc(100vh - 72px);
 
     #header-buttons{

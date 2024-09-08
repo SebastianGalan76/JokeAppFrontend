@@ -10,13 +10,13 @@ export class CreateJokeService {
   
   constructor(private apiService: ApiService){}
 
-  create(content: string, type: string, kind: string, category: Category | null) : Observable<Response>{
+  create(content: string, type: string, kind: string, categories: Category[]) : Observable<Response>{
     return this.apiService.post<Response>('/joke/create',
       {
         content: content,
         type: type,
         kind: kind,
-        category: category
+        categories: categories
       }, {withCredentials: true}
     )
   }

@@ -5,7 +5,8 @@ aside {
     top: 70px;
 
     height: calc(100vh - 72px);
-
+    z-index: 100;
+    
     #wrapper {
         width: 250px;
         height: 100%;
