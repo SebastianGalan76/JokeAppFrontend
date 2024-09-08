@@ -13,6 +13,7 @@ import { RandomJokeComponent } from './home-page/random-joke/random-joke.compone
 import { UserJokeListComponent } from './home-page/user-joke-list/user-joke-list.component';
 import { FavoriteJokeListComponent } from './home-page/favorite-joke-list/favorite-joke-list.component';
 import { ListJokeContainerComponent } from './home-page/list-joke-container/list-joke-container.component';
+import { EditJokeComponent } from './home-page/edit-joke/edit-joke.component';
 
 export const routes: Routes = [
     { 
@@ -45,6 +46,10 @@ export const routes: Routes = [
             {
                 path: 'create',
                 component: AddJokeComponent
+            },
+            {
+                path: 'edit/:id',
+                component: EditJokeComponent
             },
             {
                 path: 'favorite',

@@ -9,6 +9,7 @@ import { User, UserRoleEnum } from '../../../../../model/User';
 import { JokeContainerService } from '../../../../../service/joke/joke-container.service';
 import { RemoveJokeConfirmComponent } from '../../../../shared/popup/remove-joke-confirm/remove-joke-confirm.component';
 import { ReportJokeComponent } from '../../../../shared/popup/report-joke/report-joke.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-joke-menu',
@@ -25,7 +26,7 @@ export class JokeMenuComponent implements OnInit{
   user: User | null = null;
   userRole = UserRoleEnum;
 
-  constructor(private elementRef: ElementRef, private popupService: PopupService, private userService: UserService, private notificationService: NotificationService, private jokeContainerService: JokeContainerService) {}
+  constructor(private elementRef: ElementRef, private popupService: PopupService, private userService: UserService, private notificationService: NotificationService, private router: Router) {}
   
   ngOnInit(): void {
     this.userService.getUser().subscribe({
@@ -61,6 +62,14 @@ export class JokeMenuComponent implements OnInit{
         }
       }
     })
+  }
+
+  editJoke(){
+    this.router.navigate(['/edit', this.joke.id], {
+      state: {
+        joke: this.joke
+      }
+    });
   }
 
   deleteJoke(){

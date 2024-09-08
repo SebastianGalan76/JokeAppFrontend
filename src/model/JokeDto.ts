@@ -8,7 +8,7 @@ export interface JokeDto {
   status: string;
   type: string,
   kind: string,
-  category: Category | null;
+  categories: Category[];
   owner: User;
   createdAt: string;
   userRating: number;

@@ -98,10 +98,6 @@ export class AddJokeComponent {
     this.kind = value;
   }
 
-  updateSelectedCategories(categories: Category[]) {
-    this.selectedCategories = categories;
-  }
-
   selectCategory() {
     this.popupService.showPopup(SelectCategoryComponent, [
       {
