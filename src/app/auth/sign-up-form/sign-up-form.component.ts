@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ResponseMessage } from '../../../model/ResponseMessage';
 import { ResponseStatusEnum } from '../../../model/ResponseStatusEnum';
 import { AuthService } from '../../../service/auth/auth.service';
+import { NotificationService } from '../../../service/notification.service';
 
 @Component({
   selector: 'app-sign-up-form',
@@ -22,7 +23,7 @@ export class SignUpFormComponent {
   responseMessage: ResponseMessage | null = null;
   buttonIsDisabled: boolean = false;
 
-  constructor(private signUpService: SignUpService, private authService: AuthService) {
+  constructor(private signUpService: SignUpService, private authService: AuthService, private notificationService: NotificationService) {
 
   }
 
@@ -47,10 +48,7 @@ export class SignUpFormComponent {
       .subscribe(
         {
           next: () => {
-            this.responseMessage = {
-              status: ResponseStatusEnum.SUCCESS,
-              message: "Link aktywacyjny konta został wysłany na podany adres e-mail"
-            }
+            this.notificationService.showNotification("Link aktywacyjny konta został wysłany na podany adres e-mail");
           },
           error: (response) => {
             var responseError = response.error;

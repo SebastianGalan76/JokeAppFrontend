@@ -6,6 +6,7 @@ import { ResponseMessage } from '../../../model/ResponseMessage';
 import { ResetPasswordService } from '../../../service/auth/resetPassword.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../../service/auth/auth.service';
+import { NotificationService } from '../../../service/notification.service';
 
 @Component({
   selector: 'app-reset-password-form',
@@ -23,7 +24,7 @@ export class ResetPasswordFormComponent {
   responseMessage: ResponseMessage | null = null;
   buttonIsDisabled: boolean = false;
 
-  constructor(private resetPasswordService: ResetPasswordService, private authService: AuthService, private activeRoute: ActivatedRoute) {
+  constructor(private resetPasswordService: ResetPasswordService, private authService: AuthService, private activeRoute: ActivatedRoute, private notificationService: NotificationService) {
   }
 
   ngOnInit(): void {
@@ -47,10 +48,7 @@ export class ResetPasswordFormComponent {
       .subscribe(
         {
           next: () => {
-            this.responseMessage = {
-              status: ResponseStatusEnum.SUCCESS,
-              message: "Twoje hasło zostało zmienione. Możesz się zalogować"
-            }
+            this.notificationService.showNotification("Twoje hasło zostało zmienione. Możesz się zalogować");
           },
           error: (response) => {
             var responseError = response.error;

@@ -5,6 +5,7 @@ import { ResponseStatusEnum } from '../../../model/ResponseStatusEnum';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../../service/auth/auth.service';
+import { NotificationService } from '../../../service/notification.service';
 
 @Component({
   selector: 'app-reset-password-require-form',
@@ -19,7 +20,7 @@ export class ResetPasswordRequireFormComponent {
   responseMessage: ResponseMessage | null = null;
   buttonIsDisabled: boolean = false;
 
-  constructor(private resetPasswordService: ResetPasswordService, private authService: AuthService) {
+  constructor(private resetPasswordService: ResetPasswordService, private authService: AuthService, private notificationService: NotificationService) {
   }
 
   submit() {
@@ -34,10 +35,7 @@ export class ResetPasswordRequireFormComponent {
       .subscribe(
         {
           next: () => {
-            this.responseMessage = {
-              status: ResponseStatusEnum.SUCCESS,
-              message: "Jeśli konto istnieje, to wyślemy na adres e-mail link do zmiany hasła"
-            }
+            this.notificationService.showNotification("Jeśli konto istnieje, to wyślemy na adres e-mail link do zmiany hasła");
           },
           error: (response) => {
             var responseError = response.error;

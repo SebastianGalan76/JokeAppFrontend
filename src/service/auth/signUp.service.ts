@@ -13,7 +13,7 @@ export class SignUpService {
   ) { }
 
   signUp(email: string, login: string, password: string): Observable<AuthenticationResponse>{
-    return this.apiService.post<AuthenticationResponse>("", {
+    return this.apiService.post<AuthenticationResponse>("/auth/signUp", {
       login: login,
       email: email,
       password: password
