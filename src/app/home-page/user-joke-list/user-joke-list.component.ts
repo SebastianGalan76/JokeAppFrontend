@@ -52,19 +52,21 @@ export class UserJokeListComponent {
   }
 
   deleteList(list: JokeList) {
-    if (this.user) {
-      this.jokeListService.deleteJokeList(list.uuid).subscribe({
-        next: () => {
-          if (this.user) {
-            this.user.jokeLists = this.user.jokeLists.filter(l => l.id != list.id);
-            this.loadLists();
-            this.notificationSErvice.showNotification('Lista dowcipów została prawidłowo usunięta');
+    this.popupService.showConfirmPopup([{ name: 'message', value: 'Czy na pewno chcesz usunąć tę listę?' }]).subscribe(result => {
+      if (result.event === 'confirm') {
+        this.jokeListService.deleteJokeList(list.uuid).subscribe({
+          next: () => {
+            if (this.user) {
+              this.user.jokeLists = this.user.jokeLists.filter(l => l.id != list.id);
+              this.loadLists();
+              this.notificationSErvice.showNotification('Lista dowcipów została prawidłowo usunięta');
+            }
+          },
+          error: (response) => {
+            this.notificationSErvice.showNotification(response.error.error.message, NotificationType.ERROR);
           }
-        },
-        error: (response) => {
-          this.notificationSErvice.showNotification(response.error.error.message, NotificationType.ERROR);
-        }
-      })
-    }
+        })
+      }
+    });
   }
 }
