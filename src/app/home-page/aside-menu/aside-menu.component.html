@@ -6,31 +6,31 @@
 
         <nav>
             <a routerLink="">
-                <app-aside-menu-button [text]="'Strona Główna'" [icon]="'fa-solid fa-house'" [isSelected]="true"
+                <app-aside-menu-button [text]="'Strona Główna'" [icon]="'fa-solid fa-house'" [isSelected]="path == ''"
                     (onSelect)="handleButtonSelect($event)" />
             </a>
             <div class="nav-margin"></div>
             <a routerLink="/categories">
-                <app-aside-menu-button [text]="'Kategorie'" [icon]="'fa-solid fa-table-cells-large'"
+                <app-aside-menu-button [text]="'Kategorie'" [icon]="'fa-solid fa-table-cells-large'" [isSelected]="path == 'categories'"
                     (onSelect)="handleButtonSelect($event)" />
             </a>
             <a routerLink="/joke-list">
-                <app-aside-menu-button [text]="'Twoje listy'" [icon]="'fa-solid fa-list'"
+                <app-aside-menu-button [text]="'Twoje listy'" [icon]="'fa-solid fa-list'" [isSelected]="path == 'joke-list'"
                     (onSelect)="handleButtonSelect($event)" />
             </a>
             <a routerLink="/favorite">
-                <app-aside-menu-button [text]="'Ulubione'" [icon]="'fa-solid fa-star'"
+                <app-aside-menu-button [text]="'Ulubione'" [icon]="'fa-solid fa-star'" [isSelected]="path == 'favorite'"
                     (onSelect)="handleButtonSelect($event)" />
             </a>
             <a routerLink="/random">
-                <app-aside-menu-button [text]="'Losowy'" [icon]="'fa-solid fa-shuffle'"
+                <app-aside-menu-button [text]="'Losowy'" [icon]="'fa-solid fa-shuffle'" [isSelected]="path == 'random'"
                     (onSelect)="handleButtonSelect($event)" />
             </a>
-            <app-aside-menu-button [text]="'Najlepsze'" [icon]="'fa-solid fa-ranking-star'"
+            <app-aside-menu-button [text]="'Najlepsze'" [icon]="'fa-solid fa-ranking-star'" [isSelected]="path == 'best'"
                 (onSelect)="handleButtonSelect($event)" />
             <div class="nav-margin"></div>
             <a routerLink="/create">
-                <app-aside-menu-button [text]="'Dodaj'" [icon]="'fa-solid fa-square-plus'"
+                <app-aside-menu-button [text]="'Dodaj'" [icon]="'fa-solid fa-square-plus'" [isSelected]="path == 'create'"
                     (onSelect)="handleButtonSelect($event)" />
             </a>
         </nav>

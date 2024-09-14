@@ -1,7 +1,7 @@
 #button-container {
   display: flex;
   color: #595677;
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-weight: 500;
   position: relative;
   width: 100%;
@@ -34,9 +34,6 @@
   line-height: 30px;
 }
 @media (max-width: 1200px) {
-  #button-container {
-    font-size: 1.1em;
-  }
   #button-container .icon {
     margin-left: 10px;
   }

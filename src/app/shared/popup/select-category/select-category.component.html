@@ -1,6 +1,9 @@
 <div id="container">
-    <h2>Wybierz kategorię</h2>
-    <div class="input-area">
+    <header>
+        <span>Wybierz kategorie</span>
+        <i class="fa-solid fa-xmark" (click)="close()"></i>
+      </header>
+    <div class="input-area" style="margin-top: 10px;">
         <input id="category-name-input" type="text" placeholder="Wyszukaj kategorię" 
             [(ngModel)]="nameInput"
             (input)="populateContainer()"

@@ -50,4 +50,8 @@ export class JokeListService {
     );
   }
 
+  deleteJokeList(uuid: string) : Observable<Response> {
+    return this.apiService.delete('/joke-list/'+uuid, {withCredentials: true});
+  }
+
 }

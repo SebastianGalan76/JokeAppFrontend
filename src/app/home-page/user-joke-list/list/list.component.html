@@ -3,6 +3,17 @@
         <div class="name">
             {{list.name}}
         </div>
+        <div id="menu">
+            <i class="fa-solid fa-pen-to-square button" title="Edytuj listę" (click)="editList()"></i>
+            <i class="fa-solid fa-trash button" title="Usuń listę" (click)="deleteList()"></i>
+
+            <i *ngIf="list.visibilityType === JokeListVisibilityEnum.PRIVATE" class="fa-solid fa-lock"
+                title="Lista prywatna"></i>
+            <i *ngIf="list.visibilityType === JokeListVisibilityEnum.NOT_PUBLIC" class="fa-solid fa-unlock"
+                title="Lista niepubliczna"></i>
+            <i *ngIf="list.visibilityType === JokeListVisibilityEnum.PUBLIC" class="fa-solid fa-user"
+                title="Lista publiczna"></i>
+        </div>
     </div>
     <div class="down-panel">
         Ilość dowcipów: {{list.jokes.length}}

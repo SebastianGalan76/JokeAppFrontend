@@ -4,8 +4,7 @@
   height: 50px;
   border-radius: 10px;
   overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.062745098);
-  border: 2px solid #838383;
+  border: 2px solid #d1d1d1;
 }
 .input-area:focus-within {
   border: 2px solid #7e68ff;
@@ -23,7 +22,7 @@
   border: none;
   outline: none;
   background-color: transparent;
-  color: #838383;
+  color: #595677;
   font-weight: 600;
 }
 .input-area input.incorrect {
@@ -31,7 +30,7 @@
   color: #f7faff;
 }
 .input-area .icon {
-  color: #838383;
+  color: #595677;
   position: absolute;
   right: 20px;
   top: 50%;
@@ -64,16 +63,15 @@
   width: 100%;
   height: 50px;
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.062745098);
-  border: 2px solid #838383;
+  border: 2px solid #d1d1d1;
   font-weight: 600;
-  color: #838383;
+  color: #d1d1d1;
   padding: 0 10px;
+  color: #595677;
 }
 
 textarea {
-  border: 2px solid #838383;
-  background-color: rgba(0, 0, 0, 0.062745098);
+  border: 2px solid #d1d1d1;
   padding: 10px;
   border-radius: 10px;
   min-height: 100px;
@@ -81,6 +79,7 @@ textarea {
   font: inherit;
   color: inherit;
   font-weight: 500;
+  resize: vertical;
 }
 
 #container {
@@ -164,7 +163,7 @@ textarea {
 #container #form-container .section .type-container .type {
   height: 50px;
   background-color: rgba(0, 0, 0, 0.062745098);
-  border: 2px solid #838383;
+  border: 2px solid #d1d1d1;
   line-height: 50px;
   text-align: center;
   font-size: 1.3em;
@@ -187,7 +186,7 @@ textarea {
   background-color: #c9c5ff;
 }
 #container #form-container .section textarea {
-  border: 2px solid #838383;
+  border: 2px solid #d1d1d1;
   background-color: rgba(0, 0, 0, 0.062745098);
   padding: 10px;
   border-radius: 10px;

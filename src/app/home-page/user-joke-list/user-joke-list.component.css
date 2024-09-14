@@ -4,8 +4,7 @@
   height: 50px;
   border-radius: 10px;
   overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.062745098);
-  border: 2px solid #838383;
+  border: 2px solid #d1d1d1;
 }
 .input-area:focus-within {
   border: 2px solid #7e68ff;
@@ -23,7 +22,7 @@
   border: none;
   outline: none;
   background-color: transparent;
-  color: #838383;
+  color: #595677;
   font-weight: 600;
 }
 .input-area input.incorrect {
@@ -31,7 +30,7 @@
   color: #f7faff;
 }
 .input-area .icon {
-  color: #838383;
+  color: #595677;
   position: absolute;
   right: 20px;
   top: 50%;
@@ -64,16 +63,15 @@
   width: 100%;
   height: 50px;
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.062745098);
-  border: 2px solid #838383;
+  border: 2px solid #d1d1d1;
   font-weight: 600;
-  color: #838383;
+  color: #d1d1d1;
   padding: 0 10px;
+  color: #595677;
 }
 
 textarea {
-  border: 2px solid #838383;
-  background-color: rgba(0, 0, 0, 0.062745098);
+  border: 2px solid #d1d1d1;
   padding: 10px;
   border-radius: 10px;
   min-height: 100px;
@@ -81,17 +79,78 @@ textarea {
   font: inherit;
   color: inherit;
   font-weight: 500;
+  resize: vertical;
 }
 
 #container {
   padding: 20px;
 }
-#container .joke-list-type {
-  margin-top: 50px;
+#container #header {
+  width: 100%;
+  height: 200px;
+  background-color: #7e68ff;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
 }
-#container .joke-list-type .header {
+#container #header .icon {
+  height: 200px;
+  width: auto;
+}
+#container #header h1 {
+  padding-right: 10px;
+  text-align: center;
+}
+@media (max-width: 1000px) {
+  #container #header h1 {
+    font-size: 1.5em;
+  }
+}
+@media (max-width: 850px) {
+  #container #header {
+    height: 150px;
+  }
+  #container #header .icon {
+    height: 150px;
+    width: auto;
+  }
+  #container #header h1 {
+    font-size: 1.2em;
+  }
+}
+#container #user-not-logged-id {
+  text-align: center;
+  margin-top: 100px;
+  font-size: 1.2em;
+}
+#container .joke-list-type {
+  margin-top: 20px;
+}
+#container .joke-list-type #up-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#container .joke-list-type #up-panel .title {
   font-size: 1.5em;
   font-weight: 800;
+}
+#container .joke-list-type #up-panel #add-list {
+  padding: 10px 30px;
+  color: #f7faff;
+  background-color: #7e68ff;
+  font-weight: 600;
+  border-radius: 10px;
+}
+#container .joke-list-type #up-panel #add-list:hover {
+  cursor: pointer;
+  background-color: #604adb;
+}
+#container .joke-list-type .input-area {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 #container .joke-list-type .joke-list-container {
   display: grid;
@@ -99,4 +158,10 @@ textarea {
   grid-template-columns: 1fr 1fr;
   flex-wrap: wrap;
   gap: 20px;
+}
+@media (max-width: 1000px) {
+  #container .joke-list-type .joke-list-container {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
 }/*# sourceMappingURL=user-joke-list.component.css.map */

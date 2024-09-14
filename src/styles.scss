@@ -47,6 +47,11 @@ button{
     margin-right: auto;
 }
 
+.link {
+    color: $color-theme;
+    font-weight: 500;
+}
+
 .scrollable-vertical::-webkit-scrollbar {
     width: 5px;
 }

@@ -1,13 +1,28 @@
 <div id="container">
-    <div class="input-area">
-        <input id="list-name-input" type="text" placeholder="Wyszukaj listę" [(ngModel)]="listName" (input)="loadLists()">
+    <div id="header">
+        <img class="icon" src="/icon/icon1.png">
+
+        <h1>Twoje własne listy z zapisanymi dowcipami</h1>
     </div>
 
-    <section class="joke-list-type">
-        <div class="header">Listy</div>
+    <section id="user-not-logged-id" *ngIf="!user">
+        <a routerLink="/auth/signIn" class="link">Zaloguj się</a>, aby tworzyć własne listy i zapisywać na nich dowcipy i suchary <br> <br>
+        Listy umożliwią Ci grupowanie dowcipów, co ułatwi ich późniejsze odnalezienie.
+    </section>
+
+    <section class="joke-list-type" *ngIf="user">
+        <div id="up-panel">
+            <div class="title">Twoje listy</div>
+
+            <div id="add-list" (click)="addNewList()">Stwórz listę</div>
+        </div>
+
+        <div class="input-area">
+            <input id="list-name-input" type="text" placeholder="Wyszukaj listę" [(ngModel)]="listName" (input)="loadLists()">
+        </div>
 
         <div class="joke-list-container">
-            <app-list *ngFor="let list of lists" [list]="list"/>
+            <app-list *ngFor="let list of lists" [list]="list" (onDelete)="deleteList($event)"/>
         </div>
     </section>
 </div>

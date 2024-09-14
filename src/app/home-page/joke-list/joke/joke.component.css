@@ -11,6 +11,7 @@
   display: flex;
   flex-direction: column;
   box-shadow: 5px 5px 5px rgba(50, 50, 50, 0.0666666667);
+  position: relative;
 }
 #container ::ng-deep #header {
   border-bottom: 1px solid #cbd2e9;
@@ -43,11 +44,14 @@
   color: #ffe867;
 }
 #container ::ng-deep #content {
+  width: 100%;
   padding: 20px;
   font-weight: 500;
   white-space: pre-line;
   flex-grow: 1;
   overflow-y: auto;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 #container ::ng-deep #footer {
   border-top: 1px solid #cbd2e9;

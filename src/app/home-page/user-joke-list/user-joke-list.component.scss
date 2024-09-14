@@ -4,12 +4,85 @@
 #container{
     padding: 20px;
 
-    .joke-list-type{
-        margin-top: 50px;
+    #header {
+        width: 100%;
+        height: 200px;
 
-        .header{
-            font-size: 1.5em;
-            font-weight: 800;
+        background-color: $color-theme;
+        border-radius: 20px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: white;
+
+        .icon {
+            height: 200px;
+            width: auto;
+        }
+
+        h1 {
+            padding-right: 10px;
+            text-align: center;
+        }
+
+        @media (max-width: 1000px){
+            h1{
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 850px){
+            height: 150px;
+            .icon{
+                height: 150px;
+                width: auto;
+            }
+
+            h1{
+                font-size: 1.2em;
+            }
+        }
+    }
+
+    #user-not-logged-id{
+        text-align: center;
+        margin-top: 100px;
+        font-size: 1.2em;
+    }
+
+    .joke-list-type{
+        margin-top: 20px;
+
+        #up-panel {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .title{
+                font-size: 1.5em;
+                font-weight: 800;
+            }
+
+            #add-list{
+                padding: 10px 30px;
+                color: $color-white;
+                background-color: $color-theme;
+                font-weight: 600;
+
+                border-radius: 10px;
+            }
+
+            #add-list:hover{
+                cursor: pointer;
+                background-color: $color-theme-dark;
+            }
+        }
+
+        .input-area{
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
 
         .joke-list-container{
@@ -20,6 +93,11 @@
 
             flex-wrap: wrap;
             gap: 20px;  
+
+            @media (max-width: 1000px){
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
         }
     }
 }

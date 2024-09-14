@@ -1,6 +1,6 @@
-@import '../../../../styles/base';
+@import "../../../../styles/base";
 
-.list{
+.list {
     background-color: $color-background-light;
     padding: 10px;
     border-radius: 10px;
@@ -9,20 +9,36 @@
     box-shadow: 5px 5px 5px #3232322d;
     flex-shrink: 0;
 
-    .up-panel{
+    .up-panel {
         display: flex;
         justify-content: space-between;
 
         font-size: 1.2em;
+
+        .name {
+            width: 270px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        #menu {
+            display: flex;
+            gap: 10px;
+
+            .button:hover {
+                color: $color-text-1-dark;
+            }
+        }
     }
 
-    .down-panel{
+    .down-panel {
         margin-top: 5px;
         font-size: 0.9em;
     }
 }
 
-.list:hover{
+.list:hover {
     cursor: pointer;
     background-color: #d1dcff0c;
 }

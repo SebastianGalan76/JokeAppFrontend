@@ -10,7 +10,6 @@ $color-incorrect: #ff6969;
     border-radius: 10px;
     overflow: hidden;
 
-    background-color: $color-dark;
     border: 2px solid $color-border;
 
     &:focus-within {
@@ -33,7 +32,7 @@ $color-incorrect: #ff6969;
         border: none;
         outline: none;
         background-color: transparent;
-        color: $color-border;
+        color: $color-text-1;
         font-weight: 600;
     }
 
@@ -43,7 +42,7 @@ $color-incorrect: #ff6969;
     }
 
     .icon {
-        color: $color-border;
+        color: $color-text-1;
 
         position: absolute;
         right: 20px;
@@ -79,18 +78,18 @@ $color-incorrect: #ff6969;
         height: 50px;
         border-radius: 10px;
 
-        background-color: $color-dark;
         border: 2px solid $color-border;
 
         font-weight: 600;
         color: $color-border;
         padding: 0 10px;
+
+        color: $color-text-1;
     }
 }
 
 textarea {
     border: 2px solid $color-border;
-    background-color: $color-dark;
     padding: 10px;
     border-radius: 10px;
     min-height: 100px;
@@ -99,4 +98,6 @@ textarea {
     font: inherit;
     color: inherit;
     font-weight: 500;
+
+    resize: vertical;
 }

@@ -4,8 +4,7 @@
   height: 50px;
   border-radius: 10px;
   overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.062745098);
-  border: 2px solid #838383;
+  border: 2px solid #d1d1d1;
 }
 .input-area:focus-within {
   border: 2px solid #7e68ff;
@@ -23,7 +22,7 @@
   border: none;
   outline: none;
   background-color: transparent;
-  color: #838383;
+  color: #595677;
   font-weight: 600;
 }
 .input-area input.incorrect {
@@ -31,7 +30,7 @@
   color: #f7faff;
 }
 .input-area .icon {
-  color: #838383;
+  color: #595677;
   position: absolute;
   right: 20px;
   top: 50%;
@@ -64,16 +63,15 @@
   width: 100%;
   height: 50px;
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.062745098);
-  border: 2px solid #838383;
+  border: 2px solid #d1d1d1;
   font-weight: 600;
-  color: #838383;
+  color: #d1d1d1;
   padding: 0 10px;
+  color: #595677;
 }
 
 textarea {
-  border: 2px solid #838383;
-  background-color: rgba(0, 0, 0, 0.062745098);
+  border: 2px solid #d1d1d1;
   padding: 10px;
   border-radius: 10px;
   min-height: 100px;
@@ -81,6 +79,7 @@ textarea {
   font: inherit;
   color: inherit;
   font-weight: 500;
+  resize: vertical;
 }
 
 #container {
@@ -92,8 +91,19 @@ textarea {
   display: flex;
   flex-direction: column;
 }
-#container h2 {
-  padding: 10px;
+#container header {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 1.3em;
+  border-bottom: 2px solid #595677;
+  padding: 10px 0;
+}
+#container header i {
+  font-size: 1.3em;
+}
+#container header i:hover {
+  cursor: pointer;
 }
 #container #categories {
   display: flex;
@@ -169,8 +179,29 @@ textarea {
   cursor: pointer;
   background-color: #604adb;
 }
-@media (max-width: 800px) {
+@media (max-width: 810px) {
   #container {
-    width: 100%;
+    width: 700px;
+  }
+}
+@media (max-width: 710px) {
+  #container {
+    width: 600px;
+  }
+}
+@media (max-width: 610px) {
+  #container {
+    width: 500px;
+  }
+}
+@media (max-width: 510px) {
+  #container {
+    width: 360px;
+    padding: 10px;
+    font-size: 0.8em;
+  }
+  #container #categories .category {
+    padding: 5px 10px;
+    border-radius: 5px;
   }
 }/*# sourceMappingURL=select-category.component.css.map */

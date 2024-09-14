@@ -17,6 +17,7 @@
     flex-direction: column;
 
     box-shadow: 5px 5px 5px #32323211;
+    position: relative;
 
     #header {
         border-bottom: 1px solid $color-aside-border;
@@ -58,6 +59,8 @@
     }
 
     #content {
+        width: 100%;
+
         padding: 20px;
 
         font-weight: 500;
@@ -65,6 +68,9 @@
 
         flex-grow: 1;
         overflow-y: auto;
+
+        word-wrap: break-word;
+        word-break: break-all;
     }
 
     #footer {

@@ -95,7 +95,6 @@
 
                 .type {
                     height: 50px;
-                    background-color: $color-dark;
                     border: 2px solid $color-border;
 
                     line-height: 50px;
@@ -124,7 +123,7 @@
 
             textarea {
                 border: 2px solid $color-border;
-                background-color: $color-dark;
+                background-color: inherit;
                 padding: 10px;
                 border-radius: 10px;
                 min-height: 200px;

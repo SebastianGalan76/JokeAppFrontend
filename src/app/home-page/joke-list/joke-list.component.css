@@ -21,6 +21,7 @@
 @media (max-width: 900px) {
   #container #joke-container {
     padding: 5px;
+    gap: 10px;
   }
 }
 @media (max-width: 900px) {

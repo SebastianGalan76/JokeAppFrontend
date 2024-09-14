@@ -50,6 +50,11 @@ button {
   margin-right: auto;
 }
 
+.link {
+  color: #7e68ff;
+  font-weight: 500;
+}
+
 .scrollable-vertical::-webkit-scrollbar {
   width: 5px;
 }
