@@ -1,10 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { JokeDto } from '../../../../model/JokeDto';
 import { CommonModule } from '@angular/common';
 import { JokeService } from '../../../../service/joke/joke.service';
 import { JokeMenuComponent } from "./joke-menu/joke-menu.component";
 import { NotificationService } from '../../../../service/notification.service';
 import { JokeQueueService } from '../../../../service/joke-queue-service';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-joke',
@@ -13,14 +14,22 @@ import { JokeQueueService } from '../../../../service/joke-queue-service';
   templateUrl: './joke.component.html',
   styleUrl: './joke.component.scss'
 })
-export class JokeComponent {
+export class JokeComponent implements OnChanges{
   @Input() joke!: JokeDto;
+  formattedJoke!: SafeHtml;
 
   @Input() jokeQueueService: JokeQueueService | null = null;
 
   menuIsShown: boolean = false;
 
-  constructor(private jokeService: JokeService, private notificationService: NotificationService) { }
+  constructor(private jokeService: JokeService, private notificationService: NotificationService) { 
+    
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['joke'] && changes['joke'].currentValue) {
+      this.joke.content = this.joke.content.replace(/\\n/g, '\n');
+    }
+  }
 
   toggleMenu(){
     this.menuIsShown = !this.menuIsShown;

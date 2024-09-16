@@ -26,9 +26,11 @@
                 <app-aside-menu-button [text]="'Losowy'" [icon]="'fa-solid fa-shuffle'" [isSelected]="path == 'random'"
                     (onSelect)="handleButtonSelect($event)" />
             </a>
-            <app-aside-menu-button [text]="'Najlepsze'" [icon]="'fa-solid fa-ranking-star'" [isSelected]="path == 'best'"
+            <a routerLink="/best">
+                <app-aside-menu-button [text]="'Najlepsze'" [icon]="'fa-solid fa-ranking-star'" [isSelected]="path == 'best'"
                 (onSelect)="handleButtonSelect($event)" />
             <div class="nav-margin"></div>
+            </a>
             <a routerLink="/create">
                 <app-aside-menu-button [text]="'Dodaj'" [icon]="'fa-solid fa-square-plus'" [isSelected]="path == 'create'"
                     (onSelect)="handleButtonSelect($event)" />

@@ -76,7 +76,7 @@
             </div>
         </div>
         }
-
+        <div contenteditable="true"></div>
         <span class="response" [ngClass]="{ 'error': responseMessage?.status == 'ERROR'}">{{responseMessage?.message}}</span>
         <button id="submit" #submitButton (click)="createJoke(submitButton)" [disabled]="buttonIsDisabled">Dodaj</button>
     </div>

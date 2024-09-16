@@ -51,7 +51,6 @@
   flex-grow: 1;
   overflow-y: auto;
   word-wrap: break-word;
-  word-break: break-all;
 }
 #container ::ng-deep #footer {
   border-top: 1px solid #cbd2e9;

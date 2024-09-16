@@ -14,6 +14,7 @@ import { UserJokeListComponent } from './home-page/user-joke-list/user-joke-list
 import { FavoriteJokeListComponent } from './home-page/favorite-joke-list/favorite-joke-list.component';
 import { ListJokeContainerComponent } from './home-page/list-joke-container/list-joke-container.component';
 import { EditJokeComponent } from './home-page/edit-joke/edit-joke.component';
+import { BestJokeListComponent } from './home-page/best-joke-list/best-joke-list.component';
 
 export const routes: Routes = [
     { 
@@ -54,6 +55,10 @@ export const routes: Routes = [
             {
                 path: 'favorite',
                 component: FavoriteJokeListComponent
+            },
+            {
+                path: 'best',
+                component: BestJokeListComponent
             },
             {
                 path: 'categories',
