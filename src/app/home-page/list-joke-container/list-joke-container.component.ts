@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { JokeComponentRef } from '../../../service/joke/joke-container.service';
 import { PageContainerComponent } from "../page-container/page-container.component";
 import { JokeComponent } from '../joke-list/joke/joke.component';

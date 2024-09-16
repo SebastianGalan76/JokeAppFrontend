@@ -16,10 +16,10 @@
             <i class="fa-solid fa-gear"></i>
         </div>
         <div id="navigation">
-            <div class="button" (click)="loadPreviousJoke()" *ngIf="viewSettings.showPreviewButton">
+            <div class="button" [ngClass]="{'disabled' : !viewSettings.hasPreviousJoke}" (click)="loadPreviousJoke()" *ngIf="viewSettings.showPreviewButton">
                 <i class="fa-solid fa-arrow-left"></i> <span class="text">Poprzedni</span>
             </div>
-            <div class="button next" (click)="loadNextJoke()" *ngIf="viewSettings.showNextButton">
+            <div class="button next" [ngClass]="{'disabled' : !viewSettings.hasNextJoke}" (click)="loadNextJoke()" *ngIf="viewSettings.showNextButton">
                 <span class="text">Następny</span> <i class="fa-solid fa-arrow-right"></i>
             </div>
         </div>

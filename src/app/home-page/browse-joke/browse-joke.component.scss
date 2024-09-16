@@ -68,6 +68,11 @@
             .button {
                 width: 100%;
             }
+
+            .disabled{
+                background-color: rgb(221, 221, 221);
+                color: rgb(184, 184, 184);
+            }
         }
 
         .button {
@@ -89,6 +94,10 @@
         .button:hover {
             cursor: pointer;
             background-color: #f7f7f7;
+        }
+
+        .button.disabled{
+            cursor: not-allowed;
         }
     }
 

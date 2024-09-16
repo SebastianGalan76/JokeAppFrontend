@@ -10,6 +10,7 @@ import { ContentResponse } from '../../../../model/ContentResponse';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PopupService } from '../../../../service/popup.service';
+import { JokeListService } from '../../../../service/joke/joke-list.service';
 
 @Component({
   selector: 'app-create-joke-list',
@@ -28,7 +29,7 @@ export class CreateJokeListComponent {
   newListFormIsVisible = false;
   responseMessage: ResponseMessage | null = null;
 
-  constructor(private apiService: ApiService, private userService: UserService, private notificationService: NotificationService, private popupService: PopupService) { }
+  constructor(private jokeListService: JokeListService, private userService: UserService, private notificationService: NotificationService, private popupService: PopupService) { }
 
   createNewList() {
     if (this.listName.length == 0) {
@@ -41,7 +42,7 @@ export class CreateJokeListComponent {
 
     this.responseMessage = null;
 
-    this.apiService.post<ContentResponse<JokeList>>('/joke-list', { name: this.listName, visibilityType: this.accessibility }, { withCredentials: true })
+    this.jokeListService.createJokeList(this.listName, this.accessibility)
       .subscribe({
         next: (response) => {
           if (response.status === ResponseStatusEnum.SUCCESS) {

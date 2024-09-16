@@ -4,8 +4,9 @@ import { JokeDto } from '../../model/JokeDto';
 import { JokeList } from '../../model/JokeList';
 import { UserService } from '../user.service';
 import { NotificationService } from '../notification.service';
-import { catchError, Observable, of, switchMap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Response } from '../../model/Response';
+import { ContentResponse } from '../../model/ContentResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -35,19 +36,11 @@ export class JokeListService {
   }
 
   getJokeList(uuid: string): Observable<JokeList | null> {
-    return this.userService.getUser().pipe(
-      switchMap(user => {
-        if (user) {
-          const jokeList = user.jokeLists.find(list => list.uuid === uuid);
-          if (jokeList) {
-            return of(jokeList);
-          }
-        } return this.apiService.get<JokeList>('/joke-list/' + uuid, { withCredentials: true });
-      }),
-      catchError(error => {
-        return of(null);
-      })
-    );
+    return this.apiService.get<JokeList>('/joke-list/' + uuid, { withCredentials: true }); 
+  }
+
+  createJokeList(name: string, visibilityType: string) : Observable<ContentResponse<JokeList>>{
+    return this.apiService.post<ContentResponse<JokeList>>('/joke-list', { name: name, visibilityType: visibilityType }, { withCredentials: true });
   }
 
   deleteJokeList(uuid: string) : Observable<Response> {

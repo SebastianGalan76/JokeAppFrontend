@@ -10,6 +10,7 @@ import { ResponseMessage } from '../../../../../model/ResponseMessage';
 import { ResponseStatusEnum } from '../../../../../model/ResponseStatusEnum';
 import { catchError, throwError } from 'rxjs';
 import { NotificationService } from '../../../../../service/notification.service';
+import { JokeListService } from '../../../../../service/joke/joke-list.service';
 
 @Component({
   selector: 'app-create-list',
@@ -27,7 +28,7 @@ export class CreateListComponent {
   newListFormIsVisible = false;
   responseMessage: ResponseMessage | null = null;
 
-  constructor(private apiService: ApiService, private userService: UserService, private notificationService: NotificationService) { }
+  constructor(private jokeListService: JokeListService, private userService: UserService, private notificationService: NotificationService) { }
 
   createNewList() {
     if (this.listName.length == 0) {
@@ -40,7 +41,7 @@ export class CreateListComponent {
 
     this.responseMessage = null;
 
-    this.apiService.post<ContentResponse<JokeList>>('/joke-list', { name: this.listName, visibilityType: this.accessibility }, { withCredentials: true })
+    this.jokeListService.createJokeList(this.listName, this.accessibility)
       .subscribe({
         next: (response) => {
           if (response.status === ResponseStatusEnum.SUCCESS) {

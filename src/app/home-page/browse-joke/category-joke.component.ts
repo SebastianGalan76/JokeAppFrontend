@@ -25,6 +25,9 @@ export class CategoryJokeComponent implements OnInit {
     showProgressBar: true,
     showPreviewButton: true,
     showNextButton: true,
+
+    hasNextJoke: false,
+    hasPreviousJoke: false,
   }
 
   jokeIndex: number = 0;
@@ -52,6 +55,7 @@ export class CategoryJokeComponent implements OnInit {
                 this.progressBar.right = this.totalAmount.toString();
 
                 this.setJoke(joke);
+                this.refreshButtonViews();
               }
             });
           }
@@ -64,6 +68,10 @@ export class CategoryJokeComponent implements OnInit {
   }
 
   loadNextJoke() {
+    if (!this.viewSettings.hasNextJoke) {
+      return;
+    }
+
     if (this.jokeIndex + 1 < this.totalAmount) {
       const currentPage = this.getPage();
       this.jokeIndex++;
@@ -81,6 +89,7 @@ export class CategoryJokeComponent implements OnInit {
         this.service.getJoke(index).subscribe({
           next: (joke) => {
             this.setJoke(joke);
+            this.refreshButtonViews();
           }
         });
       }
@@ -88,6 +97,10 @@ export class CategoryJokeComponent implements OnInit {
   }
 
   loadPreviousJoke() {
+    if (!this.viewSettings.hasPreviousJoke) {
+      return;
+    }
+
     if (this.jokeIndex - 1 >= 0) {
       const currentPage = this.getPage();
       this.jokeIndex--;
@@ -105,6 +118,7 @@ export class CategoryJokeComponent implements OnInit {
         this.service.getJoke(index).subscribe({
           next: (joke) => {
             this.setJoke(joke);
+            this.refreshButtonViews();
           }
         });
       }
@@ -119,6 +133,22 @@ export class CategoryJokeComponent implements OnInit {
 
   getPage() {
     return parseInt((this.jokeIndex / 15).toString());
+  }
+
+  refreshButtonViews() {
+    if (this.jokeIndex == 0) {
+      this.viewSettings.hasPreviousJoke = false;
+    }
+    else {
+      this.viewSettings.hasPreviousJoke = true;
+    }
+
+    if (this.jokeIndex == this.totalAmount - 1) {
+      this.viewSettings.hasNextJoke = false;
+    }
+    else {
+      this.viewSettings.hasNextJoke = true;
+    }
   }
 
   @HostListener('document:keydown', ['$event'])

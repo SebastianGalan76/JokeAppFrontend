@@ -4,6 +4,50 @@
 #container{
     padding: 20px;
 
+    #header {
+        width: 100%;
+        height: 200px;
+
+        background-color: $color-theme;
+        border-radius: 20px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin-bottom: 20px;
+
+        color: white;
+
+        .icon {
+            height: 200px;
+            width: auto;
+        }
+
+        h1 {
+            padding-right: 10px;
+            text-align: center;
+        }
+
+        @media (max-width: 1000px){
+            h1{
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 850px){
+            height: 150px;
+            .icon{
+                height: 150px;
+                width: auto;
+            }
+
+            h1{
+                font-size: 1.2em;
+            }
+        }
+    }
+
     .category-type{
         margin-top: 20px;
 
