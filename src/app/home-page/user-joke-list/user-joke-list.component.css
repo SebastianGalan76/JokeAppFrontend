@@ -164,4 +164,9 @@ textarea {
     grid-template-columns: 1fr;
     gap: 10px;
   }
+}
+@media (max-width: 700px) {
+  #container {
+    padding: 5px;
+  }
 }/*# sourceMappingURL=user-joke-list.component.css.map */

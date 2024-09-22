@@ -67,8 +67,7 @@
         }
     }
 
-    @media (max-width: 900px) {
-        width: calc(100%);
-        margin: 0px;
+    @media (max-width: 700px) {
+        padding: 5px;
     }
 }

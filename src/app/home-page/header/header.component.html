@@ -11,6 +11,7 @@
 
     <div id="right-panel">
         <div id="menu">
+            <!--
             <section id="social-buttons">
                 <div class="social-button">
                     <i class="fa-brands fa-square-facebook"></i>
@@ -25,11 +26,12 @@
                     <i class="fa-brands fa-square-facebook"></i>
                 </div>
             </section>
-    
+            -->
+
             <div id="theme-button">
                 <i class="fa-solid fa-sun"></i>
             </div>
-    
+
             <section id="user-section">
                 @if (user) {
                 <div id="user-logged-in">
@@ -37,12 +39,16 @@
                     <span class="login">{{user.login}}</span>
                     <i class="fa-solid fa-caret-down"></i>
                 </div>
-    
+
                 }
                 @else {
                 <div id="user-not-logged-in">
-                    <a href="/auth/signIn"><div id="sign-in-button">Logowanie</div></a>
-                    <a href="/auth/signUp"><div id="sign-up-button">Rejestracja</div></a>
+                    <a href="/auth/signIn">
+                        <div id="sign-in-button">Logowanie</div>
+                    </a>
+                    <a href="/auth/signUp">
+                        <div id="sign-up-button">Rejestracja</div>
+                    </a>
                 </div>
                 }
             </section>
