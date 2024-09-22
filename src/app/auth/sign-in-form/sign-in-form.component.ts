@@ -4,9 +4,10 @@ import { SignInService } from '../../../service/auth/signIn.service';
 import { ResponseStatusEnum } from '../../../model/ResponseStatusEnum';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from '../../../service/cookie.service';
 import { AuthService } from '../../../service/auth/auth.service';
+import { NotificationService } from '../../../service/notification.service';
 
 @Component({
   selector: 'app-sign-in-form',
@@ -22,7 +23,12 @@ export class SignInFormComponent {
   responseMessage: ResponseMessage | null = null;
   buttonIsDisabled: boolean = false;
 
-  constructor(private signInService: SignInService, private authService: AuthService, private router: Router) {
+  constructor(private signInService: SignInService, private authService: AuthService, private router: Router, private route: ActivatedRoute, private notificationService: NotificationService) {
+    var uuid = this.route.snapshot.paramMap.get('uuid');
+    if(uuid){
+      signInService.activeAccount(uuid).subscribe();
+      notificationService.showNotification('Twoje konto zostało aktywowane. Możesz się zalogować');
+    }
   }
 
   submit() {

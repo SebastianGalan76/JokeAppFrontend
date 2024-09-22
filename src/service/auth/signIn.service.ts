@@ -18,4 +18,8 @@ export class SignInService {
       password: password
     }, {});
   }
+
+  activeAccount(uuid: string){
+    return this.apiService.post<null>("/auth/active/"+uuid, null, {});
+  }
 }

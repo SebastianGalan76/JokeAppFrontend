@@ -36,6 +36,10 @@ export const routes: Routes = [
             {
                 path: 'resetPassword',
                 component: ResetPasswordFormComponent
+            },
+            {
+                path: 'active/:uuid',
+                component: SignInFormComponent
             }
         ]
 

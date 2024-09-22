@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { ResponseMessage } from "../../model/ResponseMessage";
 import { ResponseStatusEnum } from "../../model/ResponseStatusEnum";
+import { CookieService } from '../cookie.service';
+import { ApiService } from '../api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(
-    
-  ) { }
+  constructor(private apiService: ApiService) { }
 
   isValidLogin(login: string): ResponseMessage {
     var trimedLogin = login.trim();
@@ -84,5 +84,11 @@ export class AuthService {
     return {
       status: ResponseStatusEnum.SUCCESS,
     }
+  }
+
+  logout(){
+    CookieService.eraseCookie('jwt_token');
+
+    this.apiService.post<null>('/auth/logout', null, {}).subscribe();
   }
 }
