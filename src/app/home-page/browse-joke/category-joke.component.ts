@@ -46,7 +46,7 @@ export class CategoryJokeComponent implements OnInit {
           this.category = categories.filter(category => category.url == categoryUrl)[0];
 
           if (this.category) {
-            this.jokeIndex = 0;
+            this.jokeIndex = this.category.index;
             this.progressBar.title = this.category.name;
 
             this.service.loadPage(this.category.id, this.getPage(), this.jokeIndex).subscribe({

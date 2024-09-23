@@ -3,9 +3,10 @@ import { JokeDto } from '../../../../model/JokeDto';
 import { CommonModule } from '@angular/common';
 import { JokeService } from '../../../../service/joke/joke.service';
 import { JokeMenuComponent } from "./joke-menu/joke-menu.component";
-import { NotificationService } from '../../../../service/notification.service';
+import { NotificationService, NotificationType } from '../../../../service/notification.service';
 import { JokeQueueService } from '../../../../service/joke-queue-service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { UserService } from '../../../../service/user.service';
 
 @Component({
   selector: 'app-joke',
@@ -14,7 +15,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   templateUrl: './joke.component.html',
   styleUrl: './joke.component.scss'
 })
-export class JokeComponent implements OnChanges{
+export class JokeComponent implements OnChanges {
   @Input() joke!: JokeDto;
   formattedJoke!: SafeHtml;
 
@@ -22,8 +23,8 @@ export class JokeComponent implements OnChanges{
 
   menuIsShown: boolean = false;
 
-  constructor(private jokeService: JokeService, private notificationService: NotificationService) { 
-    
+  constructor(private jokeService: JokeService, private userService: UserService, private notificationService: NotificationService) {
+
   }
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['joke'] && changes['joke'].currentValue) {
@@ -31,7 +32,7 @@ export class JokeComponent implements OnChanges{
     }
   }
 
-  toggleMenu(){
+  toggleMenu() {
     this.menuIsShown = !this.menuIsShown;
   }
 
@@ -52,11 +53,11 @@ export class JokeComponent implements OnChanges{
 
     this.jokeService.like(this.joke.id);
 
-    if(this.jokeQueueService){
+    if (this.jokeQueueService) {
       this.jokeQueueService.updateJoke(this.joke);
     }
   }
-  
+
   dislike() {
     if (this.joke.userRating == 0) {
       this.joke.dislikeAmount++;
@@ -74,25 +75,34 @@ export class JokeComponent implements OnChanges{
 
     this.jokeService.dislike(this.joke.id);
 
-    if(this.jokeQueueService){
+    if (this.jokeQueueService) {
       this.jokeQueueService.updateJoke(this.joke);
     }
   }
 
-  favorite(){
-    this.joke.favorite = !this.joke.favorite;
+  favorite() {
+    this.userService.getUser().subscribe({
+      next: (user) => {
+        if (user) {
+          this.joke.favorite = !this.joke.favorite;
 
-    this.jokeService.favorite(this.joke.id);
+          this.jokeService.favorite(this.joke.id);
 
-    if(this.joke.favorite){
-      this.notificationService.showNotification('Dodano dowcip do ulubionych');
-    }
-    else{
-      this.notificationService.showNotification('Usunięto dowcip z ulubionych');
-    }
+          if (this.joke.favorite) {
+            this.notificationService.showNotification('Dodano dowcip do ulubionych');
+          }
+          else {
+            this.notificationService.showNotification('Usunięto dowcip z ulubionych');
+          }
 
-    if(this.jokeQueueService){
-      this.jokeQueueService.updateJoke(this.joke);
-    }
+          if (this.jokeQueueService) {
+            this.jokeQueueService.updateJoke(this.joke);
+          }
+        }
+        else{
+          this.notificationService.showNotification('Zaloguj się, aby dodawać dowcipy do ulubionych', NotificationType.ERROR);
+        }
+      }
+    })
   }
 }

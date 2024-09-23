@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { PageResponse } from '../../../model/PageResponse';
 import { CommonModule } from '@angular/common';
 
@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './page-container.component.html',
   styleUrl: './page-container.component.scss'
 })
-export class PageContainerComponent {
+export class PageContainerComponent implements AfterViewInit{
   @Output() changePageEvent = new EventEmitter<number>();
 
   pageResponse: PageResponse<any> | null = null;
@@ -18,6 +18,10 @@ export class PageContainerComponent {
   @ViewChild('pageContainer', { read: ViewContainerRef }) pageContainer!: ViewContainerRef;
   @ViewChild('pageTemplate', { read: TemplateRef }) pageTemplate!: TemplateRef<any>;
   @ViewChild('dividerTemplate', { read: TemplateRef }) dividerTemplate!: TemplateRef<any>;
+
+  ngAfterViewInit(): void {
+    this.pageContainer.clear();
+  }
 
   initialize(pageResponse: PageResponse<any> | null){
     this.pageResponse = pageResponse;

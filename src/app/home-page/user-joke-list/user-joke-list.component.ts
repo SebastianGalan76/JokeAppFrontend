@@ -7,7 +7,6 @@ import { JokeList } from '../../../model/JokeList';
 import { User } from '../../../model/User';
 import { RouterModule } from '@angular/router';
 import { PopupService } from '../../../service/popup.service';
-import { CreateListComponent } from '../../shared/popup/joke-list-popup/create-list/create-list.component';
 import { CreateJokeListComponent } from '../../shared/popup/create-joke-list/create-joke-list.component';
 import { JokeListService } from '../../../service/joke/joke-list.service';
 import { NotificationService, NotificationType } from '../../../service/notification.service';
