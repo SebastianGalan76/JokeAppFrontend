@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { PopupComponent } from "./shared/popup/popup.component";
 import { NotificationComponent } from "./shared/notification/notification.component";
 
@@ -15,5 +15,13 @@ import { NotificationComponent } from "./shared/notification/notification.compon
   styles: [],
 })
 export class AppComponent {
-  title = 'JokeAppFrontend';
+  title = 'Strefa Śmiechu - Najlepsze dowcipy, żarty i suchary';
+
+  constructor(private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        window.scrollTo(0, 0);
+      }
+    });
+  }
 }

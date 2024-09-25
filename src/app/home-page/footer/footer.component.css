@@ -1,0 +1,28 @@
+#container {
+  border-top: 2px solid #cbd2e9;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  padding-top: 40px;
+}
+#container #up-panel {
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+}
+#container #up-panel ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+  font-weight: 500;
+}
+#container #up-panel ul li:hover {
+  cursor: pointer;
+  color: #282642;
+}
+#container #down-panel {
+  margin: 40px 0 0 0;
+  text-align: center;
+  font-weight: 800;
+}/*# sourceMappingURL=footer.component.css.map */
