@@ -15,6 +15,8 @@ import { FavoriteJokeListComponent } from './home-page/favorite-joke-list/favori
 import { ListJokeContainerComponent } from './home-page/list-joke-container/list-joke-container.component';
 import { EditJokeComponent } from './home-page/edit-joke/edit-joke.component';
 import { BestJokeListComponent } from './home-page/best-joke-list/best-joke-list.component';
+import { RulesComponent } from './home-page/rules/rules.component';
+import { PrivacyPolicyComponent } from './home-page/privacy-policy/privacy-policy.component';
 
 export const routes: Routes = [
     { 
@@ -83,6 +85,14 @@ export const routes: Routes = [
             {
                 path: 'list/:uuid',
                 component: ListJokeContainerComponent
+            },
+            {
+                path: 'rules',
+                component: RulesComponent
+            },
+            {
+                path: 'privacy-policy',
+                component: PrivacyPolicyComponent
             },
             {
                 path: '',

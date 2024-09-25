@@ -1,0 +1,31 @@
+@import '../../../../styles/base';
+@import '../../../../styles/formElement.scss';
+
+#container{
+    background-color: $color-background;
+    padding: 20px;
+    border-radius: 20px;
+
+    width: 400px;
+
+    #header{
+        display: flex;
+        justify-content: space-between;
+
+        font-size: 1.4em;
+        font-weight: 600;
+
+        #close-button:hover{
+            cursor: pointer;
+        }
+    }
+
+    #form-container {
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    @media (max-width: 400px){
+        width: 100%;
+    }
+}
