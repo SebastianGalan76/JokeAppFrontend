@@ -23,7 +23,28 @@
   box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.329);
   border-radius: 50px;
 }
+@media (max-width: 700px) {
+  #page-container #left-panel #form-container {
+    width: 90%;
+  }
+}
+@media (max-width: 500px) {
+  #page-container #left-panel #form-container {
+    padding: 10px;
+    border-radius: 20px;
+  }
+}
+@media (max-width: 750px) {
+  #page-container #left-panel {
+    width: 100%;
+  }
+}
 #page-container #right-panel {
   flex-grow: 1;
   min-height: 100vh;
+}
+@media (max-width: 750px) {
+  #page-container #right-panel {
+    display: none;
+  }
 }/*# sourceMappingURL=auth.component.css.map */

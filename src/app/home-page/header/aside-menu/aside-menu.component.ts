@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { AsideMenuService } from '../../../../service/aside-menu.service';
 import { UserService } from '../../../../service/user.service';
 import { User } from '../../../../model/User';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-aside-menu-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './aside-menu.component.html',
   styleUrl: './aside-menu.component.scss'
 })

@@ -3,7 +3,7 @@ import { ApiService } from './api.service';
 import { User } from '../model/User';
 
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +25,6 @@ export class UserService {
       this.user = JSON.parse(storedUser);
       return of(this.user);
     }
-
     return this.apiService.get<User | null>("/user", { withCredentials: true }).pipe(
       map(data => {
         if (data) {
@@ -46,6 +45,7 @@ export class UserService {
 
   saveUser(){
     sessionStorage.setItem('user', JSON.stringify(this.user));
+    console.log('save user');
   }
 
   logout(){

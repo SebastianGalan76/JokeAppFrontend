@@ -13,6 +13,8 @@ export class CookieService {
       date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
       expires = `expires=${date.toUTCString()};`;
     }
+    const domain = "dawkasmiechu.pl";
+    //document.cookie = `${name}=${value};${expires}path=/;domain=${domain};SameSite=None;Secure`;
     document.cookie = `${name}=${value};${expires}path=/`;
   }
 

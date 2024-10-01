@@ -33,7 +33,7 @@ export class BestJokeListComponent {
         jokeComponentRef.componentRef = componentRef;
       })
 
-      this.pageContainer.initialize(this.jokeContainerService.pageResponse);
+      this.pageContainer.initialize(this.jokeContainerService.pageResponse, page);
     });
   }
 

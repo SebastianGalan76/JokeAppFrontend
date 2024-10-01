@@ -95,6 +95,10 @@ export const routes: Routes = [
                 component: PrivacyPolicyComponent
             },
             {
+                path: 'page/:page',
+                component: JokeListComponent
+            },
+            {
                 path: '',
                 component: JokeListComponent
             }

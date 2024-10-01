@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { JokeComponent } from "./joke/joke.component";
 import { JokeComponentRef, JokeContainerService } from '../../../service/joke/joke-container.service';
 import { PageContainerComponent } from "../page-container/page-container.component";
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-joke-list',
@@ -10,18 +11,29 @@ import { PageContainerComponent } from "../page-container/page-container.compone
   templateUrl: './joke-list.component.html',
   styleUrl: './joke-list.component.scss'
 })
-export class JokeListComponent implements OnInit{
+export class JokeListComponent implements OnInit {
   @ViewChild('jokeContainer', { read: ViewContainerRef }) jokeContainer!: ViewContainerRef;
   @ViewChild(PageContainerComponent) pageContainer!: PageContainerComponent;
 
-  constructor(public jokeContainerService: JokeContainerService) { }
-  
+
+  constructor(public jokeContainerService: JokeContainerService, private route: ActivatedRoute, private router: Router) { }
+
   ngOnInit(): void {
-    this.loadJokes(0);
+    this.route.paramMap.subscribe(params => {
+      const page = params.get('page');
+      if (page !== null) {
+        const pageInt = parseInt(page, 10);
+        this.loadJokes(pageInt);
+      }
+      else {
+        this.loadJokes(1);
+      }
+    });
   }
 
   loadJokes(page: number) {
-    if(this.jokeContainer){
+    page -= 1;
+    if (this.jokeContainer) {
       this.jokeContainer.clear();
     }
 
@@ -33,11 +45,11 @@ export class JokeListComponent implements OnInit{
         jokeComponentRef.componentRef = componentRef;
       })
 
-      this.pageContainer.initialize(this.jokeContainerService.pageResponse);
+      this.pageContainer.initialize(this.jokeContainerService.pageResponse, page);
     });
   }
 
-  onChangePage(page: number){
-    this.loadJokes(page)
+  onChangePage(page: number) {
+    this.router.navigate(['/page', page]);
   }
 }

@@ -15,7 +15,7 @@ import { NotificationComponent } from "./shared/notification/notification.compon
   styles: [],
 })
 export class AppComponent {
-  title = 'Strefa Śmiechu - Najlepsze dowcipy, żarty i suchary';
+  title = 'Dawka Śmiechu - Najlepsze dowcipy, żarty i suchary';
 
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {

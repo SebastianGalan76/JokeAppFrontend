@@ -45,7 +45,7 @@ export class FavoriteJokeListComponent implements OnInit{
         jokeComponentRef.componentRef = componentRef;
       })
 
-      this.pageContainer.initialize(this.jokeContainerService.pageResponse);
+      this.pageContainer.initialize(this.jokeContainerService.pageResponse, page);
     });
   }
 
