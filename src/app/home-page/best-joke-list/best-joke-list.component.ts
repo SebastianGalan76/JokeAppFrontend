@@ -2,6 +2,7 @@ import { Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { PageContainerComponent } from '../page-container/page-container.component';
 import { JokeComponentRef, JokeContainerService } from '../../../service/joke/joke-container.service';
 import { JokeComponent } from '../joke-list/joke/joke.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-best-joke-list',
@@ -14,13 +15,23 @@ export class BestJokeListComponent {
   @ViewChild('jokeContainer', { read: ViewContainerRef }) jokeContainer!: ViewContainerRef;
   @ViewChild(PageContainerComponent) pageContainer!: PageContainerComponent;
 
-  constructor(public jokeContainerService: JokeContainerService) { }
+  constructor(public jokeContainerService: JokeContainerService, private route:ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
-    this.loadJokes(0);
+    this.route.paramMap.subscribe(params => {
+      const page = params.get('page');
+      if (page !== null) {
+        const pageInt = parseInt(page, 10);
+        this.loadJokes(pageInt);
+      }
+      else {
+        this.loadJokes(1);
+      }
+    });
   }
 
   loadJokes(page: number) {
+    page -= 1;
     if(this.jokeContainer){
       this.jokeContainer.clear();
     }
@@ -38,6 +49,6 @@ export class BestJokeListComponent {
   }
 
   onChangePage(page: number){
-    this.loadJokes(page)
+    this.router.navigate(['/best/page', page]);
   }
 }

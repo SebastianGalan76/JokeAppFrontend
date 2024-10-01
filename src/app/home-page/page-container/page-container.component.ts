@@ -36,7 +36,7 @@ export class PageContainerComponent implements AfterViewInit{
     if(!this.pageResponse){
       return;
     }
-    const totalPages = this.pageResponse.content.totalPages - 2;
+    const totalPages = this.pageResponse.content.totalPages - 1;
     if (totalPages < 1) {
       return;
     }

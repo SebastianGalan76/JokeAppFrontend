@@ -5,7 +5,7 @@ import { JokeComponent } from '../joke-list/joke/joke.component';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../../service/user.service';
 import { User } from '../../../model/User';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-favorite-joke-list',
@@ -20,10 +20,19 @@ export class FavoriteJokeListComponent implements OnInit{
 
   user: User | null = null;
 
-  constructor(public jokeContainerService: JokeContainerService, private userService: UserService) { }
+  constructor(public jokeContainerService: JokeContainerService, private userService: UserService, private route:ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
-    this.loadJokes(0);
+    this.route.paramMap.subscribe(params => {
+      const page = params.get('page');
+      if (page !== null) {
+        const pageInt = parseInt(page, 10);
+        this.loadJokes(pageInt);
+      }
+      else {
+        this.loadJokes(1);
+      }
+    });
 
     this.userService.getUser().subscribe({
       next: (user) => {
@@ -33,6 +42,7 @@ export class FavoriteJokeListComponent implements OnInit{
   }
 
   loadJokes(page: number) {
+    page-= 1;
     if(this.jokeContainer){
       this.jokeContainer.clear();
     }
@@ -50,6 +60,6 @@ export class FavoriteJokeListComponent implements OnInit{
   }
 
   onChangePage(page: number){
-    this.loadJokes(page)
+    this.router.navigate(['/favorite/page', page]);
   }
 }

@@ -150,7 +150,7 @@ $color-info: #4888cf;
         }
     }
 
-    @media (max-width: 500px) {
-        width: 100%;
+    @media (max-width: 520px) {
+        width: calc(100% - 20px)
     }
 }

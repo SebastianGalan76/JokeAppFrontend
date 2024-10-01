@@ -63,7 +63,15 @@ export const routes: Routes = [
                 component: FavoriteJokeListComponent
             },
             {
+                path: 'favorite/page/:page',
+                component: FavoriteJokeListComponent
+            },
+            {
                 path: 'best',
+                component: BestJokeListComponent
+            },
+            {
+                path: 'best/page/:page',
                 component: BestJokeListComponent
             },
             {

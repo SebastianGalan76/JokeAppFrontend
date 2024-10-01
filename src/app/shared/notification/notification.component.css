@@ -110,8 +110,8 @@
 #container .notification.info .progress-bar {
   background-color: #4888cf;
 }
-@media (max-width: 500px) {
+@media (max-width: 520px) {
   #container {
-    width: 100%;
+    width: calc(100% - 20px);
   }
 }/*# sourceMappingURL=notification.component.css.map */
