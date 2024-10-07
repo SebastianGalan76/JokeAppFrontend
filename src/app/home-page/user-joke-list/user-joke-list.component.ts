@@ -58,6 +58,7 @@ export class UserJokeListComponent {
             if (this.user) {
               this.user.jokeLists = this.user.jokeLists.filter(l => l.id != list.id);
               this.loadLists();
+              this.userService.saveUser();
               this.notificationSErvice.showNotification('Lista dowcipów została prawidłowo usunięta');
             }
           },
