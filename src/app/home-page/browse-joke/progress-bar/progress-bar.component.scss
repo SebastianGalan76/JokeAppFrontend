@@ -28,11 +28,11 @@
         height: 15px;
         background-color: $color-text-1;
         border-radius: 10px;
+        overflow: hidden;
 
         #progress-bar {
             height: 100%;
-            width: 30%;
-            border-radius: 8px;
+            border-radius: 0 6px 6px 0;
             background: linear-gradient(90deg, rgba(103,226,88,1) 0%, rgba(103,236,109,1) 100%);
         }
     }

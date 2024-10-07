@@ -26,11 +26,11 @@
   height: 15px;
   background-color: #595677;
   border-radius: 10px;
+  overflow: hidden;
 }
 #container #progress-bar-background #progress-bar {
   height: 100%;
-  width: 30%;
-  border-radius: 8px;
+  border-radius: 0 6px 6px 0;
   background: linear-gradient(90deg, rgb(103, 226, 88) 0%, rgb(103, 236, 109) 100%);
 }
 @media (max-width: 600px) {

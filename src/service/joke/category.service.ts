@@ -46,4 +46,15 @@ export class CategoryService {
     sessionStorage.setItem('categories', JSON.stringify(this.categories));
     return this.apiService.post<Response>('/category/'+id+"/favorite", null, {withCredentials: true});
   }
+
+  updateCategoryIndex(id: number, newIndex: number): void {
+    if (this.categories) {
+      const index = this.categories.findIndex(category => category.id === id);
+      if (index !== -1) {
+        this.categories[index].index = newIndex;
+  
+        sessionStorage.setItem('categories', JSON.stringify(this.categories));
+      }
+    }
+  }
 }

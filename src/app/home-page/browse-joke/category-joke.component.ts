@@ -82,6 +82,7 @@ export class CategoryJokeComponent implements OnInit {
         this.service.loadPage(this.category?.id, nextPage, 0).subscribe({
           next: (joke) => {
             this.setJoke(joke);
+            this.categoryService.updateCategoryIndex(this.category.id, this.jokeIndex);
           }
         });
       }
@@ -89,6 +90,7 @@ export class CategoryJokeComponent implements OnInit {
         this.service.getJoke(index).subscribe({
           next: (joke) => {
             this.setJoke(joke);
+            this.categoryService.updateCategoryIndex(this.category.id, this.jokeIndex);
             this.refreshButtonViews();
           }
         });
@@ -111,6 +113,7 @@ export class CategoryJokeComponent implements OnInit {
         this.service.loadPage(this.category?.id, previousPage, 14).subscribe({
           next: (joke) => {
             this.setJoke(joke);
+            this.categoryService.updateCategoryIndex(this.category.id, this.jokeIndex);
           }
         });
       }
@@ -118,6 +121,7 @@ export class CategoryJokeComponent implements OnInit {
         this.service.getJoke(index).subscribe({
           next: (joke) => {
             this.setJoke(joke);
+            this.categoryService.updateCategoryIndex(this.category.id, this.jokeIndex);
             this.refreshButtonViews();
           }
         });

@@ -24,7 +24,8 @@ export class ResetPasswordRequireFormComponent {
   }
 
   submit() {
-    if (this.authService.isValidEmail(this.email).status == ResponseStatusEnum.ERROR) {
+    this.responseMessage = this.authService.isValidEmail(this.email);
+    if (this.responseMessage.status == ResponseStatusEnum.ERROR) {
       return;
     }
 

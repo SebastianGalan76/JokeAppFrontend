@@ -35,7 +35,8 @@ export class SignInFormComponent {
     if (!this.isValidIdentifier()) {
       return;
     }
-    if (this.authService.isValidPassword(this.password).status == ResponseStatusEnum.ERROR) {
+    this.responseMessage = this.authService.isValidPassword(this.password);
+    if (this.responseMessage.status == ResponseStatusEnum.ERROR) {
       return;
     }
 

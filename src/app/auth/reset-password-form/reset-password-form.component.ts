@@ -34,10 +34,12 @@ export class ResetPasswordFormComponent {
   }
 
   submit() {
-    if (this.authService.isValidPassword(this.password).status == ResponseStatusEnum.ERROR) {
+    this.responseMessage = this.authService.isValidPassword(this.password);
+    if (this.responseMessage.status == ResponseStatusEnum.ERROR) {
       return;
     }
-    if (this.authService.isValidPasswordConfirm(this.password, this.passwordConfirm).status == ResponseStatusEnum.ERROR) {
+    this.responseMessage = this.authService.isValidPasswordConfirm(this.password, this.passwordConfirm);
+    if (this.responseMessage.status == ResponseStatusEnum.ERROR) {
       return;
     }
 

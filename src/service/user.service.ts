@@ -4,6 +4,7 @@ import { User } from '../model/User';
 
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { CookieService } from './cookie.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class UserService {
   private user: User | null = null;
 
   constructor(
-    private apiService: ApiService
+    private apiService: ApiService,
   ) { }
 
   getUser(): Observable<User | null> {
@@ -22,6 +23,11 @@ export class UserService {
 
     const storedUser = sessionStorage.getItem('user');
     if (storedUser) {
+      if(CookieService.isJwtTokenExpired()){
+        sessionStorage.removeItem('user');
+        return of(null);
+      }
+
       this.user = JSON.parse(storedUser);
       return of(this.user);
     }

@@ -47,4 +47,9 @@
   #page-container #right-panel {
     display: none;
   }
+}
+@media (max-width: 800px) {
+  #page-container {
+    font-size: 0.9em;
+  }
 }/*# sourceMappingURL=auth.component.css.map */

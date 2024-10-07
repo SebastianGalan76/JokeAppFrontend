@@ -28,16 +28,20 @@ export class SignUpFormComponent {
   }
 
   submit() {
-    if (this.authService.isValidLogin(this.login).status == ResponseStatusEnum.ERROR) {
+    this.responseMessage = this.authService.isValidLogin(this.login);
+    if (this.responseMessage.status == ResponseStatusEnum.ERROR) {
       return;
     }
-    if (this.authService.isValidPassword(this.password).status == ResponseStatusEnum.ERROR) {
+    this.responseMessage = this.authService.isValidPassword(this.password);
+    if (this.responseMessage.status == ResponseStatusEnum.ERROR) {
       return;
     }
-    if (this.authService.isValidPasswordConfirm(this.password, this.passwordConfirm).status == ResponseStatusEnum.ERROR) {
+    this.responseMessage = this.authService.isValidPasswordConfirm(this.password, this.passwordConfirm);
+    if (this.responseMessage.status == ResponseStatusEnum.ERROR) {
       return;
     }
-    if (this.authService.isValidEmail(this.email).status == ResponseStatusEnum.ERROR) {
+    this.responseMessage = this.authService.isValidEmail(this.email);
+    if (this.responseMessage.status == ResponseStatusEnum.ERROR) {
       return;
     }
 
