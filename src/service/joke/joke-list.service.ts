@@ -12,6 +12,7 @@ import { ContentResponse } from '../../model/ContentResponse';
   providedIn: 'root'
 })
 export class JokeListService {
+  
   constructor(private apiService: ApiService, private userService: UserService, private notificationService: NotificationService) { }
 
   containsJoke(list: JokeList, joke: JokeDto) {
@@ -33,6 +34,10 @@ export class JokeListService {
     list.jokes = list.jokes.filter(j => j.id !== joke.id);
     this.apiService.delete('/joke-list/' + list.id + '/' + joke.id, { withCredentials: true }).subscribe();
     this.userService.saveUser();
+  }
+
+  editJokeList(jokeList: JokeList, listName: string, accessibility: string) {
+    return this.apiService.put<ContentResponse<JokeList>>('/joke-list/'+jokeList.id, { name: listName, visibilityType: accessibility }, { withCredentials: true });
   }
 
   getJokeList(uuid: string): Observable<JokeList | null> {

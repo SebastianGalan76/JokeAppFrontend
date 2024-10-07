@@ -1,0 +1,22 @@
+<div id="container">
+    <div id="form-container">
+        <div class="input-area">
+          <input id="list-name-input" type="text" placeholder="Nazwa" [(ngModel)]="listName" maxlength="30">
+          <span class="required">*</span>
+        </div>
+  
+        <div class="select-area">
+          <select id="accessibility" [(ngModel)]="accessibility">
+            <option value="PUBLIC">Publiczna</option>
+            <option value="NOT_PUBLIC">Niepubliczna</option>
+            <option value="PRIVATE">Prywatna</option>
+          </select>
+        </div>
+  
+        <span class="response" [ngClass]="{ 'error': responseMessage?.status == 'ERROR'}">{{responseMessage?.message}}</span>
+        <button (click)="editList()">
+          Edytuj
+        </button>
+  
+      </div>
+</div>

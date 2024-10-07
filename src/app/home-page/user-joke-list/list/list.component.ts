@@ -3,6 +3,8 @@ import { JokeList, JokeListVisibilityEnum } from '../../../../model/JokeList';
 import { NotificationService } from '../../../../service/notification.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { PopupService } from '../../../../service/popup.service';
+import { EditListComponent } from '../../../shared/popup/joke-list-popup/edit-list/edit-list.component';
 
 @Component({
   selector: 'app-list',
@@ -17,7 +19,7 @@ export class ListComponent {
 
   public JokeListVisibilityEnum = JokeListVisibilityEnum;
 
-  constructor(private notificationService: NotificationService, private router: Router) { }
+  constructor(private notificationService: NotificationService, private popupService: PopupService, private router: Router) { }
 
   selectList(event: Event) {
     const target = event.target as HTMLElement;
@@ -32,6 +34,8 @@ export class ListComponent {
   }
 
   editList(){
-
+    this.popupService.showPopup(EditListComponent, [
+      { name: "jokeList", value: this.list }
+    ]);
   }
 }

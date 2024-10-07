@@ -51,7 +51,6 @@ export class UserService {
 
   saveUser(){
     sessionStorage.setItem('user', JSON.stringify(this.user));
-    console.log('save user');
   }
 
   logout(){
