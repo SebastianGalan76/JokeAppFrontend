@@ -6,8 +6,12 @@
             <app-joke [joke]="joke"/>
         </div>
 
-        <div id="loading" *ngIf="!joke">
+        <div id="loading" *ngIf="!joke && loading">
             Ładowanie...
+        </div>
+
+        <div id="loading" *ngIf="!joke && !loading">
+            Brak
         </div>
     </div>
 

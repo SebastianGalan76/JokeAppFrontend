@@ -32,6 +32,7 @@ export class CategoryJokeComponent implements OnInit {
 
   jokeIndex: number = 0;
   totalAmount: number = 0;
+  loading: boolean = true;
 
   category!: Category;
 
@@ -53,6 +54,7 @@ export class CategoryJokeComponent implements OnInit {
               next: (joke) => {
                 this.totalAmount = this.service.pageResponse?.content.totalElements ?? 0;
                 this.progressBar.right = this.totalAmount.toString();
+                this.loading = false;
 
                 this.setJoke(joke);
                 this.refreshButtonViews();
@@ -131,8 +133,13 @@ export class CategoryJokeComponent implements OnInit {
 
   setJoke(joke: JokeDto | null) {
     this.joke = joke;
-    this.progressBar.left = (this.jokeIndex + 1).toString();
-    this.progressBar.progress = ((this.jokeIndex + 1) / this.totalAmount) * 100;
+    if (this.joke) {
+      this.progressBar.left = (this.jokeIndex + 1).toString();
+      this.progressBar.progress = ((this.jokeIndex + 1) / this.totalAmount) * 100;
+    }
+    else{
+      this.progressBar.left = "0";
+    }
   }
 
   getPage() {
@@ -147,7 +154,7 @@ export class CategoryJokeComponent implements OnInit {
       this.viewSettings.hasPreviousJoke = true;
     }
 
-    if (this.jokeIndex == this.totalAmount - 1) {
+    if (this.jokeIndex > this.totalAmount - 2) {
       this.viewSettings.hasNextJoke = false;
     }
     else {

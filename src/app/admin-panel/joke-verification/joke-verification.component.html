@@ -1,0 +1,27 @@
+<div id="container">
+    <app-progress-bar *ngIf="viewSettings.showProgressBar" [progressBar]="progressBar"/>
+
+    <div id="joke-container">
+        <div id="joke-wrapper" *ngIf="joke">
+            <app-joke [joke]="joke"/>
+        </div>
+
+        <div id="loading" *ngIf="!joke">
+            Ładowanie...
+        </div>
+    </div>
+
+    <div id="down-panel">
+        <div id="action">
+            <div class="button next" (click)="reject()">
+                <span class="text">Odrzuć</span>
+            </div>
+            <div class="button next" (click)="loadNextJoke()">
+                <span class="text">Pomiń</span>
+            </div>
+            <div class="button" (click)="accept()">
+                <span class="text">Akceptuj</span>
+            </div>
+        </div>
+    </div>
+</div>

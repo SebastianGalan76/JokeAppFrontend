@@ -17,6 +17,8 @@ import { EditJokeComponent } from './home-page/edit-joke/edit-joke.component';
 import { BestJokeListComponent } from './home-page/best-joke-list/best-joke-list.component';
 import { RulesComponent } from './home-page/rules/rules.component';
 import { PrivacyPolicyComponent } from './home-page/privacy-policy/privacy-policy.component';
+import { JokeVerificationComponent } from './admin-panel/joke-verification/joke-verification.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 
 export const routes: Routes = [
     { 
@@ -45,6 +47,16 @@ export const routes: Routes = [
             }
         ]
 
+    },
+    {
+        path: 'admin',
+        component: AdminPanelComponent,
+        children: [
+            {
+                path: 'verification/:index',
+                component: JokeVerificationComponent
+            }
+        ]
     },
     { 
         path: '', 

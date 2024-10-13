@@ -44,30 +44,20 @@ export class EditJokeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const jokeId = parseInt(this.route.snapshot.paramMap.get('id')!);
+    if(!this.joke){
+      const jokeId = parseInt(this.route.snapshot.paramMap.get('id')!);
 
-    if (this.joke) {
-      if (this.joke.kind == 'TRADITIONAL') {
-        this.jokeContent = this.joke.content;
-      }
-      else {
-        var content = this.joke.content.split('[ANSWER]');
-
-        if (content.length == 2) {
-          this.jokeQuestion = content[0];
-          this.jokeAnswer = content[1];
-        }
-      }
-    }
-    else {
       this.jokeService.getById(jokeId).subscribe({
         next: (joke) => {
-          this.joke = joke;
+          this.loadJoke(joke);
         },
         error: () => {
           this.notificationService.showNotification("Niepoprawny identyfikator dowcipu", NotificationType.ERROR);
         }
       })
+    }
+    else{
+      this.loadJoke(this.joke);
     }
   }
 
@@ -159,6 +149,24 @@ export class EditJokeComponent implements OnInit {
           value: this.joke.categories
         }
       ]);
+    }
+  }
+
+  loadJoke(joke: JokeDto | null){
+    this.joke = joke;
+
+    if (this.joke) {
+      if (this.joke.kind == 'TRADITIONAL') {
+        this.jokeContent = this.joke.content;
+      }
+      else {
+        var content = this.joke.content.split('[ANSWER]');
+
+        if (content.length == 2) {
+          this.jokeQuestion = content[0];
+          this.jokeAnswer = content[1];
+        }
+      }
     }
   }
 }
