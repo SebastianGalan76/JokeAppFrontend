@@ -18,10 +18,16 @@ export class AdminPanelComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUser().subscribe({
       next: (user) => {
-        if (user && user.role == UserRoleEnum.ADMIN) {}
-        else {
-          this.router.navigate(['/']);
+        
+        if (user) {
+          const roleName = user.role as unknown as keyof typeof UserRoleEnum;
+          const roleValue = UserRoleEnum[roleName];
+
+          if(roleValue>=500){
+            return;
+          }
         }
+        this.router.navigate(['/']);
       }
     })
   }

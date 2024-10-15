@@ -1,7 +1,6 @@
 <div id="container">
     <ul>
         <li (click)="saveJokeOnList()">Zapisz</li>
-        <li>Udostępnij</li>
         <li (click)="reportJoke()">Zgłoś</li>
         <li *ngIf="user != null && ((joke.owner && joke.owner.id == user.id) || +userRole[user.role] >= userRole.MODERATOR)" (click)="editJoke()">Edytuj</li>
         <li class="red" *ngIf="user != null && ((joke.owner && joke.owner.id == user.id) || +userRole[user.role] >= userRole.HELPER)" (click)="deleteJoke()">Usuń</li>

@@ -25,7 +25,7 @@ export class JokeContainerService {
     return this.apiService.get<PageResponse<JokeDto>>(url + '?page=' + page, { withCredentials: true }).pipe(
       map((data: PageResponse<JokeDto> | null) => {
         this.pageResponse = data;
-
+        console.log(this.pageResponse);
         if (data) {
           const jokes = data.content.content.map(joke => ({
             joke: joke,
