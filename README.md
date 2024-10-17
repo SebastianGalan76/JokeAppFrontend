@@ -1,5 +1,6 @@
-# MC-List.pl
-Strona główna: https://dawkasmiechu.pl/
+# DawkaSmiechu.pl [Frontend]
+Strona główna: https://dawkasmiechu.pl/ <br>
+Backend: https://github.com/SebastianGalan76/JokeAppBackend
 
 <h1>Opis projektu</h1>
 Projektem jest frontend strony internetowej dedykowanej dowcipom, która ma na celu dostarczenie użytkownikom zarówno rozrywki, jak i możliwości interaktywnego zarządzania treściami humorystycznymi. Główne założenie projektu to stworzenie platformy, na której użytkownicy mogą aktywnie dodawać, edytować i usuwać dowcipy, dzieląc się nimi z innymi osobami. System pozwala także na ocenianie dowcipów, co umożliwia filtrowanie treści według popularności oraz jakości. Istotnym aspektem projektu jest również funkcja moderacji treści, gdzie użytkownicy mogą zgłaszać dowcipy jako nieodpowiednie. Dzięki temu platforma będzie mogła utrzymać wysoki poziom jakości.
